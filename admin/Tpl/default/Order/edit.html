@@ -1,0 +1,146 @@
+<form method="post" id="eformOrder">
+        <fieldset>
+        <table>
+        <tbody>
+          <tr>
+            <th>订单编号</th>
+            <td colspan="3">{$vo.no_order}</td>
+          </tr>
+          <tr>
+            <td colspan="4">&nbsp;</td>
+          </tr>
+          <tr>
+            <th>收货人</th>
+            <td>{$vo.consignee_order}</td>
+            <th>电话</th>
+            <td>{$vo.tel_order}</td>
+          </tr>
+          <tr>
+            <th>收货人地址</th>
+            <td colspan="3">{$vo.address_order}　邮编：{$vo.zipCode_order}</td>
+          </tr>
+          <tr>
+            <td colspan="4">&nbsp;</td>
+          </tr>
+          <tr>
+            <th>购买人姓名</th>
+            <td>{$vo.buyerName_order}</a></td>
+            <th>电话</th>
+            <td>{$vo.buyerTel_order}</td>
+          </tr>
+          <tr>
+            <th>留言</th>
+            <td colspan="3">{$vo.remark_order}</td>
+          </tr>
+          <tr>
+            <td colspan="4">&nbsp;</td>
+          </tr>
+          <tr>
+            <th>支付方式</th>
+            <td>{$vo.payment_order}</td>
+            <th>支付状态</th>
+            <td><if  condition="($vo.paymentStaus_order eq 1)">
+        <input name="paymentStaus_order" type="radio" value="1" checked="checked" />
+        已支付　<input name="paymentStaus_order" type="radio" value="0" />
+        
+    <else/>
+        <input name="paymentStaus_order" type="radio" value="1"/>
+        已支付　<input name="paymentStaus_order" type="radio" value="0"  checked="checked" />
+        未支付
+    </if>
+            {$vo.}</td>
+          </tr>
+          <tr>
+            <td colspan="4">&nbsp;</td>
+          </tr>
+          <tr>
+            <th>订单状态</th>
+            <td colspan="3"><input class="text-input medium-input" type="text" name="orderStaus_order" value="{$vo.orderStaus_order}"/></td>
+          </tr>
+          <tr>
+            <th>支付单号</th>
+            <td>{$vo.payList_order}</td>
+            <th>快递单号</th>
+            <td>{$vo.expressList_order}</td>
+          </tr>
+          <tr>
+            <td colspan="4">&nbsp;</td>
+          </tr>
+          <tr>
+            <th>下单时间</th>
+            <td>{$vo.time_order|date='Y-m-d H:i:s',###}</td>
+            <th>更新时间</th>
+            <td>{$vo.updateTime_order|date='Y-m-d H:i:s',###}</td>
+          </tr>
+          </tbody>
+          <tfoot>
+          <tr>
+            <th>总价</th>
+            <td colspan="3">{$vo.total_order}</td>
+          </tr>
+          <tr>
+            <th colspan="4">&nbsp;</th>
+            </tr>
+          </tfoot>
+        </table>
+        <table id="goodsList">
+          <thead>
+            <tr>
+              <th>&nbsp;</th>
+              <th>名称</th>
+              <th>价格</th>
+              <th>数量</th>
+              <th>说明</th>
+              <th>参数</th>
+            </tr>
+          </thead>
+          <tfoot>
+          </tfoot>
+          <tbody>
+            <volist name='goodsList' id='glist' >
+              <tr>
+                <td><a href="__APP__/Goods/edit/id_goods/{$glist.goods_id}" class="editGoods" target="_blank"><img src="{$glist.picturePath}" /></a></td>
+                <td>{$glist.name}</a></td>
+                <td>{$glist.price}</td>
+                <td>{$glist.quantity}</td>
+                <td>{$glist.title}</td>
+                <td>{$glist.param}</td>
+              </tr>
+            </volist>
+          </tbody>
+        </table>
+        <p>
+         <label>后台备注</label>
+          <textarea class="text-input textarea" name="adminRemark_order" cols="79" rows="4">{$vo.adminRemark_order}</textarea>
+        </p>
+        <p>
+        <input type="hidden" name="ajax" value="1" />
+		  <input type="hidden" name="id_order" value="{$vo.id_order}" />
+          <input class="button" type="button" value="Update" id="editOrderBtn" />
+          <input class="button" type="button" value="Delete" id="delOrderBtn" />
+          <!--  <input class="button"  onClick="ThinkAjax.sendForm('formMenu','__URL__/addMenus/','','result')"  type="button" value="添加" />-->
+        </p>
+        </fieldset>
+        <div class="clear"></div>
+        <!-- End .clear -->
+        
+      </form>
+<script>
+		$J('#goodsList tbody tr:even').addClass("alt-row"); 
+
+		$J('a.editGoods img').each(function(){
+			this.src = this.src.replace('xl_','s_');
+		});
+		$J('#delOrderBtn').click(function(){
+			if(confirm('确定删除订单？\n删除后不可恢复！')){
+			ThinkAjax.sendForm('eformOrder','__URL__/delOrder/',complete,'result');
+			}
+			return false;
+		
+		})
+		$J('#editOrderBtn').click(function(){
+			ThinkAjax.sendForm('eformOrder','__URL__/updateOrder/',complete,'result');
+		
+		})
+		
+</script>

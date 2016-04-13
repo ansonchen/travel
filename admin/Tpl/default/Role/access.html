@@ -1,0 +1,95 @@
+<form method="post" id="accformRole">
+  <h3> {$Think.get.name}的操作权限 </h3>
+  <fieldset>
+  <!-- Set class to "column-left" or "column-right" on fieldsets to divide the form into columns -->
+  <volist name='access' id='ac' >
+    <input type="hidden" name="acValue" value="{$ac.node_id}" />
+  </volist>
+  <ul class="" id="treeViewSe">
+    <volist name='selectMenu' id='one' >
+      <eq name="one['level']" value="1">
+        <li>
+          <label>
+          <input name="id_node[]" type="checkbox" value="{$one.id}"  />
+          {$one.title}　{$one.name}</label>
+          <ul>
+            <volist name='selectMenu' id='se' >
+              <eq name="se['pid']" value="$one['id']">
+                <li class="closed">
+                  <label>
+                  <input name="id_node[]" type="checkbox" value="{$se.id}"  />
+                  {$se.title}　{$se.name}</label>
+                  <ul>
+                    <volist name='selectMenu' id='sed' >
+                      <eq name="sed['pid']" value="$se['id']">
+                        <li>
+                          <label>
+                          <input name="id_node[]" type="checkbox" value="{$sed.id}"  />
+                          {$sed.title}　{$sed.name}</label>
+                        </li>
+                      </eq>
+                    </volist>
+                  </ul>
+                </li>
+              </eq>
+            </volist>
+          </ul>
+        </li>
+      </eq>
+    </volist>
+    <div class="clear"></div>
+  </ul>
+  <p>
+    <input class="button" type="button" value="Access" id="accessRoleBtn" />
+    <!--  <input class="button"  onClick="ThinkAjax.sendForm('formRole','__URL__/addRole/','','result')"  type="button" value="添加" />-->
+  </p>
+  </fieldset>
+  <div class="clear"></div>
+  <!-- End .clear -->
+  <input type="hidden" name="ajax" value="1" />
+  <input type="hidden" name="id" value="{$Think.get.id}" />
+</form>
+<script>
+
+		//默认选择中的多选框
+		$J('input[name=acValue]').each(function(){
+		var selval = this.value;
+		 $J('input[name^=id_node]').each(function(){
+		 
+		 	if(this.value==selval){
+			this.checked = true;
+			}
+
+			
+		 })
+		 
+		
+		});
+		
+		//树型显示
+		$J('#treeViewSe').treeview({
+		//collapsed: true
+		});
+		
+		//点选事件
+		$J('input[name^=id_node]').click(function(){
+			if(this.value!=1) {
+					 if(this.checked){
+					 
+					 $J(this).parent().parent('li').find('input[name^=id_node]').attr('checked',true);
+	
+					 }else{
+					 
+					 $J(this).parent().parent('li').find('input[name^=id_node]').attr('checked',false);
+					 }
+				 }
+				 
+				 })
+		
+		//发送
+		$J('#accessRoleBtn').click(function(){
+			ThinkAjax.sendForm('accformRole','__URL__/accessRole/',complete,'result');
+		
+		})
+		
+</script>

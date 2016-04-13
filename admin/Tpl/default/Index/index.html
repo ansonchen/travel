@@ -1,0 +1,177 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>{$site.name_site} 后台管理</title>
+<!--                       CSS                       -->
+<!-- Reset Stylesheet -->
+<link rel="stylesheet" href="__PUBLIC__/admin/resources/css/reset.css" type="text/css" media="screen" />
+<!-- Main Stylesheet -->
+<link rel="stylesheet" href="__PUBLIC__/admin/resources/css/style.css" type="text/css" media="screen" />
+<!-- Invalid Stylesheet. This makes stuff look pretty. Remove it if you want the CSS completely valid -->
+<link rel="stylesheet" href="__PUBLIC__/admin/resources/css/invalid.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="__PUBLIC__/admin/resources/css/style_anson.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="__PUBLIC__/swfupload/css/default.css" type="text/css"  media="screen" />
+<link rel="stylesheet" href="__PUBLIC__/Js/Jquery/treeview/jquery.treeview.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="__PUBLIC__/Js/Jquery/ansonDatepicker/ansonDatepicker.css" type="text/css" media="screen" />
+<!--<link rel="stylesheet" href="__PUBLIC__/Anson/ansonDialog/ansonDialog.css" type="text/css" media="screen" />-->
+<!-- Colour Schemes
+	  
+		Default colour scheme is green. Uncomment prefered stylesheet to use it.
+		
+		<link rel="stylesheet" href="resources/css/blue.css" type="text/css" media="screen" />
+		
+		<link rel="stylesheet" href="resources/css/red.css" type="text/css" media="screen" />  
+	 
+		-->
+<!-- Internet Explorer Fixes Stylesheet -->
+<!--[if lte IE 7]>
+			<link rel="stylesheet" href="resources/css/ie.css" type="text/css" media="screen" />
+		<![endif]-->
+<!--                       Javascripts                       -->
+<script type="text/javascript" src="__PUBLIC__/Js/Base.js"></script>
+<script type="text/javascript" src="__PUBLIC__/Js/prototype.js" ></script>
+<script type="text/javascript" src="__PUBLIC__/Js/mootools.js" ></script>
+<script type="text/javascript" src="__PUBLIC__/Js/Ajax/ThinkAjax.js" ></script>
+<script type="text/javascript" src="__PUBLIC__/Js/Form/CheckForm.js" ></script>
+<script type="text/javascript" src="__PUBLIC__/Js/common.js" ></script>
+<!-- jQuery -->
+<script type="text/javascript" src="__PUBLIC__/admin/resources/scripts/jquery-1.3.2.min.js"></script>
+<!-- jQuery Configuration -->
+<script type="text/javascript" src="__PUBLIC__/admin/resources/scripts/simpla.jquery.configuration.js"></script>
+<!-- Facebox jQuery Plugin -->
+<script type="text/javascript" src="__PUBLIC__/admin/resources/scripts/facebox.js"></script>
+<!-- jQuery WYSIWYG Plugin -->
+<script type="text/javascript" src="__PUBLIC__/admin/resources/scripts/jquery.wysiwyg.js"></script>
+<script type="text/javascript" src="__PUBLIC__/Js/loadPage.js"></script>
+<!-- jQuery Datepicker Plugin -->
+<script type="text/javascript" src="__PUBLIC__/Js/Jquery/treeview/jquery.treeview.js"></script>
+<script type="text/javascript" src="__PUBLIC__/Js/Jquery/ansonDatepicker/ansonDatepicker.js"></script>
+<script type="text/javascript" src="__PUBLIC__/admin/resources/scripts/home.js"></script>
+<!--<script type="text/javascript" src="__PUBLIC__/Anson/ansonDialog/ansonDialog.js"></script>-->
+<script>
+var URL = '__URL__';
+var PUBLIC = '__PUBLIC__';
+var APP = '__APP__';
+</script>
+
+
+<!--[if IE]><script type="text/javascript" src="resources/scripts/jquery.bgiframe.js"></script><![endif]-->
+<!-- Internet Explorer .png-fix -->
+<!--[if IE 6]>
+			<script type="text/javascript" src="resources/scripts/DD_belatedPNG_0.0.7a.js"></script>
+			<script type="text/javascript">
+				DD_belatedPNG.fix('.png_bg, img, li');
+			</script>
+		<![endif]-->
+</head>
+<body>
+<div id="body-wrapper">
+<div id="result"></div>
+  <!-- Wrapper for the radial gradient background -->
+  <div id="sidebar">
+    <div id="sidebar-wrapper">
+      <!-- Sidebar with logo and menu -->
+      <h1 id="sidebar-title"><a href="#">Simpla Admin</a></h1>
+      <!-- Logo (221px wide) -->
+      <a href="__URL__/" title="后台首页"><img id="logo" src="__PUBLIC__/admin/resources/images/cn_logo.png" alt="Simpla Admin logo" /></a>
+      <!-- Sidebar Profile links -->
+      <div id="profile-links"> 您好, <a href="#" title="点击修改资料">{$Think.session.loginUserName}</a><br />
+        <br />
+        <a href="__ROOT__/" title="前台首页" target="_blank">前台首页</a> | <a href="__URL__/password/" rel="modal" title="修改密码">修改密码</a> | <a href="__URL__/logout/" title="退出登录">退出登录</a> </div>
+      <ul id="main-nav">
+        <!-- Accordion Menu -->
+        <!--		<li>
+					<a href="http://www.google.com/" class="nav-top-item no-submenu">
+						Dashboard
+					</a>       
+				</li>
+				
+				<li> 
+					<a href="#" class="nav-top-item current">
+					Articles
+					</a>
+					<ul>
+						<li><a href="#">Write a new Article</a></li>
+						<li><a class="current" href="#">Manage Articles</a></li>
+						<li><a href="#">Manage Comments</a></li>
+						<li><a href="#">Manage Categories</a></li>
+					</ul>
+				</li>-->
+        <!--            <volist name='menu' id='m' >  
+
+                                <li>
+                                <a href="__APP__/{$m.name}/index/" id="{$m.id}"  class="nav-top-item">{$m.title}</a>
+                                </li>
+                                </volist> -->
+        <iterate id="item" name="leftMenu" >
+          <li><a href="__APP__/{$item.name}/index/" id="indexMenu_{$item.id}"  class="nav-top-item">{$item.title}</a></li>
+        </iterate>
+      </ul>
+      <!-- End #main-nav -->      
+      <!-- End #messages -->
+    </div>
+  </div>
+  <!-- End #sidebar -->
+  <div id="main-content">
+    <!-- Main Content Section with everything -->
+    <noscript>
+    <!-- Show a notification if the user has disabled javascript -->
+    <div class="notification error png_bg">
+      <div> Javascript is disabled or is not supported by your browser. Please <a href="http://browsehappy.com/" title="Upgrade to a better browser">upgrade</a> your browser or <a href="http://www.google.com/support/bin/answer.py?answer=23852" title="Enable Javascript in your browser">enable</a> Javascript to navigate the interface properly.
+        Download From <a href="http://www.exet.tk">exet.tk</a></div>
+    </div>
+    </noscript>
+    <!-- Page Head -->
+    <ul class="shortcut-buttons-set">
+  
+      <li><a class="shortcut-button shortLink" href="__APP__/Zone/index/"><span> <img src="__PUBLIC__/admin/resources/images/icons/paper&pencil_48.png" alt="icon" /><br />
+        区域管理 </span></a></li>
+      
+      <li><a class="shortcut-button shortLink" href="__APP__/Picture/index/"><span> <img src="__PUBLIC__/admin/resources/images/icons/image_48.png" alt="icon" /><br />
+        图片管理 </span></a></li>
+
+       <li><a class="shortcut-button shortLink" href="__APP__/Gimg/index/"><span> <img src="__PUBLIC__/admin/resources/images/icons/image_48.png" alt="icon" /><br />
+        首页配置 </span></a></li>
+          <li><a class="shortcut-button shortLink" href="__APP__/Hotels/index/"><span> <img src="__PUBLIC__/admin/resources/images/icons/box_48.png" alt="icon" /><br />
+        酒店管理</span></a></li>  
+        
+    </ul>
+    <!-- End .shortcut-buttons-set -->
+    <div class="clear"></div>
+    <!-- End .clear -->
+
+    <div class="content-box ">
+      <!-- Start Content Box -->
+      <div class="content-box-header">
+        <h3>系统信息</h3>
+      </div>
+      <!-- End .content-box-header -->
+      <div class="content-box-content">
+          <!-- This is the target div. id must match the href of this div's tab -->
+          <TABLE id="checkList" class="list" cellpadding=0 cellspacing=0 >
+            <TR class="row" >
+              <th colspan="3" class="space">系统信息</th>
+            </tr>
+            <iterate name="info" id="v">
+              <TR class="row" >
+                <TD width="15%">{$key}</TD>
+                <TD>{$v}</TD>
+              </TR>
+            </iterate>
+          </TABLE>
+        </div>
+      <!-- End .content-box-content -->
+    </div>
+    <!-- Start Notifications -->
+    <!-- End Notifications -->
+    <div id="footer"> <small>
+      <!-- Remove this notice or replace it with whatever you want -->
+      {$site.copyright_site} | Power by <a href="http://www.eps2008.cn">Anson</a> | <a href="#">Top</a> </small> </div>
+    <!-- End #footer -->
+  </div>
+  <!-- End #main-content -->
+</div>
+</body>
+<!-- Download From www.exet.tk-->
+</html>

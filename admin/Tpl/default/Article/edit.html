@@ -1,0 +1,41 @@
+<tagLib name="cx,html" />
+<form method="post" id="eformArticle">
+  <fieldset>
+  <!-- Set class to "column-left" or "column-right" on fieldsets to divide the form into columns -->
+  <p>
+    <label>标题</label>
+    <input class="text-input medium-input" type="text"  name="title_article" value="{$vo.title_article}" />
+    <select name="typeIds_article">
+      <option value="1" >默认分类</option>
+      <volist name='otype' id='option' >
+        <eq name="option['belongType_type']" value="Article"> <option value="{$option.id_type}" 
+          <eq name="option['id_type']" value="$vo['typeIds_article']">selected="selected"</eq>
+          >{$option.name_type}
+          </option>
+        </eq>
+      </volist>
+    </select>
+    <label>摘要</label>
+    <textarea class="text-input textarea" name="summary_article" cols="79" rows="4">{$vo.summary_article}</textarea>
+    <label>内容</label>
+    <html:editor type="fckeditor" id="content_article2" width="700px" height="300px" name="content_article"  content="{$vo.content_article}"/>
+  </p>
+  <p>
+    <input class="button" type="button" value="Update" id="editArticleBtn" />
+    <!--  <input class="button"  onClick="ThinkAjax.sendForm('formMenu','__URL__/addMenus/','','result')"  type="button" value="添加" />-->
+  </p>
+  </fieldset>
+  <div class="clear"></div>
+  <!-- End .clear -->
+  <input type="hidden" name="ajax" value="1" />
+  <input type="hidden" name="id_article" value="{$vo.id_article}" />
+</form>
+<script>
+
+		$J('#editArticleBtn').click(function(){
+			saveEditor();//把FCK的内容保存到textar
+			ThinkAjax.sendForm('eformArticle','__URL__/updateArticle/',complete,'result');
+		
+		})
+		
+</script>

@@ -1,0 +1,350 @@
+@charset "utf-8";
+/* Normalizes margin,padding */
+body, div, dl, dt, dd, ul, ol, li, pre, input, p, blockquote, th, td, form, iframe { margin:0; padding:0; font-size:12px }
+/* Normalizes font-size for headers */
+h1, h2, h3, h4, h5, h6 { font-size:100% }
+/* Removes list-style from lists */
+ol, ul { list-style:none }
+/* Normalizes font-style and font-weight to normal */
+address, caption, cite, code, dfn, em, strong, th, var { font-style:normal; font-weight:normal }
+/* Removes list-style from lists */
+table { border-collapse:collapse; border-spacing:0 }
+/* Removes border from fieldset and img */
+img { border:0 }
+/* Left-aligns text in caption and th */
+caption, th { text-align:left }
+/* Removes quotation marks from q */
+q:before, q:after { content:'' }
+/* Normalizes other */
+html { width:100%; height:100%; background:#fff;}
+button { cursor:pointer;}
+iframe { filter:chroma(color=#ffffff);}
+a{outline:none; text-decoration:none;} 
+
+.hide{display:none}
+/*信息提示*/
+div.result{ 
+	position: absolute;
+	left:0px;
+	top:0px;
+	padding:0 24px 0 0;
+}
+em.result{ float:right} 
+/**/
+.contentOut{ width:999px; margin:0 auto;}
+.contentOut h2{ border:1px solid #ccc;height:26px;  padding:1px; margin-top:8px;}
+.contentMain h2{ margin-left:6px;}
+.contentOut h2 .text{  font-size:14px;  font-weight:700; line-height:26px; padding-left:6px;; display:block;background:url(images/h5.gif) repeat-x  left top;}
+.contentMain{ width:720px; float:right;}
+.contentSub {  width:277px;}
+.contentNav{  width:999px}
+.contentSubTop {
+	BACKGROUND-COLOR: #2a2a2a;
+}
+.contentSubTop a {
+	DISPLAY: block; COLOR: #959595;TEXT-DECORATION: none; padding:4px 0px 4px 18px
+}
+.topMenu {
+	 padding:4px 1em 6px 1em;BACKGROUND-COLOR: #2a2a2a; text-align:right
+}
+.topMenu a {
+	padding:0 1.2em 0 0; COLOR: #959595;TEXT-DECORATION: none; 
+}
+.mainMenu {
+	LINE-HEIGHT: 14px; FONT-SIZE: 14px
+}
+
+.mainMenu div {
+	  BACKGROUND: url(images/nav_bg.jpg) repeat-x left top; PADDING: 0px 14px;
+}
+.mainMenu a{ float:left; display:block}
+.mainMenu a:link {
+	TEXT-ALIGN: center; WIDTH: 70px; HEIGHT: 32px; COLOR: #3b3b3b; TEXT-DECORATION: none; PADDING-TOP: 18px
+}
+
+.mainMenu a:visited {
+	TEXT-ALIGN: center; WIDTH: 70px; HEIGHT: 32px; COLOR: #3b3b3b; TEXT-DECORATION: none; PADDING-TOP: 18px
+}
+.mainMenu a:hover {
+text-decoration:underline;
+}
+.mainMenu a:active {
+
+}
+.mainMenu a.selected { font-weight:700;}
+
+
+
+
+.contentAd{ position:relative; clear:both}
+.contentAd .lab{ position:absolute; width:100px; height:50px; background:url(images/weekprice.png) no-repeat left top; left:-6px; bottom:0px}
+.admain{
+padding: 10px;
+	background: #f0f0f0;
+	border: 1px solid #ccc;
+	clear:both;
+	
+	overflow: hidden;
+	width: 977px;
+	margin: 0 auto;
+	}
+	/*--Main Image Preview--*/
+.main_image {
+	width: 675px; height: 457px;
+	float: left;
+	background: #ccc;
+	position: relative;
+	overflow: hidden;
+	color: #fff;
+}
+.main_image .mainImg{
+width: 675px; height: 457px;
+
+}
+.main_image h2 {
+	font-size: 2em;
+	font-weight: normal;
+	border:none;
+	margin: 0 0 5px;	padding: 10px;
+}
+.main_image p {
+	font-size: 1.2em;
+	padding: 10px;	margin: 0;
+	line-height: 1.6em;
+}
+.block small { 
+	padding: 0 0 0 0px; 
+	/*background: url(images/icon_calendar.gif) no-repeat 0 center; */
+	font-size: 1em; 
+}
+.main_image .block small {margin-left: 10px;}
+.main_image .desc{
+	position: absolute;
+	bottom: 0;	left: 0;
+	width: 100%;
+	display: none;
+}
+.main_image .block{
+	width: 100%;
+	background: #111;
+	border-top: 1px solid #000;
+
+}
+
+.main_image .block a{
+padding-left:580px; color:#FFFFFF
+}
+.main_image .block h2{ color:#fff}
+.main_image a.collapse {
+	background: url(images/btn_collapse.gif) no-repeat left top;
+	height: 27px; width: 93px;
+	text-indent: -99999px;
+	position: absolute; 
+	top: -27px; right: 20px; 
+}
+.main_image a.show {background-position: left bottom;} 
+
+
+.image_thumb {
+	float: left;
+	width: 299px;
+	background: #f0f0f0;
+	border-right: 1px solid #fff;
+	border-top: 1px solid #ccc;
+}
+.image_thumb img {
+	border: 1px solid #ccc; 
+	padding: 5px; 
+	width:50px;
+	height:38px;
+	background: #fff; 
+	float: left;
+}
+.image_thumb ul {
+	margin: 0; padding: 0;
+	list-style: none;
+}
+.image_thumb ul li{
+	margin: 0; padding: 12px 10px;
+	background: #f0f0f0 url(nav_a.gif) repeat-x;
+	width: 279px;
+	float: left;
+	border-bottom: 1px solid #ccc;
+	border-top: 1px solid #fff;
+	border-right: 1px solid #ccc;
+}
+
+
+.image_thumb ul li.hover {
+	background: #ddd;
+	cursor: pointer;
+}
+.image_thumb ul li.active {
+	background: #fff;
+	cursor: default;
+}
+html .image_thumb ul li h2 {
+	font-size: 1.2em; 
+	border:none;
+	margin: 5px 0; padding: 0;
+}
+.image_thumb ul li .block {
+	float: left; 
+	margin-left: 10px;
+	padding: 0;
+	width: 170px;
+}	
+.image_thumb ul li p{display: none;}
+
+
+ul.subUl{
+border:1px solid #ccc;  border-width:0px 1px
+}
+.subUl li{
+	
+
+	border-bottom: 1px solid #ccc;
+	border-top: 1px solid #fff;
+	border-right: 1px solid #fff;
+		border-left: 1px solid #fff;
+
+}
+.subUl li a{
+display:block;
+color:#333333;
+background: #f0f0f0 url(nav_a.gif) repeat-x;
+margin: 0; padding: 12px 10px;
+position:relative
+}
+
+.subUl li a:hover {
+	background: #ddd;
+	cursor: pointer;
+	color:#000000
+}
+
+.subUl li a .time{
+position:absolute;
+right:4px;
+top:12px;
+}
+
+/*商品列表*/
+.boxgrid{ 
+				width: 232px;
+				height: 220px; 
+				margin:6px 0 0 6px; 
+				float:left; 
+				border: 1px solid #DDD; 
+				overflow: hidden; 
+				position: relative; 
+			}
+.boxgrid img{ 
+	position: absolute; 
+	top: 5px; 
+	left: 6px; 
+	border: 0; 
+}
+.boxgrid p{ padding: 0 10px; color:#afafaf; font-weight:bold; font:10pt "Lucida Grande", Arial, sans-serif; }
+.boxgrid a{ color:#C8DCE5; }
+.boxgrid h3{ margin: 10px 10px 0 10px; color:#FFF; font:16px Arial, sans-serif; letter-spacing:-1px; font-weight: bold;  }
+
+.boxcaption{ float: left; position: absolute; background:#000; height: 100px; width: 100%; opacity: .8; 
+/* For IE 5-7 */
+filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=80);
+/* For IE 8 */
+-MS-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=80)";
+}
+.captionfull .boxcaption {top: 260;left: 0;}
+.caption .boxcaption {top: 180px;left: 0;
+}
+
+.caption .boxcaption a {padding-left:150px;}
+
+.caption .boxcaption em{ margin-right:4px;font:14px Arial, sans-serif; font-weight:700; color:#FFFFFF}
+/*商品列表*/
+ul.goodsList{  }
+ul.goodsList li.listItem{ float:left;position:relative;width:234px; margin:6px 0 0 6px;	overflow: hidden;  }
+ul.goodsList li.listItem .title{ margin:0; padding:240px 0 0px;  line-height:1.5; width:230px; font-weight:400; }
+ul.goodsList li.listItem .title a{color:#0063DC  }
+ul.goodsList li.listItem .title a:hover{ text-decoration:underline;color:#FF9900  }
+ul.goodsList li.listItem .photo{ position:absolute; top:0;left:0px; magrin:0 auto 5px; width:220px; padding:5px; border:1px solid #DDD}
+ul.goodsList li.listItem .photo a{ vertical-align:middle; height:220px; text-align:center; display:table-cell}
+ul.goodsList li.listItem .info{width:230px; position:relative}
+ul.goodsList li.listItem .info .price{ width:110px;}
+ul.goodsList li.listItem .info .price span{overflow:hidden; text-align:left; white-space:nowrap; display:block}
+ul.goodsList li.listItem .info .price span em{ color:#F30; display:inline; font-size:15px; font-weight:700; margin:0 3px;}
+ul.goodsList li.listItem .info .price span.ship{ color:gray}
+ul.goodsList li.listItem .info .online{position:absolute; width:74px; height:22px; right:0px; top:0px;}
+ul.goodsList li.listItem .icon{ width:230px; margin:3px 0 0 0}
+
+.icon a{ width:16px; height:16px; display:block; float:left; background-image:url(images/tenpay.png); overflow:hidden; margin:0 3px 0 0}
+.icon a.day{ background-position:left top;}
+.icon a.xin{ background-position:-17px top;}
+.icon a.zhe{ background-position:-51px top;}
+.icon a.tenpay{ background-position:18px top;}
+.icon a.sell{color:gray; width:auto; float:right; background-image:none}
+.icon32 {}
+.icon32 span{ background-image:url(images/tenpay2.png);display:inline-block; vertical-align:middle; float:left;  width:32px; height:32px; overflow:hidden; margin:0 10px 0 5px}
+.icon32 span.day{ background-position: -128px -582px; float:none }
+.icon32 span.xin{ background-position: -128px -550px; float:none}
+.icon32 span.zhe{ background-position: -128px -614px; }
+.icon32 span.tenpay{ background-position: -128px -390px; }
+
+/*商品细节*/
+.detail{  margin:6px 0 40px 6px; }
+.detail h1{width:709px; text-align:center; font-size:14px; margin:6px 0px 10px; padding-buttom:4px; position:relative;  }
+.detail li{ line-height:25px}
+.detail .picture{ width:300px;background:#ccc}
+.detail .property{width:399px; float:right;}
+.detail .property .price{ font-size:14px; color:#333}
+.detail .property .t{ color:gray; font-size:12px;}
+.detail .property .price del{ font-family:Georgia}
+.detail .property .price em{ font-size:24px; font-family:Tahoma; margin-right:5px; color:#FF4E00}
+.detail .property .summary em{ font-size:12px; font-family:Tahoma; margin:0 2px; color:#FF4E00}
+.detail .property .server .t{ float:left}
+.detail .property .arrowhead{  clear:both;position:relative; height:5px;}
+.detail .property .arrowhead span{ position: absolute; left:63px; display:inline; height:6px; width:10px; background:url(images/tenpay2.png) no-repeat -151px -282px; vertical-align:middle; zoom:1; overflow:hidden}
+.detail .property .safetybox{ background-color:#FFFFE5; border:1px solid #FFE4BA; font-size:12px; padding:5px; line-height:1.5; overflow:hidden; display: block; clear:both;}
+.detail .property .hide{ display:none;}
+
+.detail .property .buyInfo{ background:#F8F8F8; border:1px solid #EAEAEA; font-size:12px; padding:10px ; margin:10px 0 5px}
+.detail .property .buyInfo dl{ line-height:25px; margin-bottom:10px; overflow:hidden}
+.detail .property .buyInfo dt{ width:5em; height:25px; padding-right:5px; text-align:right; overflow:hidden; color:#666;float:left}
+.detail .property .buyInfo dd{float:left; width:310px;}
+.detail .property .buyInfo dl.stock{ margin-bottom:5px ; overflow:hidden}
+.detail .property .buyInfo dl.stock ul{}
+.detail .property .buyInfo dl.stock dd li{ display:inline}
+.detail .property .buyInfo dl.stock dd li a{ background:white; border:1px solid #ccc; color:#333; float:left; display:block; line-height:23px;height:23px; margin:0 6px 5px 0; padding:0 10px; text-decoration:none; white-space:nowrap}
+.detail .property .buyInfo dl.stock dd li a:hover{border:2px solid #ccc; line-height:21px;height:21px;padding:0 9px;}
+.detail .property .buyInfo dl.stock dd li a.selected{border:2px solid #F50; line-height:21px;height:21px;padding:0 9px; cursor:default}
+.detail .property .buyInfo dl.amount{ margin-bottom:5px ; overflow:hidden}
+.detail .property .buyInfo dl.amount input{width:50px ; vertical-align:middle; padding:1px 0; height:16px; font-size:13px; margin-right:5px}
+.detail .property .buyInfo dl em{ margin:0 5px; font-weight:700; color:#FF4E00}
+.detail .property .buyInfo dl.choice{ margin-bottom:0px}
+.detail .property .buyInfo dl.choice,.detail .property .buyInfo dl.param{ line-height:18px}
+.detail .property .buyInfo dl.choice em{white-space: nowrap;}
+.detail .property .buyInfo .btn{ clear:both; position:relative; text-align:center}
+
+.detail .other{ clear:both; display:block}
+.detail .other .tab{background:url(images/tenpay2.png) 0px -800px; height:29px; }
+.detail .other .tab li{ float:left; margin-right:3px;}
+.detail .other .tab li em{color:#ff4e00;}
+.detail .other .tab li a{ float:left; height:25px; line-height:25px; margin-top:3px; padding-left:20px;background:url(images/tenpay2.png) no-repeat 0px -860px;}
+.detail .other .tab li a span{background:url(images/tenpay2.png) no-repeat 100% -860px; color:black; float:left; height:25px; line-height:25px; padding-right:20px;}
+.detail .other .tab li a:hover,.detail .other .tab li a:active{height:29px;line-height:29px;margin-top:0;background:url(images/tenpay2.png) no-repeat 0 -830px;text-decoration:none;}
+.detail .other .tab li a:hover span,.detail .other .tab li a:active span{height:29px;line-height:29px;margin-top:0;background:url(images/tenpay2.png) no-repeat right -830px;text-decoration:none;}
+.detail .other .tab li a:hover,.detail .other .tab li a:active{height:29px;line-height:29px;margin-top:0;background:url(images/tenpay2.png) no-repeat 0 -830px;text-decoration:none;}
+.detail .other .tab li a:hover span,.detail .other .tab li a:active span{height:29px;line-height:29px;margin-top:0;background:url(images/tenpay2.png) no-repeat right -830px;text-decoration:none;}
+.detail .other .tab .current{margin-bottom:2px;}
+.detail .other .tab .current a{height:29px;margin-top:0;background:url(images/tenpay2.png) no-repeat 0 -830px;}
+.detail .other .tab .current a span{height:29px;line-height:29px;background:url(images/tenpay2.png) no-repeat right -830px;font-weight:bold;font-size:14px;}
+.detail .other .description{ margin-bottom:20px; padding:6px; clear:both}
+
+.detail .other .description .message{}
+.detail .other .description .message p{ padding:10px 5px; line-height:1.6em; border-bottom:1px solid #DDD}
+.detail .other .description .message h4{ margin-top:10px}
+
+.shoppingBox { width:760px; height:500px; overflow:auto}
+span.price{ font-family:Tahoma; color:#FF4E00; margin-right:3px}
+span.priceTotal{ font-family:Tahoma; font-size:15px; color:#FF4E00;margin-right:3px}

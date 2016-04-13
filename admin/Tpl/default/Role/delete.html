@@ -1,0 +1,59 @@
+
+<form method="post" id="dformRole">
+  <fieldset>
+  <!-- Set class to "column-left" or "column-right" on fieldsets to divide the form into columns -->
+ 
+  <p>
+    <label>角色名称</label>
+    {$vo.name}
+  </p>
+  <p>
+    <label>英文名称</label>
+    {$vo.ename}
+  </p>
+  
+    <p>
+    <label>备注</label>
+         {$vo.remark}
+        </p>
+   <p>
+    <label>上级</label>
+     <select name="pid"  class="medium-input" disabled="disabled">
+            <volist name='oRole' id='option' >
+              <option value="{$option.id}" <eq name="option['id']" value="$vo['pid']">selected</eq> >{$option.name}</option>
+            </volist>
+          </select>
+  </p>
+  
+  <p>
+    <label>状态</label>
+    <if  condition="($vo.status eq 1)">
+       
+        可用 
+       <else />
+        禁用
+    </if>
+    </p>
+  
+  <p>
+    <input class="button" type="button" value="Delete" id="delRoleBtn" />
+    <!--  <input class="button"  onClick="ThinkAjax.sendForm('formRole','__URL__/addRoles/','','result')"  type="button" value="添加" />-->
+  </p>
+  </fieldset>
+  <div class="clear"></div>
+  <!-- End .clear -->
+  <input type="hidden" name="ajax" value="1" />
+  <input type="hidden" name="id" value="{$vo.id}" />
+</form>
+<script>
+
+		
+		$J('#delRoleBtn').click(function(){
+		if(confirm('确定删除 {$vo.name} ？')){
+			ThinkAjax.sendForm('dformRole','__URL__/delRole/',complete,'result');
+		}
+		
+		
+		})
+		
+</script>

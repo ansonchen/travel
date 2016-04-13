@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<!--[if lt IE 9]> 
+<meta http-equiv="refresh" content="0;URL=ielt.html" />
+<![endif]-->
+<link rel="stylesheet" href="/static/css/productlist.css">
+<title>月亮假期</title>
+<meta name="keywords" content="">
+<meta name="description" content="">  
+</head>
+<body>
+
+<div class="header">
+    <div class="menu">
+        <a href="/">首页</a>
+        <a href="#">酒店预订</a>
+        <a href="#">别墅精选</a>
+        <a href="#">当地活动</a>
+        <a href="#">特别策划</a>
+        <a href="#">关于我们</a>
+    </div>
+</div>
+<div class="content">
+    <div class="listBg">
+        
+        <h2><em>曼谷酒店</em>曼谷是一座集古朴与现代，尊贵与市井，放纵与戒律于一身的城市。包罗万象的"天使之城"</h2>
+    </div>
+    <div class="listNav">
+        <div class="box">
+        <a href="/">首页</a>><a href="/Hotellist">酒店预订</a>><span id="addname">所有</span>酒店
+        </div>
+    </div>
+    <div class="listCon box">
+    <div class="listSubNav">
+        
+        <dl>
+            <dt>地点</dt>
+            <dd id="zone_J">
+               <input type="hidden" id="zid" value="{$zid}">
+                <volist name='zone' id='vo' >
+                <a href="?zone={$vo.id}" id="zone_{$vo.id}" >{$vo.name}</a>
+                </volist>
+            </dd>
+        </dl>
+        <dl>
+            <dt>星级</dt>
+            <dd id="star_J">
+                <input type="hidden" id="sid" value="{$sid}">
+                <a href="?star=5" id="star_5">五星级</a>
+                <a href="?star=4" id="star_4">四星级</a>
+                <a href="?star=3" id="star_3">三星级</a>
+                <a href="?star=2" id="star_2">二星级</a>
+                <a href="?star=1" id="star_1">一星级</a>
+                <a href="?star=6" id="star_6">无星级</a>
+            </dd>
+        </dl>
+    </div>
+        <div class="roomsList">
+        <volist name='hotels' id='ho' >            
+           <a class="room" href="/Hotelitem/?id={$ho.id}">
+               <img src="{$ho.picturePath_goods}" alt="">
+               <p class="name">{$ho.name}<em>{$ho.enname}</em></p>
+                <p>{$ho.zname} | {$ho.type} | {$ho.star}星级</p>
+           </a>
+       </volist>
+          <div class="page">
+           {$page}
+           </div>
+    </div>
+    </div>
+   
+</div>
+<div class="footer">
+    
+    <div class="footer_nav">
+        
+        <ul>
+            <li><a href="#">特色项目</a></li>
+            <li><a href="#">酒店预订</a></li>
+            <li><a href="#">别墅精选</a></li>
+            <li><a href="#">定制旅行</a></li>
+        </ul>
+        <ul>
+            <li><a href="#">公司信息</a></li>
+            <li><a href="#">关于</a></li>
+            <li><a href="#">工作机会</a></li>
+            <li><a href="#">新闻</a></li>
+        </ul>
+        <ul>
+            <li><a href="#">帮助</a></li>
+            <li><a href="#">政策</a></li>
+            <li><a href="#">灾难响应</a></li>
+            <li><a href="#">条款与隐私</a></li>
+        </ul>
+        <div class="code">
+            <span><i></i>微信扫一扫</span>
+            <span><i></i>新浪微博</span>
+        </div>
+    </div>
+</div>
+</body>
+<script type="text/javascript" src="/static/js/list.js"></script>
+</html>

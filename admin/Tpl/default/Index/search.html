@@ -1,0 +1,111 @@
+<form method="post" id="searchF">
+  <fieldset>
+  <!-- Set class to "column-left" or "column-right" on fieldsets to divide the form into columns -->
+  <p>
+    <input class="text-input medium-input" type="text" name="key" value="{$key}"/>
+    <select name="dataBase">
+      <option value="all" >所有 </option>
+      <volist name='omenu' id='option2' >
+        <eq name="option2['level']" value="2"> <option value="{$option2.name}"   
+          
+          <eq name="option2['name']" value="$db">selected</eq>
+          >{$option2.title} {$option2.name}
+          
+          </option>
+        </eq>
+      </volist>
+    </select>
+    <input class="button" type="button" value="Go" id="SearchB" />
+  </p>
+  </fieldest>
+</form>
+<div>
+  <h3>搜索结果共 {$count} 条</h3>
+  <ul class="iconTools">
+    <!--订单搜索-->
+    <volist name="Order" id="ord">
+      <li> {$ord.updateTime_order|date='Y-m-d H:i:s',###} <a href="__APP__/Order/edit/id/{$ord.id_order}" class="editOrder">{$ord.no_order}</a> 收货人：{$ord.consignee_order} ( {$ord.tel_order} )　订货人：{$ord.buyerName_order} ({$ord.buyerTel_order} )　{$ord.orderStaus_order}
+        <if condition="($ord.paymentStaus_order eq 1)"> <a href='__APP__/Order/updateStatus/ajax/1/id/{$ord.id_order}/status/0' class="mstatus">已支付</a>
+          <else />
+          <a href='__APP__/Order/updateStatus/ajax/1/id/{$ord.id_order}/status/1' class="mstatus">未支付</a> </if>
+        总价：{$ord.total_order}元　{$ord.adminRemark_order}</li>
+    </volist>
+    <!--商品搜索-->
+    <volist name="Goods" id="goodsS">
+      <li> <a href="__APP__/Goods/show/id/{$goodsS.id_goods}" class="show"><img src="{$goodsS.picturePath_goods|str_replace='xl_','s_',###}" /> {$goodsS.name_goods} 价格：{$goodsS.price_goods}</a> <a href="__APP__/Goods/edit/id_goods/{$goodsS.id_goods}" class="editGoods editIcon">编辑</a></li>
+    </volist>
+    <!--优惠码搜索-->
+    <volist name="Rebate" id="rebateS">
+      <li> 优惠码：{$rebateS.rebateCode}　{$rebateS.price} 元　{$rebateS.beginTime} ~ {$rebateS.endTime} 
+              <if condition="($rebateS.status eq 1)">
+              	<a href='__APP__/Rebate/updateStatus/ajax/1/id/{$rebateS.id}/status/0' class="mstatus">可用</a>
+              <else />
+              	<a href='__APP__/Rebate/updateStatus/ajax/1/id/{$rebateS.id}/status/1' class="mstatus">禁用</a> </if> <a href="__APP__/Rebate/delete/id/{$rebateS.id}" class="delCode delIcon" title="删除">删除</a></li>
+    </volist>
+    <!--分类搜索-->
+    <volist name="type" id="tp">
+      <li> {$tp.time_type|date='Y-m-d H:i:s',###} <a href="__APP__/Type/edit/id_type/{$tp.id_type}" class="editType">{$tp.name_type} | {$tp.belongType_type}</a> <a href="__APP__/Type/edit/id_type/{$tp.id_type}" class="editType editIcon" title="编辑">编辑</a> <a href="__APP__/Type/delete/id_type/{$tp.id_type}" class="delType delIcon" title="删除">删除</a></li>
+    </volist>
+    
+    <!--商品分类搜索-->
+    <volist name="gtype" id="gtp">
+      <li><if condition="($gtp.status eq 1)">
+      <a href='__APP__/Gtype/updateStatus/ajax/1/id/{$gtp.id}/status/0' class="mstatus">可用</a> <else />
+      <a href='__APP__/Gtype/updateStatus/ajax/1/id/{$gtp.id}/status/1' class="mstatus">禁用</a> </if>
+           <a href="__APP__/Gtype/sedit/id/{$gtp.id}" class="editType">{$gtp.name}</a> <a href="__APP__/Gtype/sedit/id/{$gtp.id}" class="editType editIcon" title="编辑">编辑</a> <a href="__APP__/Gtype/sdelete/id/{$gtp.id}" class="delType delIcon" title="删除">删除</a></li>
+    </volist>
+    
+    <!--文章搜索-->
+    <volist name="Article" id="art">
+      <li> {$art.updateTime_article|date='Y-m-d H:i:s',###} <a href="__APP__/Article/show/id/{$art.id_article}" class="editArticle">{$art.nameType}　{$art.title_article}『{$art.summary_article}』　{$art.writer_article} </a> <a href="__APP__/Article/edit/id_article/{$art.id_article}" class="editArticle editIcon" title="编辑">编辑</a> <a href="__APP__/Article/delete/id_article/{$art.id_article}" class="delArticle delIcon" title="删除">删除</a></li>
+    </volist>
+    <!--新闻搜索-->
+    <volist name="News" id="newsS">
+      <li> {$newsS.updateTime_article|date='Y-m-d H:i:s',###} <a href="__APP__/News/show/id/{$newsS.id_article}" class="editArticle">{$newsS.nameType}　{$newsS.title_article} 『{$newsS.subtitle_article}』　{$newsS.writer_article} </a> <a href="__APP__/News/edit/id_article/{$newsS.id_article}" class="editArticle editIcon" title="编辑">编辑</a> <a href="__APP__/News/delete/id_article/{$newsS.id_article}" class="delArticle delIcon" title="删除">删除</a></li>
+    </volist>
+    <!--信息搜索-->
+    <volist name="Message" id="msg">
+      <li> {$msg.time|date='Y-m-d H:i:s',###} {$msg.name} 对 {$msg.sendName} 说 ： {$msg.content}　
+        <if condition="$msg.send_id eq $nid"> <a href="__APP__/Message/say/uid/{$msg.receive_id}" class="sayMsg sayIcon" title="对话">对话</a>
+          <else />
+          <a href="__APP__/Message/say/uid/{$msg.send_id}" class="sayMsg sayIcon" title="对话">对话</a></if>
+      </li>
+    </volist>
+    <!-- 用户搜索-->
+    <volist name="User" id="userS">
+      <li> <a href="__APP__/User/edit/id/{$userS.id}" class="editUser">帐号『{$userS.account}』　昵称『{$userS.nickname}』　真名『{$userS.trueName}』　性别『{$userS.sex}』　QQ『{$userS.qq}』　电话『{$userS.tel}』</a>
+        <if condition="($userS.status eq 1)"><a href='__APP__/User/updateStatus/ajax/1/id/{$userS.id}/status/0' class="mstatus">可用</a>
+          <else />
+          <a href='__APP__/User/updateStatus/ajax/1/id/{$userS.id}/status/1' class="mstatus">禁用</a></if>
+        <a href="__APP__/User/password/id/{$userS.id}/account/{$userS.account}" class="psUser textfieldIcon" title="修改密码">密码</a> <a href="__APP__/User/delete/id/{$userS.id}" class="delUser delIcon" title="删除">删除</a> </li>
+    </volist>
+    <!--菜单搜索-->
+    <volist name="Menus" id="MenusS">
+      <li> 级数「{$MenusS.level}」上级「{$MenusS.pid}」 排序「{$MenusS.sort}」
+        <if condition="($MenusS.status eq 1)"><a href='__APP__/Menus/updateStatus/ajax/1/id/{$MenusS.id}/status/0' class="mstatus">可用</a>
+          <else />
+          <a href='__APP__/Menus/updateStatus/ajax/1/id/{$MenusS.id}/status/1' class="mstatus">禁用</a> </if>
+        <if condition="($MenusS.show_status eq 1)"><a href='__APP__/Menus/updateShowStatus/ajax/1/id/{$MenusS.id}/status/0' class="mstatus">显示</a>
+          <else />
+          <a href='__APP__/Menus/updateShowStatus/ajax/1/id/{$MenusS.id}/status/1' class="mstatus">不显示</a></if>
+        <a href="__APP__/Menus/sdelete/id/{$MenusS.id}" class="delMenu delIcon" title="删除">删除</a> 　<a href="__APP__/Menus/sedit/id/{$MenusS.id}" class="editMenu">{$MenusS.title}　{$MenusS.name}</a> 　</li>
+    </volist>
+  </ul>
+  <p></p>
+</div>
+<script>
+	$J('#SearchB').click(function(){
+								ThinkAjax.sendForm('searchF',URL+'/searchGo/',searchFn,'result');
+							})
+	$J('a.show,a.sayMsg,a.editOrder,a.editArticle,a.editArticle,a.delArticle,a.editMenu,a.delMenu,a.editUser,a.delUser,a.psUser,a.editType,a.delType').facebox();
+	$J('a.editGoods,.pagination>a').click(function(){
+		var href = this.href;
+		mainLoad(href)
+		return false;
+		})
+	$J('a.mstatus,a.delCode').click(function(){
+			var href = this.href;
+			ThinkAjax.send(href,'',completeN,'result');//参数ajax=1
+			return false;
+		})
+</script>

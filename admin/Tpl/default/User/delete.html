@@ -1,0 +1,44 @@
+
+<form method="post" id="dformUser">
+  <fieldset>
+  <!-- Set class to "column-left" or "column-right" on fieldsets to divide the form into columns -->
+  <p>
+    <label>帐号</label>
+    {$vo.account} </p>
+  <p>
+    <label>昵称</label>
+    {$vo.nickname} </p>
+  <p>
+    <label>真实姓名</label>
+    {$vo.trueName} </p>
+  <p>
+    <label>QQ</label>
+    {$vo.qq} </p>
+  <p>
+    <label>性别</label>
+    {$vo.sex} </p>
+  <p>
+    <label>电话</label>
+    {$vo.tel} </p>
+  <p>
+    <input class="button" type="button" value="Delete" id="delUserBtn" />
+    <!--  <input class="button"  onClick="ThinkAjax.sendForm('formMenu','__URL__/addMenus/','','result')"  type="button" value="添加" />-->
+  </p>
+  </fieldset>
+  <div class="clear"></div>
+  <!-- End .clear -->
+  <input type="hidden" name="ajax" value="1" />
+  <input type="hidden" name="id" value="{$vo.id}" />
+</form>
+<script>
+
+		
+		$J('#delUserBtn').click(function(){
+		if(confirm('确定删除 {$vo.account} ？')){
+			ThinkAjax.sendForm('dformUser','__URL__/delUser/',complete,'result');
+		}
+		
+		
+		})
+		
+</script>

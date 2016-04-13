@@ -1,0 +1,109 @@
+@import "public";
+$thispagewidth:1074px;
+.content{min-width:$thispagewidth;
+    .box{width: $thispagewidth; margin: 0 auto; overflow: hidden}
+    .listBg{background: url(img/list_bg.jpg) no-repeat center center;height: 209px;margin-bottom: 22px;overflow: hidden;
+        h2{margin: 70px 0 0 0;color: #fff;font-size: 18x; text-align: center; font-weight: 400;
+            em{font-size: 44px; margin-bottom: 14px;display: block; font-style: normal;}
+        }
+    }
+    
+    .listNav{  height: 30px;line-height: 30px; margin-bottom: 28px;font-size: 14px; color: #5d5d5d;margin-bottom: 12px;
+        
+        a{color: #51c3e7}
+
+    }
+    
+    .listSubNav{
+        width: 253px;
+        float: left;
+        
+        dl{
+             margin: 0;
+                padding: 0;
+            dt{
+                height: 40px;
+                line-height: 40px;
+                font-size: 18px;
+                color: #7c7c7c;
+                font-weight: 800;
+                margin: 0;
+                padding: 0;
+            }
+            dd{
+                 margin: 0;
+                padding: 12px 20px;
+                background: #f5f5f5;
+                border: 1px solid #c2c2c2;
+                a{
+                    display: block;
+                    line-height: 24px;
+                    color: #5d5d5d;
+                    font-size: 14px;
+                    &.cur,&.cur:hover{color: #009bfe}
+                    &:hover{color: #000}
+                        
+                }
+                
+                
+                
+                    
+            }
+        }
+    }
+    .listCon{
+        margin-bottom: 100px;
+        overflow: hidden;
+    }
+
+    
+    .roomsList{
+            margin-left: 272px;
+            padding-top: 40px;
+            .room{
+                width:252px;
+                background: #f5f5f5;
+                height: 274px;
+                border: 1px solid #c2c2c2;
+                display: block;
+                float: left;
+                margin-right: 19px;
+                margin-bottom: 19px; 
+                &:hover{border-color:#009bfe}
+                &:nth-child(3),&:nth-child(6),&:nth-child(9),&:nth-child(12),&:nth-child(15),&:nth-child(18){margin-right: 0}
+                img{
+                    margin: 12px auto;
+                    width:223px;
+                    height: 133px;
+                }
+                p{ margin: 0;padding: 0 18px 0 24px; color: #7c7c7c; font-size: 14px; line-height: 30px; clear: both;
+                    span{float: right}
+                }
+                
+                .name{
+                   
+                    color: #50afcd;
+                    font-size: 18px;
+                     border-top:none;
+                    em{
+                        font-style: normal;
+                        font-size: 12px;
+                        line-height: 16px;
+                        display: block;
+                        margin-top: 6px;
+                        margin-bottom: 2px;
+                    }
+                }
+            }
+            
+        .page{ clear: both; margin: 20px 0; text-align: right;color: #fff;
+            a{ border: 1px solid #c2c2c2; padding: 3px 6px; color: #ccc;
+                &.current{ cursor: default; text-decoration: underline;border-color:#666; color: #333}
+            &:hover{border-color:#666; color: #333}
+            }
+            }
+        }
+
+    
+}
+

@@ -1,0 +1,29 @@
+
+<form method="post" id="eformFolder">
+  <fieldset>
+  <!-- Set class to "column-left" or "column-right" on fieldsets to divide the form into columns -->
+ 
+  <p>
+    <label>名称</label>
+    <input class="text-input medium-input" type="text" name="name" value="{名称}"/>
+    <!-- Classes for input-notification: success, error, information, attention -->
+    <br />
+  </p>
+  <p>
+    <input class="button" type="button" value="Update" id="editFolderBtn" />
+    <!--  <input class="button"  onClick="ThinkAjax.sendForm('formMenu','__URL__/addMenus/','','result')"  type="button" value="添加" />-->
+  </p>
+  </fieldset>
+  <div class="clear"></div>
+  <!-- End .clear -->
+  <input type="hidden" name="ajax" value="1" />
+  <input type="hidden" name="id" value="{$vo.id}" />
+</form>
+<script>
+
+		$J('#editFolderBtn').click(function(){
+			ThinkAjax.sendForm('eformFolder','__URL__/updateFolder/',completeFolder,'result');
+		
+		})
+		
+</script>

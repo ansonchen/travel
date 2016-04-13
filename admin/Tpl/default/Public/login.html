@@ -1,0 +1,154 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN""http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+		
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		
+		<title>后台登录</title>
+		
+		<!--                       CSS                       -->
+	  
+		<!-- Reset Stylesheet -->
+		<link rel="stylesheet" href="__PUBLIC__/admin/resources/css/reset.css" type="text/css" media="screen" />
+	  
+		<!-- Main Stylesheet -->
+		<link rel="stylesheet" href="__PUBLIC__/admin/resources/css/style.css" type="text/css" media="screen" />
+		
+		<!-- Invalid Stylesheet. This makes stuff look pretty. Remove it if you want the CSS completely valid -->
+		<link rel="stylesheet" href="__PUBLIC__/admin/resources/css/invalid.css" type="text/css" media="screen" />	
+		
+		<!-- Colour Schemes
+	  
+		Default colour scheme is green. Uncomment prefered stylesheet to use it.
+		
+		<link rel="stylesheet" href="__PUBLIC__/admin/resources/css/blue.css" type="text/css" media="screen" />
+		
+		<link rel="stylesheet" href="__PUBLIC__/admin/resources/css/red.css" type="text/css" media="screen" />  
+	 
+		-->
+		
+		<!-- Internet Explorer Fixes Stylesheet -->
+		
+		<!--[if lte IE 7]>
+			<link rel="stylesheet" href="__PUBLIC__/admin/resources/css/ie.css" type="text/css" media="screen" />
+		<![endif]-->
+		
+		<!--                       Javascripts                       -->
+	  
+		
+        <load href="__PUBLIC__/Js/Base.js" />
+        <load href="__PUBLIC__/Js/prototype.js" />
+        <load href="__PUBLIC__/Js/mootools.js" />
+        <load href="__PUBLIC__/Js/Ajax/ThinkAjax.js" />
+        <load href="__PUBLIC__/Js/Form/CheckForm.js" />
+        <load href="__PUBLIC__/Js/common.js" />
+        
+ <script language="JavaScript">
+	<!--
+	var PUBLIC	 =	 '__PUBLIC__';
+	//ThinkAjax.image = [	 '__PUBLIC__/Images/loading2.gif', '__PUBLIC__/Images/tick_circle.png','__PUBLIC__/Images/cross_circle.png' ];
+	ThinkAjax.cInfoWarp = ['<div class="notification information png_bg" ><div>','</div></div>'];
+	ThinkAjax.sInfoWarp = ['<div class="notification success png_bg" ><div>','</div></div>'];
+	ThinkAjax.eInfoWarp = ['<div class="notification error png_bg" ><div>','</div></div>'];
+	ThinkAjax.updateTip	=	'正在登录';
+	function loginHandle(data,status){
+	if (status==1)
+	{
+	$('result').innerHTML	=	'<span style="color:blue"><img SRC="__PUBLIC__/Images/ok.gif" WIDTH="20" HEIGHT="20" BORDER="0" ALT="" align="absmiddle" > 登录成功！3 秒后跳转～</span>';
+	window.location = '__URL__';
+	$('form1').reset();
+	}
+	}
+	
+	function keydown(e){
+	
+		var e = e || event;
+		if (e.keyCode==13)
+		{
+		//$('loginBtn').click();
+		ThinkAjax.sendForm('form1','__URL__/checkLogin/',loginHandle,'result');
+		
+		}
+	}
+
+		
+	function fleshVerify(type){ 
+	//重载验证码
+	var timenow = new Date().getTime();
+	if (type)
+	{
+	$('verifyImg').src= '__URL__/verify/adv/1/'+timenow;
+	}else{
+	$('verifyImg').src= '__URL__/verify/'+timenow;
+	}
+	
+	}
+//-->
+</script>
+		<!-- Internet Explorer .png-fix -->
+		
+		<!--[if IE 6]>
+			<script type="text/javascript" src="__PUBLIC__/admin/resources/scripts/DD_belatedPNG_0.0.7a.js"></script>
+			<script type="text/javascript">
+				DD_belatedPNG.fix('.png_bg, img, li');
+			</script>
+		<![endif]-->
+ 
+		
+	</head>
+  
+	<body id="login" onkeydown="keydown(event)">
+		
+		<div id="login-wrapper" class="png_bg">
+			<div id="login-top">
+			
+				<h1>后台登录</h1>
+				<!-- Logo (221px width) -->
+				<img id="logo" src="__PUBLIC__/admin/resources/images/anson_logo.png" alt="Simpla Admin logo" />
+			</div> <!-- End #logn-top -->
+			
+			<div id="login-content">
+				
+				<form  method='post' name="login" id="form1">
+				
+				
+					
+					<p>
+						<label>Username</label>
+						<input name="account" type="text" class="text-input" value=""  />
+					</p>
+					<div class="clear"></div>
+					<p>
+						<label>Password</label>
+						<input name="password" type="password" class="text-input" value=""  />
+					</p>
+					<div class="clear"></div>
+                    <p>
+						<label> <img id="verifyImg" SRC="__URL__/verify/" onClick="fleshVerify()" BORDER="0" ALT="点击刷新验证码" style="cursor:pointer; float:right" align="absmiddle"></label>
+						<input name="verify" type="text" class="text-input" value="输入验证码" onClick  = "this.value=''">
+					</p>
+					<div class="clear"></div>
+                    <input type="hidden" name="ajax" value="1">
+					<p id="remember-password">
+						<input type="checkbox" />Remember me
+					</p>
+					<div class="clear"></div>
+					<p>
+						<input class="button"  onClick="ThinkAjax.sendForm('form1','__URL__/checkLogin/',loginHandle,'result')"  type="button" id="loginBtn" value="Sign In" />
+					</p>
+                    	<div class="clear"></div>
+						<div id="result">
+                    <div class="notification" >
+                    <div>
+							以上为必填项.
+                            </div>
+						</div>
+					</div>
+				</form>
+			</div> <!-- End #login-content -->
+			
+		</div> <!-- End #login-wrapper -->
+		
+  </body>
+  </html>

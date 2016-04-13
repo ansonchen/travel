@@ -1,0 +1,99 @@
+<import file = "admin.resources.scripts.common"/>
+<script>
+	$J(document).ready(function(){
+		
+		function completePic(data,status){
+		if (status==1)
+			{
+			$J('#photoShow .name_file').text(data['name_file']);
+			$J('#photoShow .explain_file').text(data['explain_file']);
+			$J('#photoShow').show();
+			$J('#editPicBox').hide();
+			completeN(data,status);
+			}
+		}
+		$J('#editPicBtn').click(function(){
+		
+		ThinkAjax.sendForm('eformPic','__URL__/editPic/',completePic,'result');
+		
+		});
+		$J('#editPicIcon').click(function(){
+		
+		$J('#photoShow').hide();
+		$J('#editPicBox').show();
+		//去除更新后的bug
+		$J('input[name=name_file]').val($J('#photoShow .name_file').text());
+		$J('input[name=explain_file]').val($J('#photoShow .explain_file').text());
+		
+		return false;
+		})
+		
+		$J('#cancelPicIcon').click(function(){
+		
+		$J('#photoShow').show();
+		$J('#editPicBox').hide();
+		
+		return false;
+		})
+		
+		$J('#delPicture').click(function(){
+		if(confirm('确定删除文件？')){
+		
+			var href = this.href;
+			ThinkAjax.send(href,'ajax=1',complete,'result');//参数ajax=1
+		
+		}
+		return false;
+		})
+		
+		//设置封面
+		$J('#frontPicture').click(function(){
+
+			var href = this.href;
+			ThinkAjax.send(href,'ajax=1','','result');//参数ajax=1
+			return false;
+		
+
+		})
+		
+		
+		
+	})
+
+</script>
+
+<div class="photoBox">
+  <div class="photoImg"> <span class="iconTools"><a href="__URL__/deletePic/apath/{$Think.get.apath}/id_file/{$selePic.id_file}" class="delIcon" id="delPicture">删除</a></span>　　<a href="{$selePic.path_file}{$selePic.saveName_file}" target="_blank"  class="picIcon" title="下载">下载<img src="__PUBLIC__/Images/48icons/box_download_48.png" /></a></div>
+  <div class="photoInfo">
+   
+    <div id="photoShow">
+      <p class="iconTools">
+        <label>名称：</label>
+        <span class="name_file">{$selePic.name_file}</span> <a href="#" class="editIcon" id="editPicIcon" title="编辑">编辑</a></p>
+      <p>
+        <label>说明：</label>
+        <span class="explain_file">{$selePic.explain_file}</span></p>
+    </div>
+    <div id="editPicBox">
+      <form method="post" id="eformPic">
+        <p>
+          <label>名称：</label>
+          <input name="name_file" type="text" class="text-input medium-input" value="{$selePic.name_file}"/>
+        </p>
+        <p>
+          <label>说明：</label>
+          <textarea class="text-input textarea" name="explain_file" cols="79" rows="5">{$selePic.explain_file}</textarea>
+        </p>
+        <p>
+          <input type="hidden" name="ajax" value="1" />
+          <input type="hidden" name="id_file" value="{$selePic.id_file}" />
+          <input class="button" type="button" value="确定" id="editPicBtn" />
+          <input class="button" type="button" value="取消" id="cancelPicIcon" />
+        </p>
+      </form>
+    </div>
+    <p class="uploadTime">上传于：{$selePic.time_file|date='Y-m-d H:i:s',###}</p>
+  </div>
+</div>
+<div class="clear"></div>
+<!-- End .clear -->

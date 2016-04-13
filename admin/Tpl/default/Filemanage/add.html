@@ -1,0 +1,28 @@
+
+<form method="post" id="addFolderForm">
+  <fieldset>
+  <!-- Set class to "column-left" or "column-right" on fieldsets to divide the form into columns -->
+ 
+  <p>
+    <label>名称</label>
+    <input class="text-input medium-input" type="text" name="name" value=""/>
+    <!-- Classes for input-notification: success, error, information, attention -->
+    <br />
+
+  </p>
+  <p>
+    <input class="button" type="button" value="Create" id="addFolderBtn" />
+    <!--  <input class="button"  onClick="ThinkAjax.sendForm('formMenu','__URL__/addMenus/','','result')"  type="button" value="添加" />-->
+  </p>
+  </fieldset>
+  <div class="clear"></div>
+  <!-- End .clear -->
+  <input type="hidden" name="ajax" value="1" />
+</form>
+<script>
+		$J('#addFolderBtn').click(function(){
+			ThinkAjax.sendForm('addFolderForm','__URL__/addFolder/',completeFolder,'result');
+		
+		})
+		
+</script>

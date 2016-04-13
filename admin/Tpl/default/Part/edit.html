@@ -1,0 +1,33 @@
+<form method="post" id="eformPart">
+        <fieldset>
+        <!-- Set class to "column-left" or "column-right" on fieldsets to divide the form into columns -->
+        <p>
+          <label>名称</label>
+          <input class="text-input small-input" type="text" name="name" value="{$vo.name}"/>
+          <!-- Classes for input-notification: success, error, information, attention -->
+          </p>
+        
+        <p>
+          <label>排序</label>
+           <input class="text-input small-input" type="text" name="sort" value="{$vo.sort}"/>
+         </p>
+       
+        <p>
+        <input type="hidden" name="ajax" value="1" />
+		  <input type="hidden" name="id" value="{$vo.id}" />
+          <input class="button" type="button" value="Update" id="editPartBtn" />
+          <!--  <input class="button"  onClick="ThinkAjax.sendForm('formMenu','__URL__/addMenus/','','result')"  type="button" value="添加" />-->
+        </p>
+        </fieldset>
+        <div class="clear"></div>
+        <!-- End .clear -->
+        
+      </form>
+<script>
+		
+		$J('#editPartBtn').click(function(){
+			ThinkAjax.sendForm('eformPart','__URL__/updatePart/',complete,'result');
+		
+		})
+		
+</script>

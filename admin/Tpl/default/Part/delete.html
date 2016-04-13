@@ -1,0 +1,36 @@
+<form method="post" id="dformPart">
+        <fieldset>
+        <!-- Set class to "column-left" or "column-right" on fieldsets to divide the form into columns -->
+        <p>
+          <label>名称</label>
+          {$vo.name}
+          <!-- Classes for input-notification: success, error, information, attention -->
+          </p>
+        <p>
+          <label>排序</label>
+         {$vo.sort}
+        </p>
+       
+        <p>
+        <input type="hidden" name="ajax" value="1" />
+		  <input type="hidden" name="id" value="{$vo.id}" />
+          <input class="button" type="button" value="Delete" id="delPartBtn" />
+          <!--  <input class="button"  onClick="ThinkAjax.sendForm('formMenu','__URL__/addMenus/','','result')"  type="button" value="添加" />-->
+        </p>
+        </fieldset>
+        <div class="clear"></div>
+        <!-- End .clear -->
+        
+      </form>
+<script>
+
+		
+		$J('#delPartBtn').click(function(){
+		if(confirm('确定删除 {$vo.name} ？')){
+			ThinkAjax.sendForm('dformPart','__URL__/delPart/',complete,'result');
+		}
+		
+		
+		})
+		
+</script>

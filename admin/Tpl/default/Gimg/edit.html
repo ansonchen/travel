@@ -1,0 +1,66 @@
+<form method="post" id="eformGimg">
+        <fieldset>
+        <!-- Set class to "column-left" or "column-right" on fieldsets to divide the form into columns -->
+        
+        <p>
+          <label>地点</label>
+          <input class="text-input small-input" type="text" name="name"  value="{$vo.name}"/>
+          <input class="text-input small-input" type="text" name="enname"  value="{$vo.enname}"/>
+          <!-- Classes for input-notification: success, error, information, attention -->
+          </p>
+          <p>
+          <label>所属</label>
+          <select name="g_id" id="g_id">
+           <option value="0"  <if condition="($vo.g_id eq 0)">selected</if>>首页大图</option>
+           <option value="1" <if condition="($vo.g_id eq 1)">selected</if>>酒店预订</option>
+           <option value="2" <if condition="($vo.g_id eq 2)">selected</if>>精选别墅</option>
+           <option value="3" <if condition="($vo.g_id eq 3)">selected</if>>本地活动</option>
+          </select>
+        </p>
+        <p>
+          <label>图片</label>
+          
+          <ul class="shortcut-buttons-set" id="picList">
+        	<li><a class="shortcut-button selectPic" href="__APP__/Album/indexOne"><span>
+					<img src="{$vo.path}" id="selectImgObj" alt="icon" /><br />
+					选择图片
+				</span></a></li>
+                
+         
+        </ul>
+         <div class="clear"></div>
+          <input class="text-input small-input" type="text"  value="{$vo.path}" name="path" id="selectImgHide" />
+          <!-- Classes for input-notification: success, error, information, attention -->
+          </p>
+          <p>
+          <label>连接</label>
+          <input class="text-input small-input" type="text"  value="{$vo.link}" name="link" />
+          <!-- Classes for input-notification: success, error, information, attention -->
+          </p>
+          
+          <p>
+          <label>排序</label>
+          <input class="text-input small-input" type="text" name="sort"  value="{$vo.sort}"/>
+          <!-- Classes for input-notification: success, error, information, attention -->
+          </p>
+          <p>
+           
+        <input type="hidden" name="ajax" value="1" />
+		  <input type="hidden" name="id" value="{$vo.id}" />
+          <input class="button" type="button" value="Update" id="editGimgBtn" />
+          <!--  <input class="button"  onClick="ThinkAjax.sendForm('formMenu','__URL__/addMenus/','','result')"  type="button" value="添加" />-->
+        </p>
+        </fieldset>
+        <div class="clear"></div>
+        <!-- End .clear -->
+        
+      </form>
+<script>
+		$J('a.selectPic').facebox();
+		
+		$J('#editGimgBtn').click(function(){
+			ThinkAjax.sendForm('eformGimg','__URL__/updateGimg/',complete,'result');
+		
+		})
+		
+</script>

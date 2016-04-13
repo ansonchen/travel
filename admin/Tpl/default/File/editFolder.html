@@ -1,0 +1,43 @@
+<form method="post" id="eformFolder">
+  <fieldset>
+  <!-- Set class to "column-left" or "column-right" on fieldsets to divide the form into columns -->
+  <p>
+    <label>文件夹名称</label>
+    <input class="text-input medium-input" type="text" name="name_folder" value="{$vo.name_folder}"/>
+    <!-- Classes for input-notification: success, error, information, attention -->
+  </p>
+<!--  <p>
+    <label>封面图片</label> 
+    <input type="text" name="frontCover_folder" class="text-input large-input"  value="{$vo.frontCover_folder}"/>
+    </p>-->
+  <p>
+  <label>访问类型</label> 
+   <!-- <input type="hidden" name="visit_folder" value="0"/>-->
+    <input type="radio" name="visit_folder"  value="0" <eq name="vo['visit_folder']" value="0"> checked="checked"</eq> />公开<br />
+	<input type="radio" name="visit_folder" value="1" <eq name="vo['visit_folder']" value="1"> checked="checked"</eq>/>密码访问<br />
+    <input type="radio" name="visit_folder" value="2" <eq name="vo['visit_folder']" value="2"> checked="checked"</eq> />不公开<br />
+    <input type="radio" name="visit_folder" value="3" <eq name="vo['visit_folder']" value="3"> checked="checked"</eq> />指定用户访问
+  </p>
+  <p>                              
+    <label>文件夹说明</label>
+    <textarea class="text-input textarea" name="explain_folder" cols="79" rows="5">{$vo.explain_folder}</textarea>
+  </p>
+  <p>
+    <input type="hidden" name="ajax" value="1" />
+    <input type="hidden" name="id_folder" value="{$vo.id_folder}" />
+    <input class="button" type="button" value="Update" id="editFolderBtn" />
+    <!--  <input class="button"  onClick="ThinkAjax.sendForm('formMenu','__URL__/addMenus/','','result')"  type="button" value="添加" />-->
+  </p>
+  </fieldset>
+  <div class="clear"></div>
+  <!-- End .clear -->
+</form>
+<script>
+
+//alert($J('#uploadpath_folder').val())
+		$J('#editFolderBtn').click(function(){
+			ThinkAjax.sendForm('eformFolder','__URL__/updateFolder/',complete,'result');
+		
+		})
+		
+</script>

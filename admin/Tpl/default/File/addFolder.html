@@ -1,0 +1,40 @@
+<form method="post" id="cformMenu">
+        <fieldset>
+        <!-- Set class to "column-left" or "column-right" on fieldsets to divide the form into columns -->
+        <p>
+          <label>文件夹名称</label>
+          <input class="text-input small-input" type="text" name="name_folder" value=""/>
+          <!-- Classes for input-notification: success, error, information, attention -->
+          </p>
+        <p>
+
+          <!-- <label>封面图片</label> -->
+          <input type="hidden" name="frontCover_folder" value="/Public/Images/48icons/folder_48.png"/>           
+          <!-- <label>访问类型，公开</label> -->
+          <input type="hidden" name="visit_folder" value="0"/>
+          <label>文件夹说明</label>
+          
+          <textarea class="text-input textarea" name="explain_folder" cols="79" rows="5"></textarea>
+        </p>
+        
+        
+       
+        <p>
+        <input type="hidden" name="ajax" value="1" />
+        <input class="button" type="button" value="Creat" id="addFolderBtn" />
+          <!--  <input class="button"  onClick="ThinkAjax.sendForm('formMenu','__URL__/addMenus/','','result')"  type="button" value="添加" />-->
+        </p>
+        </fieldset>
+        <div class="clear"></div>
+        <!-- End .clear -->
+        
+      </form>
+<script>
+
+//alert($J('#uploadpath_folder').val())
+		$J('#addFolderBtn').click(function(){
+			ThinkAjax.sendForm('cformMenu','__URL__/creatFolder/',complete,'result');
+		
+		})
+		
+</script>

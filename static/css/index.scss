@@ -1,0 +1,206 @@
+@import "public";
+.content{min-width: $pagewidth;
+    .picbox{
+    position: relative;height: 509px; overflow: hidden; 
+        .cover{
+            position: absolute;
+            height:72px ;
+            width: 100%;
+            top: 0;
+            left: 0;
+            background: url(img/index_bg2.png) no-repeat center top;
+        }
+        .img{ 
+            height: 509px;
+            background-position: center center;
+            background-repeat: no-repeat;
+            /*background-image: url(img/big_bg.jpg);*/
+            a{display: block;width: 100%;height: 100%;}
+        }
+    }
+    
+    .textsub{
+    height: 107px;min-width: $pagewidth;
+        background: #898989;
+        ul{
+           width: $pagewidth;margin: 0 auto;padding: 0;position: relative;
+            li{
+                float: left;
+                height: 107px;
+                line-height: 107px;
+                padding-left: 70px;
+                font-size: 20px;
+                color: #fff;
+                background: url(img/icons.jpg) no-repeat left top;
+                margin-right: 1.5em;
+                
+                &:nth-child(2){
+                    background-position: left -107px;
+                }
+                &:nth-child(3){
+                    background-position: left -214px;
+                }
+                
+            }
+            .booknow{
+                top:-61px;
+                right:0px;
+                position: absolute;
+
+            }
+        }
+    }
+    
+    h3{
+        color: #656565;
+        text-align: center;
+        margin-top: 86px;
+        font-size: 18px; 
+        font-weight: 400;
+        em{
+        font-size: 48px;        
+        font-style: normal;
+        display: block;
+        margin-bottom: 10px;
+            }
+        &.mt{margin-top: 47px;}
+    }
+    .yellowbg{ background: #fff7ec; overflow: hidden;}
+    .imglist{
+         width:$pagewidth;margin:  36px auto 0;
+        a{
+            float: left;
+            margin-right: 19px;  
+            position: relative;
+            img{width: 320px; height: 270px;margin-bottom: 19px;}
+            div{position: absolute; height: 270px;z-index: 2;top: 0;right: 0;left: 0; background: #000; opacity: 0;                
+                transition: opacity 500ms;
+                -moz-transition: opacity 500ms; /* Firefox 4 */
+                -webkit-transition: opacity 500ms; /* Safari 和 Chrome */
+                -o-transition: opacity 500ms;}
+            p{position: absolute;z-index: 3; text-align: center; width: 100%; font-size: 30px; color: #fff; top:100px; margin: 0;opacity: .6}
+            
+            &:hover{
+                p{opacity: 1}
+                div{opacity: .4}
+            }
+            &:nth-child(3),
+            &:nth-child(6)
+            {margin-right: 0} 
+            &:nth-child(6)
+            {margin-bottom: 20px}
+        }
+
+    }
+    .bookHotel{
+         width:$pagewidth;margin:  36px auto 0;
+        a{
+            float: left;
+            margin-right: 19px;
+            position: relative;
+            img{width: 320px; height: 270px;margin-bottom: 19px;}
+            div{position: absolute; height: 270px;z-index: 2;top: 0;right: 0;left: 0; background: #000; opacity: 0;                
+                transition: opacity 500ms;
+                -moz-transition: opacity 500ms; /* Firefox 4 */
+                -webkit-transition: opacity 500ms; /* Safari 和 Chrome */
+                -o-transition: opacity 500ms;}
+            p{position: absolute;z-index: 3; text-align: center; width: 100%; font-size: 30px; color: #fff; top:100px; margin: 0;opacity: .6}
+            &:hover{
+                p{opacity: 1}
+                div{opacity: .4}
+            }
+            &:nth-child(2),
+            &:nth-child(5),
+            &:nth-child(7)
+            {margin-right: 0}
+            &:nth-child(1),
+            &:nth-child(7)
+            {img{ width:659px;}
+            }
+            &:nth-child(7)
+            {margin-bottom: 20px}
+            
+        }
+        
+    }
+    
+    .special{
+        background: url(img/ch_bg.jpg) no-repeat center top;
+        height: 765px;
+        overflow: hidden;
+        h3{margin-top:60px; color: #fff; margin-bottom: 50px; }
+        
+        .special_nav{
+         width:$pagewidth;margin: 0px auto ;overflow: hidden;
+        a{
+            
+            float: left;
+            margin-right: 60px;  
+            width: 151px;
+            height: 210px;
+            font-size: 24px;
+            color: #fff;
+            text-align: center;
+            em{width: 151px;height: 151px; background: url(img/icon_yellow.png) no-repeat center top; display: block; margin:0 auto 25px}
+            &:last-child{margin-right: 0;}
+            &:nth-child(2) em{ background-position: center -151px}
+            &:nth-child(3) em{ background-position: center -302px}
+            &:nth-child(4) em{ background-position: center -453px}
+            &:nth-child(5) em{ background-position: center -604px}
+        }
+
+    }
+        .booknow{
+            margin: 60px auto 0;
+        
+        }
+        
+        
+    }
+    .choose{
+        
+        background: url(img/chose_bg.jpg) no-repeat center top;
+        height: 531px;
+        overflow: hidden;
+        h3{margin-top:54px; color: #fff; }
+        
+         .choose_nav{
+             width:$pagewidth;margin: 0px auto ;overflow: hidden;
+        
+        dl{margin: 0;padding: 0; width: 200px; float: left;margin-right: 66px;color: #fff; text-align: center;font-weight: 800;
+            &:last-child{margin-right: 0;}
+            dt{margin: 0 0 26px 0;padding: 0; font-size: 24px;
+                i{width: 126px; height: 126px; display: block; overflow: hidden;
+                background: url(img/icon_blank.png) no-repeat top center;margin:0 auto 16px;
+                }
+            }
+            dd{margin: 0;padding: 0; font-size: 14px;line-height: 24px; }
+             &:nth-child(2) i{ background-position: center -126px}
+            &:nth-child(3) i{ background-position: center -252px}
+            &:nth-child(4) i{ background-position: center -378px}
+        }
+             
+              }
+    }
+    a.more{
+        clear: both;
+            float: none;
+            text-align: center;
+            width: 360px;
+            height: 52px;
+            line-height: 52px;
+            display: block;
+            background: #b7b7b7;
+            margin: 0px auto 56px !important;
+            color: #fff;
+            font-size: 24px;
+        &:hover{
+        background: #37ace1;
+            color: #fff;
+        }
+                
+        }
+
+    
+}
+

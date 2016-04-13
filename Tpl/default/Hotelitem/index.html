@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<!--[if lt IE 9]> 
+<meta http-equiv="refresh" content="0;URL=ielt.html" />
+<![endif]-->
+<link rel="stylesheet" href="/static/css/productitem.css">
+<title>月亮假期</title>
+<meta name="keywords" content="">
+<meta name="description" content="">  
+</head>
+<body>
+
+<div class="header">
+    <div class="menu">
+        <a href="/">首页</a>
+        <a href="#">酒店预订</a>
+        <a href="#">别墅精选</a>
+        <a href="#">当地活动</a>
+        <a href="#">特别策划</a>
+        <a href="#">关于我们</a>
+    </div>
+</div>
+<div class="content">
+    <div class="itemBg"></div>
+    <div class="itemTitle">
+        <div class="box">
+        <div class="address">地址：{$ho.address}<br/>星级：{$ho.type}{$ho.star}星级 开业日期：{$ho.htime}</div>
+        <h2>{$ho.name}<br/>{$ho.enname}</h2>
+        </div>
+    </div>
+    <div class="itemCon box">
+    <div class="itemPics">
+         <volist name='Hpic' id='pvo'>
+                <img src="{$pvo.path}" alt="">
+        </volist>
+    </div>
+    <h3>酒店介绍</h3>
+    <div class="textBox">{$ho.introduction}</div>
+    
+    <h3>房型选择</h3>
+    <div class="rooms">
+      
+      <volist name='roomsList' id='rvo' >
+       <div class="room">
+           <img src="{$rvo.picturePath}" alt="">
+           <p class="name">{$rvo.name}<em>{$rvo.enname}</em></p>
+             <p>床位：<span>{$rvo.bed}</span></p>
+             <p>入住人数：<span>{$rvo.person}</span></p>
+           <div class="include"><div class="con">{$rvo.include}</div>费用包括：</div>
+       </div>
+        </volist>
+    </div>
+    <h3>酒店配套</h3>
+    
+    <div class="textBox pt">
+       {$ho.attr}
+        <!--<dl>
+            <dt>支持卡类：</dt>
+            <dd><p>国内发行银联卡</p><p>万事达</p><p>国内发行银联卡</p><p>万事达</p><p>国内发行银联卡</p><p>万事达</p><p>国内发行银联卡</p><p>万事达</p></dd>
+        </dl>
+        -->
+    </div>
+    <h3>注意事项</h3>
+    <div class="textBox">{$ho.care}</div>
+    <h3>其它可选项</h3>
+    <div class="textBox">{$ho.other}</div>
+    
+    </div>
+    
+</div>
+<div class="footer">
+    
+    <div class="footer_nav">
+        
+        <ul>
+            <li><a href="#">特色项目</a></li>
+            <li><a href="#">酒店预订</a></li>
+            <li><a href="#">别墅精选</a></li>
+            <li><a href="#">定制旅行</a></li>
+        </ul>
+        <ul>
+            <li><a href="#">公司信息</a></li>
+            <li><a href="#">关于</a></li>
+            <li><a href="#">工作机会</a></li>
+            <li><a href="#">新闻</a></li>
+        </ul>
+        <ul>
+            <li><a href="#">帮助</a></li>
+            <li><a href="#">政策</a></li>
+            <li><a href="#">灾难响应</a></li>
+            <li><a href="#">条款与隐私</a></li>
+        </ul>
+        <div class="code">
+            <span><i></i>微信扫一扫</span>
+            <span><i></i>新浪微博</span>
+        </div>
+    </div>
+</div>
+</body>
+
+
+</html>

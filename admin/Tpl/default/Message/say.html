@@ -1,0 +1,84 @@
+<div id="messages">
+  <!-- Messages are shown when a link with these attributes are clicked: href="#messages" rel="modal"  -->
+  <h3>信息</h3>
+  <div class="picBox" id="msgBox">
+    <volist name="say" id="sayvo">
+      <p id="msgP_{$sayvo.id}">{$sayvo.time|date='Y-m-d H:i:s',###} by {$sayvo.name}<br />
+        {$sayvo.content}<br />
+        <small><a href="__URL__/delMsg/id/{$sayvo.id}" class="remove-link delMsg" title="删除信息">Remove</a></small> </p>
+    </volist>
+  </div>
+  <form id="sendMsgForm" method="post">
+    <h4>New Message</h4>
+    <fieldset>
+    <textarea class="textarea" name="content" cols="79" rows="5" id="MsgTextarea"></textarea>
+    </fieldset>
+    <fieldset>
+    <input type="hidden" value="{$Think.session.authId}" name="send_id" />
+    <input type="hidden" value="Message" name="form_type" />
+    <input type="hidden" value="{@trueName}" name="name" />
+    <input type="hidden" value="1" name="ajax" />
+    <select name="receive_id">
+      <volist name="users" id="u"> <option value="{$u.id}" <eq name="u['id']" value="$cid">selected="selected"</eq>  >{$u.trueName}
+        </option>
+      </volist>
+    </select>
+    <input class="button" type="button" value="Send" id="sendMsgBtn"/>
+    </fieldset>
+  </form>
+</div>
+<script>
+updateData = true;
+//删除信息
+	function removeMsg(data,obj){
+		$J('#'+obj).fadeTo(400, 0, function () { 
+					$J(this).slideUp(400);
+				});
+	//重新加载会出现令牌错误
+	//completeN(data,1);
+	}
+	
+//添加信息
+	function addMsg(data,status){
+	if(status==1){
+
+	$J('<p id="msgP_'+data['id']+'">'+data['time']+' by '+data['name']+'<br />'+
+      data['content']+'<br />'+
+      '<small><a href="__URL__/delMsg/id/'+data['id']+'" class="remove-link delMsg" title="删除信息">Remove</a></small> </p>')
+	  .find('a.delMsg').click(function(){
+		ThinkAjax.send(this.href,'',removeMsg,'result');//参数ajax=1
+		return false;
+		
+		})
+		.end()
+	  .appendTo('#msgBox')
+	  .hide()
+	  .animate({
+			opacity: 'show'
+                },1500);
+	
+	$J('#msgBox').scrollTop(10000);
+	$J('#MsgTextarea').val('');
+
+	//重新加载会出现令牌错误
+	//completeN(data,1);
+	
+	}
+	
+	}
+		$J('#sendMsgBtn').click(function(){
+			ThinkAjax.sendForm('sendMsgForm','__URL__/sendMsg/',addMsg,'result');
+		
+		})
+		
+		$J('a.delMsg').click(function(){
+		
+		var self = this;
+		var href = self.href;
+		ThinkAjax.send(href,'',removeMsg,'result');//参数ajax=1
+		return false;
+		
+		})
+		
+
+</script>

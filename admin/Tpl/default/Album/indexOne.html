@@ -1,0 +1,39 @@
+
+<!--[if IE]><script type="text/javascript" src="resources/scripts/jquery.bgiframe.js"></script><![endif]-->
+<!-- Internet Explorer .png-fix -->
+<!--[if IE 6]>
+			<script type="text/javascript" src="resources/scripts/DD_belatedPNG_0.0.7a.js"></script>
+			<script type="text/javascript">
+				DD_belatedPNG.fix('.png_bg, img, li');
+			</script>
+		<![endif]-->
+<!-- Main Content Section with everything -->
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<noscript>
+<!-- Show a notification if the user has disabled javascript -->
+<div class="notification error png_bg">
+  <div>Javascript没有启用或您的浏览器不支持Javascript.请 <a href="http://browsehappy.com/" title="更好的浏览器">下载更新</a>您的浏览器,或者去<a href="http://www.google.com/support/bin/answer.py?answer=23852" title="去google搜索允许Javascript">Google搜索</a>允许Javascript</div>
+</div>
+</noscript>
+<h2>我的相册</h2>
+<div class="picBox">
+<ul class="shortcut-buttons-set">
+  <volist name='album' id='vo' >
+    <li><a class="shortcut-button pictureList" href="__URL__/pictureListOne/albumId_picture/{$vo.id_album}"><span> <img src="{$vo.frontCover_album}" alt="icon" /><br />
+      {$vo.name_album} </span></a></li>
+  </volist>
+</ul>
+<!-- End .shortcut-buttons-set -->
+<div class="clear"></div>
+</div>
+<!-- End .clear -->
+<script>
+
+//加载相册
+$J('a.pictureList').click(function(){
+$J('#facebox .content').load(this.href);
+return false;
+
+});
+
+ </script>

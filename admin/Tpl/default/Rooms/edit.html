@@ -1,0 +1,76 @@
+<form method="post" id="eformRoom">
+        <fieldset>
+        <!-- Set class to "column-left" or "column-right" on fieldsets to divide the form into columns -->
+        <p>
+          <label>名称</label>
+          <input class="text-input small-input" type="text" name="name"  value="{$vo.name}"/>
+          <input class="text-input small-input" type="text" name="enname"  value="{$vo.enname}"/>
+          
+          <!-- Classes for input-notification: success, error, information, attention -->
+          </p>
+          <p>
+          <label>说明</label>
+          <input class="text-input small-input" type="text" name="other"  value="{$vo.other}"/>
+          
+          <!-- Classes for input-notification: success, error, information, attention -->
+          </p>
+           <p>
+          <label>床位</label>
+          <input class="text-input small-input" type="text" name="bed"  value="{$vo.bed}"/>
+          
+          <!-- Classes for input-notification: success, error, information, attention -->
+          </p>
+           <p>
+          <label>入住人数</label>
+          <input class="text-input small-input" type="text" name="person"  value="{$vo.person}"/>
+          
+          <!-- Classes for input-notification: success, error, information, attention -->
+          </p>
+          <p>
+          <label>费用包括</label>
+           <textarea class="text-input textarea" name="include" cols="79" rows="5">{$vo.include}</textarea>
+        </p>
+          
+        <p>
+          <label>图片</label>
+          
+          <ul class="shortcut-buttons-set" id="picList">
+        	<li><a class="shortcut-button selectPic" href="__APP__/Album/indexOne"><span>
+					<img src="{$vo.picturePath}" id="selectImgObj" alt="icon" /><br />
+					选择图片
+				</span></a></li>
+                
+         
+        </ul>
+         <div class="clear"></div>
+          <input class="text-input small-input" type="text" name="picturePath" value="{$vo.picturePath}" id="selectImgHide" />
+          <!-- Classes for input-notification: success, error, information, attention -->
+          </p>
+          
+          <p>
+          <label>排序</label>
+          <input class="text-input small-input" type="text" name="sort"  value="{$vo.sort}" />
+          <!-- Classes for input-notification: success, error, information, attention -->
+          </p>
+          
+          <p>
+           
+        <input type="hidden" name="ajax" value="1" />
+		  <input type="hidden" name="id" value="{$vo.id}" />
+          <input class="button" type="button" value="Update" id="editRoomBtn" />
+          <!--  <input class="button"  onClick="ThinkAjax.sendForm('formMenu','__URL__/addMenus/','','result')"  type="button" value="添加" />-->
+        </p>
+        </fieldset>
+        <div class="clear"></div>
+        <!-- End .clear -->
+        
+      </form>
+<script>
+		$J('a.selectPic').facebox();
+		
+		$J('#editRoomBtn').click(function(){
+			ThinkAjax.sendForm('eformRoom','__URL__/updateRooms/',complete,'result');
+		
+		})
+		
+</script>

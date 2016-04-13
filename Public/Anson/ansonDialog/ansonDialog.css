@@ -1,0 +1,33 @@
+@charset "utf-8";
+/*
+ * ansonDialog 
+ *
+ * by :anson
+ *
+ */
+.ansonDialogBg { width:100%; height:100%; position:absolute; top:0px; left:0px; background:Black; z-index:80; -moz-opacity:0.5; opacity:0.5; filter:alpha(opacity=50); }
+.ansonDialog { position:absolute;float:left; z-index:82; overflow:hidden }
+.ansonDialog .ansonDialogContent { position:relative;background-color:#4D8BD9; display:block;overflow:hidden ; border:0px solid #434343; }
+.ansonDialog .ansonDialogResize { position: absolute; display:none }
+.ansonDialog .ansonDialogResizeSE { width: 15px; height: 15px; bottom: 0px; cursor: se-resize; right: 0px;background:#FFF;z-index:84}
+.ansonDialog .ansonDialogResizeSW {width: 15px; height: 15px;  bottom: 0px; cursor: sw-resize; left: 0px; z-index:84  }
+.ansonDialog .ansonDialogResizeNW {width: 15px; height: 15px;  top: 0px; cursor: nw-resize; left: 0px; z-index:84  }
+.ansonDialog .ansonDialogResizeE { width: 5px; height: 100%; top: 0px; cursor: e-resize; right: 0px;z-index:83 }
+.ansonDialog .ansonDialogResizeW { width: 5px; height: 100%; top: 0px; cursor: w-resize; left: 0px;z-index:83 }
+.ansonDialog .ansonDialogResizeS { width: 100%; height: 5px; bottom: 0px; cursor: s-resize; left: 0px;z-index:83 }
+.ansonDialog .ansonDialogResizeN { width: 100%; height: 5px; top: 0px; cursor: n-resize; left: 0px;z-index:83 }
+.ansonDialog h3 { margin:0; color: White; padding: 4px 5px 3px 5px; font-size: 1.2em; font-weight: bold; background:url(images/titleBg.gif) repeat-x 0px 0px;}
+.ansonDialog .ansonDialogText { overflow:auto; position:relative; z-index:88; background-color: #F4F3EE;/*#e0e0e0*/ border:1px solid #919B9C; padding:3px; margin:0px 2px 2px }
+.ansonDialog .ansonDialogIcon { position:absolute; top:0px; right:0px; width:100px; height:24px; z-index:89; }
+.ansonDialog .ansonDialogIconBg { top:1px; width:68px; background-image:url(images/ansonDialogIconBg.gif); }
+.ansonDialog .ansonDialogIcon a { position:absolute; width:16px; height:16px; overflow: hidden; z-index:89; text-indent:-9999px; background-image:url(images/ansonDialogH3.gif); background-repeat: no-repeat; }
+.ansonDialog .ansonDialogIcon a#ansonDialogClose { top:4px; right:4px; background-position:0px -64px; }
+.ansonDialog .ansonDialogIcon a#ansonDialogClose:hover { background-position:0px -80px; }
+.ansonDialog .ansonDialogIcon a#ansonDialogMax { top:4px; right:24px; background-position:0px 0px; }
+.ansonDialog .ansonDialogIcon a#ansonDialogMax:hover { background-position: 0px -16px; }
+.ansonDialog .ansonDialogIcon a#ansonDialogMax.min { background-position:0px -32px; }
+.ansonDialog .ansonDialogIcon a#ansonDialogMax.min:hover { background-position:0px -48px; }
+.ansonDialog .ansonDialogIcon a#ansonDialogNewWin { top:4px; right:44px; background-position:0px -96px; }
+.ansonDialog .ansonDialogIcon a#ansonDialogNewWin:hover { background-position:0px -112px; }
+.ansonDialogBtn { position:absolute; width:100%; left:0px; bottom:0px; text-align:right; border-top:1px dashed #ccc }
+.ansonDialogBtn button { margin:2px }

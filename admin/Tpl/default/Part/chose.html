@@ -1,0 +1,58 @@
+
+<h2>选择商品</h2>
+<div class="picBox">
+<ul class="shortcut-buttons-set">
+  <volist name='goodsv' id='goodsVo' >
+    <li><a class="shortcut-button pictureChoose" href="{$goodsVo.id_goods}" id="{$goodsVo.id_goods}_goodsID"><span> <img src="{$goodsVo.picturePath_goods|str_replace='xl_','s_',###}" /><br />
+     {$goodsVo.name_goods}</span></a></li>
+  </volist>
+</ul>
+
+
+<!-- End .shortcut-buttons-set -->
+<div class="clear"></div>
+
+ 
+</div>
+ <form method="post" id="formChoseGoods">
+ <input type="hidden" value="{$nvo.id}" name="id" />
+ <input type="hidden" value="{$nvo.goods_id}" name="goods_id" id="choseGoodsIDs" />
+  <input type="hidden" value="{$nvo.goods_id}" id="choseGoodsIDsbak" />
+ <input class="button" type="button" value="OK" id="choseGoodsBtn" />
+ </form>
+<!-- End .clear -->
+<script>
+var oval = $J('#choseGoodsIDsbak').val().split(',');
+for(i=1;i<oval.length;i++){
+	$J('#'+oval[i]+'_goodsID').addClass('selected');
+}
+
+//图片选择
+$J('a.pictureChoose').toggle(function()
+{
+	$J(this).addClass('selected');
+	return false;
+},function(){
+
+	$J(this).removeClass('selected');
+	return false;
+});
+
+
+$J('#choseGoodsBtn').click(function(){
+	
+	var valar = [0];
+	$J('a.selected').each(function(){
+	var id = this.id.replace('_goodsID','');
+	$J('#formChoseGoods').append('<input type="hidden" value="'+id+'" name="goodsID[]" />');
+	valar.push(id);
+	
+	});
+//var lval = valar+"";
+	//alert(valar);
+$J('#choseGoodsIDs').val(valar);
+ThinkAjax.sendForm('formChoseGoods','__URL__/choseGoods/',complete,'result');
+
+//alert($J('#choseGoodsIDs').val())
+})
+ </script>

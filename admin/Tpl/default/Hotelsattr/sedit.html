@@ -1,0 +1,51 @@
+
+<form method="post" id="eformMenu">
+  <fieldset>
+  <!-- Set class to "column-left" or "column-right" on fieldsets to divide the form into columns -->
+ 
+  <p>
+    <label>名称</label>
+    <input class="text-input medium-input" type="text" name="title" value="{$vo.title}" />
+  </p>
+   <p>
+    <label>上级</label>
+    <select name="pid" class="pid_node2">
+     <option value="0" <eq name="$vo['pid']" value="0">selected</eq> level="0" >顶级</option>
+      <volist name='omenu' id='option2' >
+        <option value="{$option2.id}" <eq name="option2['id']" value="$vo['pid']">selected</eq> level="{$option2.level}" >{$option2.title} {$option2.name}</option>
+      </volist>
+    </select>
+  </p>
+  <p>
+    <label>级别</label>
+    <input name="level" type="hidden" class="level_node2" value="{$vo.level}">
+    <span class="showLevel2">{$vo.level}</span> </p>
+ <input name="status" type="hidden" value="1"/>
+     <input name="show_status" type="hidden" value="1"/>
+  <label>排序</label>
+  <input name="sort" type="text" class="text-input small-input" value="{$vo.sort}"/>
+  </p>
+  <p>
+    <input class="button" type="button" value="Update" id="editMenuBtn" />
+    <!--  <input class="button"  onClick="ThinkAjax.sendForm('formMenu','__URL__/addMenus/','','result')"  type="button" value="添加" />-->
+  </p>
+  </fieldset>
+  <div class="clear"></div>
+  <!-- End .clear -->
+  <input type="hidden" name="ajax" value="1" />
+  <input type="hidden" name="id" value="{$vo.id}" />
+</form>
+<script>
+		$J('.pid_node2').change(function(){
+			
+			var level = parseInt($J(this).find('option[selected]').attr('level'));
+			$J('.level_node2').val(level+1);
+			$J('.showLevel2').text(level+1);
+		});
+		
+		$J('#editMenuBtn').click(function(){
+			ThinkAjax.sendForm('eformMenu','__URL__/updateMenus/',complete,'result');
+		
+		})
+		
+</script>

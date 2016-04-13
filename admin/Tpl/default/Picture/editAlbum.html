@@ -1,0 +1,43 @@
+<form method="post" id="eformAlbum">
+  <fieldset>
+  <!-- Set class to "column-left" or "column-right" on fieldsets to divide the form into columns -->
+  <p>
+    <label>相册名称</label>
+    <input class="text-input medium-input" type="text" name="name_album" value="{$vo.name_album}"/>
+    <!-- Classes for input-notification: success, error, information, attention -->
+  </p>
+<!--  <p>
+    <label>封面图片</label> 
+    <input type="text" name="frontCover_album" class="text-input large-input"  value="{$vo.frontCover_album}"/>
+    </p>-->
+  <p>
+  <label>访问类型</label> 
+   <!-- <input type="hidden" name="visit_album" value="0"/>-->
+    <input type="radio" name="visit_album"  value="0" <eq name="vo['visit_album']" value="0"> checked="checked"</eq> />公开<br />
+	<input type="radio" name="visit_album" value="1" <eq name="vo['visit_album']" value="1"> checked="checked"</eq>/>密码访问<br />
+    <input type="radio" name="visit_album" value="2" <eq name="vo['visit_album']" value="2"> checked="checked"</eq> />不公开<br />
+    <input type="radio" name="visit_album" value="3" <eq name="vo['visit_album']" value="3"> checked="checked"</eq> />指定用户访问
+  </p>
+  <p>                              
+    <label>相册说明</label>
+    <textarea class="text-input textarea" name="explain_album" cols="79" rows="5">{$vo.explain_album}</textarea>
+  </p>
+  <p>
+    <input type="hidden" name="ajax" value="1" />
+    <input type="hidden" name="id_album" value="{$vo.id_album}" />
+    <input class="button" type="button" value="Update" id="editAlbumBtn" />
+    <!--  <input class="button"  onClick="ThinkAjax.sendForm('formMenu','__URL__/addMenus/','','result')"  type="button" value="添加" />-->
+  </p>
+  </fieldset>
+  <div class="clear"></div>
+  <!-- End .clear -->
+</form>
+<script>
+
+//alert($J('#uploadpath_album').val())
+		$J('#editAlbumBtn').click(function(){
+			ThinkAjax.sendForm('eformAlbum','__URL__/updateAlbum/',complete,'result');
+		
+		})
+		
+</script>

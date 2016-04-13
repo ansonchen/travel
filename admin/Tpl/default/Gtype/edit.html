@@ -1,0 +1,60 @@
+<form method="post" id="eformMenu">
+        <fieldset>
+        <!-- Set class to "column-left" or "column-right" on fieldsets to divide the form into columns -->
+        <p>
+          <label>分类名称</label>
+          <input class="text-input medium-input" type="text" name="name" value="{$vo.name}"/>
+          <!-- Classes for input-notification: success, error, information, attention -->
+          </p>
+        <p>
+          <label>上级</label>
+          <select name="pid" class="pid2" >
+          <option value="0" level="0">顶级</option>
+            <volist name='gtype' id='option' >
+              <option value="{$option.id}" level="{$option.level}"  <eq name="option['id']" value="$vo['pid']">selected</eq> > {$option.name}</option>
+            </volist>
+          </select>
+        </p>
+        <p>
+          <label>级别</label>
+          <input name="level" class="level2" type="hidden" value="{$vo.level}">
+          <span class="showLevel2">{$vo.level}</span> </p>
+         <p>
+        <label>状态</label>
+        <if  condition="($vo.status eq 1)">
+            <input name="status" type="radio" value="1" checked="checked" />
+            可用 <br />
+            <input name="status" type="radio" value="0" />
+            禁用
+        <else/>
+            <input name="status" type="radio" value="1"/>
+            可用 <br />
+            <input name="status" type="radio" value="0"  checked="checked" />
+            禁用
+        </if>
+        </p>
+        <p>
+        <input type="hidden" name="ajax" value="1" />
+		  <input type="hidden" name="id" value="{$vo.id}" />
+          <input class="button" type="button" value="Update" id="editTypeBtn" />
+          <!--  <input class="button"  onClick="ThinkAjax.sendForm('formMenu','__URL__/addMenus/','','result')"  type="button" value="添加" />-->
+        </p>
+        </fieldset>
+        <div class="clear"></div>
+        <!-- End .clear -->
+        
+      </form>
+<script>
+		$J('.pid2').change(function(){
+			
+			var level = parseInt($J(this).find('option[selected]').attr('level'));
+			$J('.level2').val(level+1);
+			$J('.showLevel2').text(level+1);
+		});
+		
+		$J('#editTypeBtn').click(function(){
+			ThinkAjax.sendForm('eformMenu','__URL__/updateType/',completeTreeEdit,'result');
+		
+		})
+		
+</script>

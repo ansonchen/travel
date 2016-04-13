@@ -1,0 +1,62 @@
+
+<form method="post" id="dformMenu">
+  <fieldset>
+  <!-- Set class to "column-left" or "column-right" on fieldsets to divide the form into columns -->
+ 
+  <p>
+    <label>模块名称</label>
+    {$vo.name}
+    <!-- Classes for input-notification: success, error, information, attention -->
+    <br />
+    <small>英文名称</small> </p>
+  <p>
+    <label>中文名称</label>
+    {$vo.title}
+  </p>
+   <p>
+    <label>上级</label>
+    <select name="pid" class="pid_node2" disabled="disabled">
+     <option value="0" <eq name="$vo['pid']" value="0">selected</eq> level="0" >顶级</option>
+      <volist name='omenu' id='option2' >
+        <option value="{$option2.id}" <eq name="option2['id']" value="$vo['pid']">selected</eq> level="{$option2.level}" >{$option2.title} {$option2.name}</option>
+      </volist>
+    </select>
+  </p>
+  <p>
+    <label>级别</label>
+    <input name="level" type="hidden" class="level_node2" value="{$vo.level}">
+    <span class="showLevel2">{$vo.level}</span> </p>
+  <p>
+    <label>状态</label>
+    <if  condition="($vo.status eq 1)">
+       
+        可用 
+       <else />
+        禁用
+    </if>
+    </p>
+  <label>排序</label>
+  {$vo.sort}
+  </p>
+  <p>
+    <input class="button" type="button" value="Delete" id="delMenuBtn" />
+    <!--  <input class="button"  onClick="ThinkAjax.sendForm('formMenu','__URL__/addMenus/','','result')"  type="button" value="添加" />-->
+  </p>
+  </fieldset>
+  <div class="clear"></div>
+  <!-- End .clear -->
+  <input type="hidden" name="ajax" value="1" />
+  <input type="hidden" name="id" value="{$vo.id}" />
+</form>
+<script>
+
+		
+		$J('#delMenuBtn').click(function(){
+		if(confirm('确定删除 {$vo.title} ？')){
+			ThinkAjax.sendForm('dformMenu','__URL__/delMenus/',complete,'result');
+		}
+		
+		
+		})
+		
+</script>

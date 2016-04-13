@@ -1,0 +1,110 @@
+<import file = "admin.resources.scripts.common"/>
+<script>
+	$J(document).ready(function(){
+
+		
+		//修改菜单
+		$J('a.editOrder').facebox();
+
+		//翻页ajax
+		$J('.pagination>a').click(function(){
+		var href = this.href;
+		mainLoad(href)
+		
+		return false;
+		})
+				//修改状态
+		$J('a.mstatus').click(function(){
+		if(confirm('确定修改支付状态？')){
+			var href = this.href;
+			ThinkAjax.send(href,'',completeN,'result');//参数ajax=1
+			return false;
+			}
+			return false;
+		})
+	})
+
+        </script>
+<!--[if IE]><script type="text/javascript" src="resources/scripts/jquery.bgiframe.js"></script><![endif]-->
+<!-- Internet Explorer .png-fix -->
+<!--[if IE 6]>
+			<script type="text/javascript" src="resources/scripts/DD_belatedPNG_0.0.7a.js"></script>
+			<script type="text/javascript">
+				DD_belatedPNG.fix('.png_bg, img, li');
+			</script>
+		<![endif]-->
+<!-- Main Content Section with everything -->
+
+<noscript>
+<!-- Show a notification if the user has disabled javascript -->
+<div class="notification error png_bg">
+  <div>Javascript没有启用或您的浏览器不支持Javascript.请 <a href="http://browsehappy.com/" title="更好的浏览器">下载更新</a>您的浏览器,或者去<a href="http://www.google.com/support/bin/answer.py?answer=23852" title="去google搜索允许Javascript">Google搜索</a>允许Javascript</div>
+</div>
+</noscript>
+<div class="content-box">
+  <!-- Start Content Box -->
+  <div class="content-box-header">
+    <h3>订单管理</h3>
+  </div>
+  <!-- End .content-box-header -->
+  <div class="content-box-content">
+
+      <table>
+        <thead>
+          <tr>
+            <th><input class="check-all" type="checkbox" /></th>
+            <th>id</th>
+            <th>订单号</th>
+            <th>收货人</th>
+            <th>收货人电话</th>
+            <th>采购员</th>
+            <th>采购员电话</th>
+            <th>状态</th>
+            <th>总价</th>
+            <th>更新时间</th>
+            <th>后台备注</th>
+          </tr>
+        </thead>
+        <tfoot>
+          <tr>
+            <td colspan="11">
+              <div class="pagination">
+              {$page}
+               <!--<a href="#" title="第一页">&laquo; First</a><a href="#" title="上一页">&laquo; Previous</a> <a href="#" class="number" title="1">1</a> <a href="#" class="number" title="2">2</a> <a href="#" class="number current" title="3">3</a> <a href="#" class="number" title="4">4</a> <a href="#" title="下一页">Next &raquo;</a><a href="#" title="最后一页">Last &raquo;</a>--> </div>
+              <!-- End .pagination -->
+              <div class="clear"></div></td>
+          </tr>
+        </tfoot>
+        <tbody>
+          <volist name='order' id='ty' >
+            <tr>
+              <td><input type="checkbox" /></td>
+              <td>{$ty.id_order}</td>
+              <td><a href="__URL__/edit/id/{$ty.id_order}" class="editOrder">{$ty.no_order}</a></td>
+              <td>{$ty.consignee_order}</td>
+              <td>{$ty.tel_order}</td>
+              <td>{$ty.buyerName_order}</td>
+              <td>{$ty.buyerTel_order}</td>
+              <td>{$ty.orderStaus_order}　
+              <if condition="($ty.paymentStaus_order eq 1)">
+              	<a href='__URL__/updateStatus/ajax/1/id/{$ty.id_order}/status/0' class="mstatus">已支付</a>
+              <else />
+           	   <a href='__URL__/updateStatus/ajax/1/id/{$ty.id_order}/status/1' class="mstatus">未支付</a>               </if></td>
+              <td>{$ty.total_order}元</td>
+              <td>{$ty.updateTime_order|date='Y-m-d H:i:s',###}</td>
+              <td>{$ty.adminRemark_order}</td>
+            </tr>
+          </volist>
+        </tbody>
+      </table>
+   
+  </div>
+  <!-- End .content-box-content -->
+</div>
+<!-- End .content-box -->
+<!-- Start Notifications -->
+
+<!-- End Notifications -->
+<div id="footer"> <small>
+  <!-- Remove this notice or replace it with whatever you want -->
+  {$site.copyright_site} | Power by <a href="http://www.eps2008.cn">Anson</a> | <a href="#">Top</a> </small> </div>

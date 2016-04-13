@@ -1,0 +1,35 @@
+
+<form method="post" id="dformArticle">
+  <fieldset>
+  <!-- Set class to "column-left" or "column-right" on fieldsets to divide the form into columns -->
+ 
+  <p>
+          <label>标题</label>
+         {$vo.title_article} </p>
+        <p>
+          <label>副标题</label>
+          {$vo.subtitle_article}
+        </p>
+       
+        <p>
+          <label>内容</label>
+         {$vo.content_article}
+        </p>
+  <p>
+    <input class="button" type="button" value="Delete" id="delArticleBtn" />
+    <!--  <input class="button"  onClick="ThinkAjax.sendForm('formMenu','__URL__/addMenus/','','result')"  type="button" value="添加" />-->
+  </p>
+  </fieldset>
+  <div class="clear"></div>
+  <!-- End .clear -->
+  <input type="hidden" name="ajax" value="1" />
+  <input type="hidden" name="id_article" value="{$vo.id_article}" />
+</form>
+<script>
+
+		$J('#delArticleBtn').click(function(){
+			ThinkAjax.sendForm('dformArticle','__URL__/delArticle/',complete,'result');
+		
+		})
+		
+</script>

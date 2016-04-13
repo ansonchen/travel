@@ -1,0 +1,51 @@
+<form method="post" id="dformMenu">
+        <fieldset>
+        <!-- Set class to "column-left" or "column-right" on fieldsets to divide the form into columns -->
+        <p>
+          <label>分类名称</label>
+          {$vo.name}
+          <!-- Classes for input-notification: success, error, information, attention -->
+          </p>
+        <p>
+          <label>上级</label>
+  
+         <select name="pid" disabled="disabled" >
+         <option value="0" level="0">顶级</option>
+            <volist name='gtype' id='option' >
+              <option value="{$option.id}" level="{$option.level}"  <eq name="option['id']" value="$vo['pid']">selected</eq> > {$option.name}</option>
+            </volist>
+          </select>
+        </p>
+        <p>
+          <label>级别</label>
+          <span class="showLevel2">{$vo.level}</span> </p>
+        <p>
+         <if condition="($ty.status eq 1)">
+              	可用
+              <else />
+           禁用
+               </if>
+        </p>
+        <p>
+        <input type="hidden" name="ajax" value="1" />
+		  <input type="hidden" name="id" value="{$vo.id}" />
+          <input class="button" type="button" value="Delete" id="delTypeBtn" />
+          <!--  <input class="button"  onClick="ThinkAjax.sendForm('formMenu','__URL__/addMenus/','','result')"  type="button" value="添加" />-->
+        </p>
+        </fieldset>
+        <div class="clear"></div>
+        <!-- End .clear -->
+        
+      </form>
+<script>
+
+		
+		$J('#delTypeBtn').click(function(){
+		if(confirm('确定删除 {$vo.name} ？')){
+			ThinkAjax.sendForm('dformMenu','__URL__/delType/',complete,'result');
+		}
+		
+		
+		})
+		
+</script>

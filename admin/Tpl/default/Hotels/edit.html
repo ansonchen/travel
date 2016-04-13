@@ -1,0 +1,210 @@
+<tagLib name="cx,html" />
+<import file = "admin.resources.scripts.common"/>
+<script>
+
+//删除已选择图片
+function removePic(obj){
+$J(obj).parent('li').remove();
+}
+//请求完成后执行，非facebox
+function completeGoods(data,status){
+
+	if (status==1)
+	{
+	
+		window.setTimeout(function (){
+
+		mainLoad('__APP__/Hotels/index'); 
+		},1000);
+	}
+}
+$J(document).ready(function(){
+
+//		$J('a.listPic img').each(function(){
+//		this.src = this.src.replace('xl_','s_');
+//		});
+
+               		//默认选择中的多选框
+		$J('input[name=roomsValue]').each(function(){
+		var selval = this.value;
+		 $J('input[name^=room]').each(function(){
+		 
+		 	if(this.value==selval){
+			this.checked = true;
+			}
+		 })
+		
+		})
+
+        $J('input[name^=star]').each(function(){
+		 
+		 	if(this.value==$J('#starVal').val()){
+			this.checked = true;
+			}
+		 })
+        
+        
+        
+		$J('#editHotelsBtn').click(function(){
+			saveEditor();//把FCK的内容保存到textar
+			ThinkAjax.sendForm('eformHotel','__URL__/updateHotels/',completeGoods,'result');
+		
+		})
+		
+		$J('#delHotelsBtn').click(function(){
+			if(confirm('确定删除？\n删除后不可恢复！')){
+			ThinkAjax.sendForm('eformHotel','__URL__/delHotels/',completeGoods,'result');
+		}
+		})
+
+
+		$J('a.editGoods,a.delGoods,a.selectPic').facebox();
+		//翻页ajax
+		$J('.pagination>a,#returnLink').click(function(){
+		var href = this.href;
+		mainLoad(href)
+		
+		return false;
+		})
+		
+
+		})
+</script>
+<!--[if IE]><script type="text/javascript" src="resources/scripts/jquery.bgiframe.js"></script><![endif]-->
+<!-- Internet Explorer .png-fix -->
+<!--[if IE 6]>
+			<script type="text/javascript" src="resources/scripts/DD_belatedPNG_0.0.7a.js"></script>
+			<script type="text/javascript">
+				DD_belatedPNG.fix('.png_bg, img, li');
+			</script>
+		<![endif]-->
+</head>
+<body>
+<!-- Main Content Section with everything -->
+<noscript>
+<!-- Show a notification if the user has disabled javascript -->
+<div class="notification error png_bg">
+  <div>Javascript没有启用或您的浏览器不支持Javascript.请 <a href="http://browsehappy.com/" title="更好的浏览器">下载更新</a>您的浏览器,或者去<a href="http://www.google.com/support/bin/answer.py?answer=23852" title="去google搜索允许Javascript">Google搜索</a>允许Javascript</div>
+</div>
+</noscript>
+<div class="content-box">
+  <!-- Start Content Box -->
+  <div class="content-box-header">
+    <h3>酒店管理</h3>
+  </div>
+  <!-- End .content-box-header -->
+  <div class="content-box-content">
+    
+	<form method="post" id="eformHotel">
+
+        <fieldset>
+           <p>
+                       
+            <label>地址</label>
+             
+              <select name="zone_id">
+            <volist name='zone' id='option' >
+              <option value="{$option.id}" <eq name="option['id']" value="$vo['zone_id']">selected</eq>>{$option.name}</option>
+            </volist>
+          </select>
+          <input class="text-input medium-input" type="text"  name="address"  value="{$vo.address}"  /> 
+         </p>
+        <p>
+          <label>开业时间</label>
+          <input class="text-input small-input" type="text"  name="htime" value="{$vo.htime}" />
+    </p> 
+        <p>
+          <label>名称</label>
+          <input class="text-input small-input" type="text"  name="name" value="{$vo.name}" />
+          <input class="text-input small-input" type="text"  name="enname" value="{$vo.enname}"  />
+        
+           <ul class="shortcut-buttons-set" id="picList">
+        	<li><a class="shortcut-button selectPic" href="__APP__/Album/index"><span>
+					<img src="__PUBLIC__/admin/resources/images/icons/image_add_48.png" alt="icon" /><br />
+					选择图片
+				</span></a></li>
+                <volist name='HotelsPic' id='pic' >
+                <li><a class="shortcut-button listPic shortRadio" href="javascript:void(0)" onClick="removePic(this)"><span>
+					<img src="{$pic.path|str_replace='xl_','s_',###}" alt="icon" /><br />
+					点击删除图片
+					<input type="hidden"  name="path[]" value="{$pic.path}"/>
+				</span></a><label><input name="picturePath_goods" type="radio" value="{$pic.path}"  <eq name="pic['path']" value="$vo['picturePath_goods']" >checked</eq> />
+				默认显示</label></li>
+                </volist>
+                
+         
+        </ul>
+        <div class="clear"></div>
+
+        </p>
+         <p>
+             <label>酒店介绍</label>
+          <textarea class="text-input textarea" name="introduction" cols="79" rows="5">{$vo.introduction}</textarea>
+          </p>
+            <p>
+             <label>星级</label>
+             <input type="hidden" id="starVal" value="{$vo.star}">
+         <input type="radio" name="star" value="五">五星级
+            <input type="radio" name="star" value="四">四星级
+            <input type="radio" name="star" value="三">三星级
+            <input type="radio" name="star" value="二">二级
+            <input type="radio" name="star" value="一">一星级
+                <input type="radio" name="star" value="无">无星级
+          </p>
+            <label>类型</label>
+            <input class="text-input small-input" type="text"  name="type" value="{$vo.type}" />
+          </p>
+          
+    <p>
+             <label>房型选择</label>
+             <volist name='rooms' id='room' >
+              <input type="checkbox" name="room[]" value="{$room.id}" >{$room.name}
+            </volist>
+              <volist name='roomsList' id='hid' >
+                <input type="hidden" name="roomsValue" value="{$hid.room_id}" />
+              </volist>
+      
+          </p>
+             
+           
+
+          <p>
+             <label>注意事项</label>
+          <textarea class="text-input textarea" name="care" cols="79" rows="5">{$vo.care}</textarea>
+          </p>
+          <p>
+             <label>其它可选项</label>
+          <textarea class="text-input textarea" name="other" cols="79" rows="5">{$vo.other}</textarea>
+          </p>
+      	
+       
+        <p>
+          <label>排序</label>
+          <input class="text-input small-input" type="text" name="sort" value="{$vo.sort}" />
+          <label>酒店配套</label>
+          <html:editor type="fckeditor" id="introduction_goods" width="98.5%" height="400px" name="attr"  content="{$vo.attr}"/>
+         <!-- <textarea class="text-input textarea wysiwyg"  name="content_Goods" cols="79" rows="15"></textarea>-->
+        
+          </p>
+
+        <p>
+          <input class="button" type="button" value="Update" id="editHotelsBtn" />
+          <input class="button" type="button" value="Delete" id="delHotelsBtn" />
+          <a class="button" id="returnLink" href="__APP__/Hotels/index">Return</a>
+          <input type="hidden" name="ajax" value="1" />
+          <input type="hidden" name="id" value="{$vo.id}" />
+        </p>
+        </fieldset>
+        <div class="clear"></div>
+        <!-- End .clear -->
+      </form>
+  </div>
+  <!-- End .content-box-content -->
+</div>
+<!-- End .content-box -->
+<!-- Start Notifications -->
+
+<!-- End Notifications -->
+<div id="footer"> <small>
+  <!-- Remove this notice or replace it with whatever you want -->
+  {$site.copyright_site} | Power by <a href="http://www.eps2008.cn">Anson</a> | <a href="#">Top</a> </small> </div>

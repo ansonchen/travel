@@ -1,0 +1,85 @@
+<!--<import file = "admin.resources.scripts.common"/>
+-->
+<script>
+/*	$J(document).ready(function(){
+		
+				//修改状态
+		$J('a.pictureList').click(function(){
+		var href = this.href;
+		mainLoad(href);//参数ajax=1
+		return false;
+		
+		})
+		
+	})
+*/
+        </script>
+<style>
+.shortcut-buttons-set,.shortcut-buttons-set li{ list-style:none; margin:0; padding:0;}
+.shortcut-buttons-set a{ text-decoration:none;}
+.shortcut-button {
+                border: 1px solid #ccc;
+                background: #f7f7f7 ;
+                display: block;
+                width: 100px;
+                margin: 0 0 10px 0;
+                }
+
+.shortcut-button span {
+                border: 1px solid #fff;
+                display:block;
+                padding: 8px 10px 8px 10px;
+                text-align: center;
+                color: #555;
+                font-size: 13px;
+                line-height: 1.3em;
+                }
+
+.shortcut-button span img {
+                margin-bottom: 6px;
+				border:0;
+                }
+
+.shortcut-button:hover {
+                background: #fff;
+				
+                }
+				
+.shortcut-button span:hover {
+				color: #57a000; 
+                }
+
+ul.shortcut-buttons-set li {
+                float: left;
+                margin: 0 8px 0 0;
+				padding: 0 !important;
+				background: 0;
+                }
+
+</style>
+<!--[if IE]><script type="text/javascript" src="resources/scripts/jquery.bgiframe.js"></script><![endif]-->
+<!-- Internet Explorer .png-fix -->
+<!--[if IE 6]>
+			<script type="text/javascript" src="resources/scripts/DD_belatedPNG_0.0.7a.js"></script>
+			<script type="text/javascript">
+				DD_belatedPNG.fix('.png_bg, img, li');
+			</script>
+		<![endif]-->
+<!-- Main Content Section with everything -->
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<noscript>
+<!-- Show a notification if the user has disabled javascript -->
+<div class="notification error png_bg">
+  <div>Javascript没有启用或您的浏览器不支持Javascript.请 <a href="http://browsehappy.com/" title="更好的浏览器">下载更新</a>您的浏览器,或者去<a href="http://www.google.com/support/bin/answer.py?answer=23852" title="去google搜索允许Javascript">Google搜索</a>允许Javascript</div>
+</div>
+</noscript>
+<h2>我的相册</h2>
+<ul class="shortcut-buttons-set">
+  <volist name='album' id='vo' >
+    <li><a class="shortcut-button pictureList" href="__URL__/pictureListFck/albumId_picture/{$vo.id_album}"><span> <img src="{$vo.frontCover_album}" alt="icon" /><br />
+      {$vo.name_album} </span></a></li>
+  </volist>
+</ul>
+<!-- End .shortcut-buttons-set -->
+<div class="clear"></div>
+<!-- End .clear -->

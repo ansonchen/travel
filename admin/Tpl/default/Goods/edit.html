@@ -1,0 +1,212 @@
+<tagLib name="cx,html" />
+<import file = "admin.resources.scripts.common"/>
+<script>
+//移除价格
+function removePriece(obj){
+$J(obj).parent().parent('div').remove();
+return false;
+
+}
+//删除已选择图片
+function removePic(obj){
+$J(obj).parent('li').remove();
+}
+//请求完成后执行，非facebox
+function completeGoods(data,status){
+
+	if (status==1)
+	{
+	
+		window.setTimeout(function (){
+
+		mainLoad('__APP__/Goods/index'); 
+		},1000);
+	}
+}
+$J(document).ready(function(){
+
+//		$J('a.listPic img').each(function(){
+//		this.src = this.src.replace('xl_','s_');
+//		});
+
+		$J('#editGoodsBtn').click(function(){
+			saveEditor();//把FCK的内容保存到textar
+			ThinkAjax.sendForm('eformGoods','__URL__/updateGoods/',completeGoods,'result');
+		
+		})
+		
+		$J('#delGoodsBtn').click(function(){
+			if(confirm('确定删除商品？\n删除后不可恢复！')){
+			ThinkAjax.sendForm('eformGoods','__URL__/delGoods/',completeGoods,'result');
+		}
+		})
+
+
+		$J('a.editGoods,a.delGoods,a.selectPic').facebox();
+		//翻页ajax
+		$J('.pagination>a,#returnLink').click(function(){
+		var href = this.href;
+		mainLoad(href)
+		
+		return false;
+		})
+		
+		//添加价格
+		$J('#addPriceLink').click(function(){
+			if($J('#autoSend_goods').attr('checked')==true){alert('自动发货只能有一个价格，请先取消自动发货');return false}
+			$J('#priceList').append('<div><label class="iconTools">说明 价格 <a href="javascript:void(0)" class="delIcon" onclick="removePriece(this)">删除</a></label>'+
+			  '<input class="text-input small-input" type="text"  name="title[]" />　<input class="text-input small-input" type="text" name="price[]" />元'+
+			  '<label>参数</label>'+
+			  '<textarea class="text-input textarea" name="param[]" cols="79" rows="2"></textarea></div>');
+			return false;
+			})
+		//自动发货
+		$J('#autoSend_goods').click(function(){
+			if(this.checked){
+			$J('#addCardLink').show();
+			$J('.priceListDiv').remove();
+			$J('#cardList').append('<label class="iconTools cardListDiv">卡号 密码</label><div class="cardListDiv">'+
+			  '<input class="text-input small-input" type="text"  name="number[]" />　<input class="text-input small-input" type="text" name="password[]" /><span class="iconTools"><a href="javascript:void(0)" class="delIcon" onclick="removePriece(this)">删除</a></span>'+
+			  '</div>');
+			}
+			else{
+			$J('#cardList').append('<input class="priceListDiv" name="autoSend_goods" type="hidden" value="0">');
+			$J('#addCardLink').hide();
+			$J('.cardListDiv').remove();
+			}
+		
+		})
+		
+		$J('#addCardLink').each(function(){
+		
+		if($J('#autoSend_goods').attr('checked')==true){
+		$J(this).show();
+		}else{
+		$J(this).hide();
+		}
+		
+		})
+		//添加卡密
+		$J('#addCardLink').click(function(){
+			$J('#cardList').append('<div class="cardListDiv">'+
+			  '<input class="text-input small-input" type="text"  name="number[]" />　<input class="text-input small-input" type="text" name="password[]" /><span class="iconTools"><a href="javascript:void(0)" class="delIcon" onclick="removePriece(this)">删除</a></span>'+
+			  '</div>');
+			return false;
+			})
+		})
+</script>
+<!--[if IE]><script type="text/javascript" src="resources/scripts/jquery.bgiframe.js"></script><![endif]-->
+<!-- Internet Explorer .png-fix -->
+<!--[if IE 6]>
+			<script type="text/javascript" src="resources/scripts/DD_belatedPNG_0.0.7a.js"></script>
+			<script type="text/javascript">
+				DD_belatedPNG.fix('.png_bg, img, li');
+			</script>
+		<![endif]-->
+</head>
+<body>
+<!-- Main Content Section with everything -->
+<noscript>
+<!-- Show a notification if the user has disabled javascript -->
+<div class="notification error png_bg">
+  <div>Javascript没有启用或您的浏览器不支持Javascript.请 <a href="http://browsehappy.com/" title="更好的浏览器">下载更新</a>您的浏览器,或者去<a href="http://www.google.com/support/bin/answer.py?answer=23852" title="去google搜索允许Javascript">Google搜索</a>允许Javascript</div>
+</div>
+</noscript>
+<div class="content-box">
+  <!-- Start Content Box -->
+  <div class="content-box-header">
+    <h3>商品管理</h3>
+  </div>
+  <!-- End .content-box-header -->
+  <div class="content-box-content">
+    
+	<form method="post" id="eformGoods">
+
+        <fieldset>
+         
+        <p>
+          <label>名称</label>
+          <input class="text-input medium-input" type="text"  name="name_goods" value="{$vo.name_goods}" />
+           <ul class="shortcut-buttons-set" id="picList">
+        	<li><a class="shortcut-button selectPic" href="__APP__/Album/index"><span>
+					<img src="__PUBLIC__/admin/resources/images/icons/image_add_48.png" alt="icon" /><br />
+					选择图片
+				</span></a></li>
+                <volist name='goodsPic' id='pic' >
+                <li><a class="shortcut-button listPic shortRadio" href="javascript:void(0)" onClick="removePic(this)"><span>
+					<img src="{$pic.path|str_replace='xl_','s_',###}" alt="icon" /><br />
+					点击删除图片
+					<input type="hidden"  name="path[]" value="{$pic.path}"/>
+				</span></a><label><input name="picturePath_goods" type="radio" value="{$pic.path}" <eq name="pic['path']" value="$vo['picturePath_goods']" >checked</eq> />
+				默认显示</label></li>
+                </volist>
+                
+         
+        </ul>
+        <div class="clear"></div>
+      	<div id="priceList">
+		  <label class="iconTools">默认价格 <a href="javascript:void(0)" id="addPriceLink" class="addIcon">增加</a></label>
+          <input class="text-input small-input" type="text" name="price_goods"  value="{$vo.price_goods}" />
+          元
+          <label>参数</label>
+          <textarea class="text-input textarea" name="parameter_goods" cols="79" rows="2">{$vo.parameter_goods}</textarea>
+           <volist name='goodsPir' id='pir' >
+           <div class="priceListDiv"><label class="iconTools">说明 价格 <a href="#" class="delIcon" onClick="removePriece(this)">删除</a></label>
+			  <input class="text-input small-input" type="text"  name="title[]" value="{$pir.title}" />　<input class="text-input small-input" type="text" name="price[]" value="{$pir.price}"/>元
+			  <label>参数</label>
+			  <textarea class="text-input textarea" name="param[]" cols="79" rows="2">{$pir.param}</textarea></div>
+           </volist>
+          
+        </div>
+        </p><p>
+        <div id="cardList">
+		  <label class="iconTools">
+           <if condition="($vo.autoSend_goods eq 1)">
+           <input name="autoSend_goods" type="checkbox" id="autoSend_goods" value="1" checked>
+              <else />
+              <input name="autoSend_goods" type="checkbox" id="autoSend_goods" value="1">
+          </if>
+          自动发货/卡密
+		  <a href="javascript:void(0)" id="addCardLink" class="addIcon">增加卡密</a> <span class="input-notification information png_bg">自动发货只有一个价格，选中将删除默认价格以外的价格</span></label>
+            <volist name='goodsCard' id='card' >
+           <div class="cardListDiv">
+			  <input class="text-input small-input" type="text"  name="number[]"  value="{$card.number}"/>　<input class="text-input small-input" type="text" name="password[]" value="{$card.password}"/><span class="iconTools"><a href="#" class="delIcon" onClick="removePriece(this)">删除</a></span>
+			  </div>
+           </volist>
+        </div>
+        </p><p>
+		 <label>排序分类</label>
+          <input  name="sort_goods" type="text" class="text-input small-input"  value="{$vo.sort_goods}" />
+          <select name="typeId_goods">
+          <option value="1" >默认分类</option>
+            <volist name='otype' id='option' > 
+            	<eq name="option['belongType_type']" value="Goods">
+              <option value="{$option.id_type}" <eq name="option['id_type']" value="$vo['typeId_goods']">selected</eq> >{$option.name_type}</option>
+              </eq>
+            </volist>
+          </select>
+          <label>详细说明</label>
+          <html:editor type="fckeditor" id="introduction_goods" width="98.5%" height="400px" name="introduction_goods"  content="{$vo.introduction_goods}"/>
+         <!-- <textarea class="text-input textarea wysiwyg"  name="content_Goods" cols="79" rows="15"></textarea>-->
+        </p>
+        <p>
+          <input class="button" type="button" value="Update" id="editGoodsBtn" />
+          <input class="button" type="button" value="Delete" id="delGoodsBtn" />
+          <a class="button" id="returnLink" href="__APP__/Goods/index">Return</a>
+          <input type="hidden" name="ajax" value="1" />
+          <input type="hidden" name="id_goods" value="{$vo.id_goods}" />
+        </p>
+        </fieldset>
+        <div class="clear"></div>
+        <!-- End .clear -->
+      </form>
+  </div>
+  <!-- End .content-box-content -->
+</div>
+<!-- End .content-box -->
+<!-- Start Notifications -->
+
+<!-- End Notifications -->
+<div id="footer"> <small>
+  <!-- Remove this notice or replace it with whatever you want -->
+  {$site.copyright_site} | Power by <a href="http://www.eps2008.cn">Anson</a> | <a href="#">Top</a> </small> </div>

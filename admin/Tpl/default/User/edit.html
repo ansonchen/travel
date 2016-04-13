@@ -1,0 +1,54 @@
+
+<form method="post" id="eformUser">
+  <fieldset>
+  <!-- Set class to "column-left" or "column-right" on fieldsets to divide the form into columns -->
+  <p>
+          <label>帐号</label>
+    {$vo.account}
+ </p>
+         
+  <p>
+          <label>昵称</label>
+          <input class="text-input small-input" type="text" name="nickname" value="{$vo.nickname}"/>
+  </p>
+        <p>
+          <label>真实姓名</label>
+          <input class="text-input small-input" type="text" name="trueName" value="{$vo.trueName}"/>
+  </p>
+        <p>
+          <label>QQ</label>
+          <input class="text-input small-input" type="text" name="qq" value="{$vo.qq}"/>
+  </p>
+           <p>
+          <label>性别</label>
+           <if  condition="($vo.sex eq '先生')">
+          <input name="sex" type="radio" value="先生" checked/>先生 <br />
+          <input type="radio" name="sex" value="小姐"/>小姐
+          <else/>
+          <input name="sex" type="radio" value="先生" />先生 <br />
+          <input type="radio" name="sex" value="小姐" checked/>小姐
+          </if>
+           </p>
+            <p>
+          <label>电话</label>
+          <input class="text-input small-input" type="text" name="tel" value="{$vo.tel}" />
+          </p>
+       
+  <p>
+          <input class="button" type="button" value="Update" id="editUserBtn" />
+    <!--  <input class="button"  onClick="ThinkAjax.sendForm('formMenu','__URL__/addMenus/','','result')"  type="button" value="添加" />-->
+  </p>
+        </fieldset>
+  <div class="clear"></div>
+  <!-- End .clear -->
+  <input type="hidden" name="ajax" value="1" />
+  <input type="hidden" name="id" value="{$vo.id}" />
+</form>
+<script>
+		
+		$J('#editUserBtn').click(function(){
+			ThinkAjax.sendForm('eformUser','__URL__/updateUser/',complete,'result');
+		
+		})
+		
+</script>

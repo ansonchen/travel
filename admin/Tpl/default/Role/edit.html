@@ -1,0 +1,54 @@
+<form method="post" id="eformRole">
+  <fieldset>
+  <!-- Set class to "column-left" or "column-right" on fieldsets to divide the form into columns -->
+  <p>
+    <label>角色名称</label>
+    <input class="text-input medium-input" type="text" name="name" value="{$vo.name}"/>
+    <!-- Classes for input-notification: success, error, information, attention -->
+  </p>
+  <p>
+    <label>英文名称</label>
+    <input class="text-input medium-input" type="text" name="ename" value="{$vo.ename}" />
+  </p>
+  <p>
+    <label>备注</label>
+    <input class="text-input medium-input" type="text" name="remark" value="{$vo.remark}" />
+  </p>
+  <p>
+    <label>上级</label>
+    <select name="pid" >
+      <volist name='oRole' id='option' >
+       <option value="{$option.id}"  <eq name="option['id']" value="$vo['pid']">selected</eq> >{$option.name} </option>
+      </volist>
+    </select>
+  </p>
+  <label>状态</label>
+  <if  condition="($vo.status eq 1)">
+    <input name="status" type="radio" value="1" checked="checked" />
+    可用 <br />
+    <input name="status" type="radio" value="0" />
+    禁用
+    <else/>
+    <input name="status" type="radio" value="1"/>
+    可用 <br />
+    <input name="status" type="radio" value="0"  checked="checked" />
+    禁用 </if>
+  <p>
+    <input class="button" type="button" value="Update" id="editRoleBtn" />
+    <!--  <input class="button"  onClick="ThinkAjax.sendForm('formRole','__URL__/addRole/','','result')"  type="button" value="添加" />-->
+  </p>
+  </fieldset>
+  <div class="clear"></div>
+  <!-- End .clear -->
+  <input type="hidden" name="ajax" value="1" />
+  <input type="hidden" name="id" value="{$vo.id}" />
+</form>
+<script>
+
+		
+		$J('#editRoleBtn').click(function(){
+			ThinkAjax.sendForm('eformRole','__URL__/updateRole/',complete,'result');
+		
+		})
+		
+</script>

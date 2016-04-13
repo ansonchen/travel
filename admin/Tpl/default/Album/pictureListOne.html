@@ -1,0 +1,84 @@
+<!--[if IE]><script type="text/javascript" src="resources/scripts/jquery.bgiframe.js"></script><![endif]-->
+<!-- Internet Explorer .png-fix -->
+<!--[if IE 6]>
+			<script type="text/javascript" src="resources/scripts/DD_belatedPNG_0.0.7a.js"></script>
+			<script type="text/javascript">
+				DD_belatedPNG.fix('.png_bg, img, li');
+			</script>
+		<![endif]-->
+<!-- Main Content Section with everything -->
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+<noscript>
+<!-- Show a notification if the user has disabled javascript -->
+<div class="notification error png_bg">
+  <div>Javascript没有启用或您的浏览器不支持Javascript.请 <a href="http://browsehappy.com/" title="更好的浏览器">下载更新</a>您的浏览器,或者去<a href="http://www.google.com/support/bin/answer.py?answer=23852" title="去google搜索允许Javascript">Google搜索</a>允许Javascript</div>
+</div>
+</noscript>
+<h2><a href="__APP__/Album/index" class="picNav">我的相册</a> > {$album.name_album}</h2>
+<div class="picBox">
+  <ul class="shortcut-buttons-set">
+    <volist name='picture' id='vo' >
+      <li><a class="shortcut-button pictureChoose" href="{$vo.path_picture}xl_{$vo.saveName_picture}" title="选择"><span> <img src="{$vo.path_picture}s_{$vo.saveName_picture}" alt="icon" /><br />
+        {$vo.name_picture} </span></a></li>
+    </volist>
+  </ul>
+  <!-- End .shortcut-buttons-set -->
+  <div class="clear"></div>
+
+  <!-- End .clear -->
+</div>
+<a class="button" href="#" id="selectPicBtn">确定</a>
+<!-- End .content-box -->
+<!-- Start Notifications -->
+{$noPic}
+<!-- End Notifications -->
+<script>
+//删除已选择图片
+function removePic(obj){
+$J(obj).parent('li').remove();
+}
+
+	//我的相册
+$J('a.picNav').click(function(){
+var self = this;
+$J('#facebox .content').load(this.href);
+return false;
+});
+//添加图片
+function addPicToSelect(url){
+	
+	var sPic = url.replace('xl_','s_');
+	var dPic = url.replace('xl_','');
+	$J('#selectImgObj').attr('src',sPic);
+	$J('#selectImgHide').attr('value',sPic);
+
+}
+//图片选择
+$J('a.pictureChoose').toggle(function()
+{
+	$J(this).addClass('selected');
+	return false;
+},function(){
+
+	$J(this).removeClass('selected');
+	return false;
+});
+//确定
+$J('#selectPicBtn').click(function(){
+	if($J('a.selected').length!==1){
+		alert('请选择一个图片');
+		return false
+	}else{
+		
+		$J('a.selected').each(function(){
+		addPicToSelect(this.href);
+		})
+		
+		$J.facebox.close();
+	}
+})
+		
+	
+	
+</script>

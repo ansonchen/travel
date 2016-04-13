@@ -1,0 +1,33 @@
+
+<form method="post" id="dformFolder">
+  <fieldset>
+  <!-- Set class to "column-left" or "column-right" on fieldsets to divide the form into columns -->
+ 
+  <p>
+    <label>名称</label>
+    {名称}
+    <!-- Classes for input-notification: success, error, information, attention -->
+    <br />
+
+  <p>
+    <input class="button" type="button" value="Delete" id="delFolderBtn" />
+    <!--  <input class="button"  onClick="ThinkAjax.sendForm('formMenu','__URL__/addMenus/','','result')"  type="button" value="添加" />-->
+  </p>
+  </fieldset>
+  <div class="clear"></div>
+  <!-- End .clear -->
+  <input type="hidden" name="ajax" value="1" />
+  <input type="hidden" name="id" value="{$vo.id}" />
+</form>
+<script>
+
+		
+		$J('#delFolderBtn').click(function(){
+		if(confirm('确定删除{名称} ？')){
+			ThinkAjax.sendForm('dformFolder','__URL__/delFolder/',completeFolder,'result');
+		}
+		
+		
+		})
+		
+</script>

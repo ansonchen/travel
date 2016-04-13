@@ -1,0 +1,50 @@
+<form method="post" id="dformMenu">
+        <fieldset>
+        <!-- Set class to "column-left" or "column-right" on fieldsets to divide the form into columns -->
+         <p>
+          <label>地点</label>
+          {$vo.name}{$vo.enname}
+          <!-- Classes for input-notification: success, error, information, attention -->
+          </p>
+          <p>
+          <label>所属</label>
+           <if condition="($vo.g_id eq 0)">首页大图</if>
+             	<if condition="($vo.g_id eq 1)">酒店预订</if>
+             	<if condition="($vo.g_id eq 2)">精选别墅</if>
+             	<if condition="($vo.g_id eq 3)">本地活动</if>
+        </p>
+        <p>
+          <label>图片</label>
+          {$vo.path}
+          <!-- Classes for input-notification: success, error, information, attention -->
+          </p>
+          <p>
+          <p>
+          <label>排序</label>
+          {$vo.sort}
+          <!-- Classes for input-notification: success, error, information, attention -->
+          </p>
+          <p>
+       
+        <input type="hidden" name="ajax" value="1" />
+		  <input type="hidden" name="id" value="{$vo.id}" />
+          <input class="button" type="button" value="Delete" id="delGimgBtn" />
+          <!--  <input class="button"  onClick="ThinkAjax.sendForm('formMenu','__URL__/addMenus/','','result')"  type="button" value="添加" />-->
+        </p>
+        </fieldset>
+        <div class="clear"></div>
+        <!-- End .clear -->
+        
+      </form>
+<script>
+
+		
+		$J('#delGimgBtn').click(function(){
+		if(confirm('确定删除 {$vo.name_type} ？')){
+			ThinkAjax.sendForm('dformMenu','__URL__/delGimg/',complete,'result');
+		}
+		
+		
+		})
+		
+</script>

@@ -1,0 +1,244 @@
+<!--<import file = "admin.resources.scripts.common"/>
+-->
+<script>
+// Automatically detect the correct document.domain (#123).
+(function()
+{
+	var d = document.domain ;
+
+	while ( true )
+	{
+		// Test if we can access a parent property.
+		try
+		{
+			var test = window.parent.document.domain ;
+			break ;
+		}
+		catch( e ) {}
+
+		// Remove a domain part: www.mytest.example.com => mytest.example.com => example.com ...
+		d = d.replace( /.*?(?:\.|$)/, '' ) ;
+
+		if ( d.length == 0 )
+			break ;		// It was not able to detect the domain.
+
+		try
+		{
+			document.domain = d ;
+		}
+		catch (e)
+		{
+			break ;
+		}
+	}
+})() ;
+
+
+// Gets a element by its Id. Used for shorter coding.
+function GetE( elementId )
+{
+	return document.getElementById( elementId )  ;
+}
+
+
+function SetAttribute( element, attName, attValue )
+{
+	if ( attValue == null || attValue.length == 0 )
+		element.removeAttribute( attName, 0 ) ;			// 0 : Case Insensitive
+	else
+		element.setAttribute( attName, attValue, 0 ) ;	// 0 : Case Insensitive
+}
+
+
+
+
+
+
+/*
+	$J(document).ready(function(){
+			//我的相册
+		$J('a.picNav').click(function(){
+		var href = this.href;
+		mainLoad(href);//参数ajax=1
+		return false;
+		
+		})
+		$J('a.pictureChoose').click(function(){
+			alert(this.href);
+			return false;
+		})
+		
+	})
+
+*/ 
+</script>
+<style>
+.shortcut-buttons-set,.shortcut-buttons-set li{ list-style:none; margin:0; padding:0;}
+.shortcut-buttons-set a{ text-decoration:none;}
+.shortcut-button {
+                border: 1px solid #ccc;
+                background: #f7f7f7 ;
+                display: block;
+                width: 100px;
+                margin: 0 0 10px 0;
+                }
+.shortcut-button.selected{
+	border:2px solid #FF9900;
+	margin: 0 0 8px 0;
+}
+.shortcut-button span {
+                border: 1px solid #fff;
+                display:block;
+                padding: 8px 10px 8px 10px;
+                text-align: center;
+                color: #555;
+                font-size: 13px;
+                line-height: 1.3em;
+                }
+
+.shortcut-button span img {
+                margin-bottom: 6px;
+				border:0;
+                }
+
+.shortcut-button:hover {
+                background: #fff;
+				
+                }
+				
+.shortcut-button span:hover {
+				color: #57a000; 
+                }
+
+ul.shortcut-buttons-set li {
+                float: left;
+                margin: 0 8px 0 0;
+				padding: 0 !important;
+                }
+</style>
+<!--[if IE]><script type="text/javascript" src="resources/scripts/jquery.bgiframe.js"></script><![endif]-->
+<!-- Internet Explorer .png-fix -->
+<!--[if IE 6]>
+			<script type="text/javascript" src="resources/scripts/DD_belatedPNG_0.0.7a.js"></script>
+			<script type="text/javascript">
+				DD_belatedPNG.fix('.png_bg, img, li');
+			</script>
+		<![endif]-->
+<!-- Main Content Section with everything -->
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<noscript>
+<!-- Show a notification if the user has disabled javascript -->
+<div class="notification error png_bg">
+  <div>Javascript没有启用或您的浏览器不支持Javascript.请 <a href="http://browsehappy.com/" title="更好的浏览器">下载更新</a>您的浏览器,或者去<a href="http://www.google.com/support/bin/answer.py?answer=23852" title="去google搜索允许Javascript">Google搜索</a>允许Javascript</div>
+</div>
+</noscript>
+
+			<h2><a href="__APP__/Album/indexFck" class="picNav">我的相册</a> > {$album.name_album}</h2>
+			
+			<ul class="shortcut-buttons-set">
+            	
+				<volist name='picture' id='vo' >
+				<li><a class="shortcut-button pictureChoose" href="{$vo.path_picture}xl_{$vo.saveName_picture}" title="选择"><span>
+					<img src="{$vo.path_picture}s_{$vo.saveName_picture}" alt="icon" /><br />
+					{$vo.name_picture}
+				</span></a></li>
+				
+				</volist>
+			
+
+				
+			</ul><!-- End .shortcut-buttons-set -->
+            <input id="txtUrl" value="" type="hidden" >
+			
+			<div class="clear"></div> <!-- End .clear -->
+
+<!-- End .content-box -->
+<!-- Start Notifications -->
+{$noPic}
+<!-- End Notifications -->
+<script>
+
+var dialog		= window.parent ;
+var oEditor		= dialog.InnerDialogLoaded() ;
+var FCK			= oEditor.FCK ;
+var FCKLang		= oEditor.FCKLang ;
+var FCKConfig	= oEditor.FCKConfig ;
+var FCKTools	= oEditor.FCKTools ;
+
+
+// Get the selected image (if available).
+var oImage = dialog.Selection.GetSelectedElement() ;
+
+if ( oImage && oImage.tagName != 'IMG' && !( oImage.tagName == 'INPUT' && oImage.type == 'image' ) )
+	oImage = null ;
+function Ok()
+{
+	if ( GetE('txtUrl').value.length == 0 )
+	{
+
+		alert('请先选择一个图片!') ;
+
+		return false ;
+	}
+	var bHasImage = ( oImage != null ) ;
+
+
+	oEditor.FCKUndo.SaveUndoStep() ;
+	if ( !bHasImage )
+	{
+		oImage = FCK.InsertElement( 'img' ) ;
+	}
+
+	UpdateImage( oImage ) ;
+
+
+
+	return true ;
+}
+
+function UpdateImage( e, skipId )
+{
+	e.src = GetE('txtUrl').value ;
+	SetAttribute( e, "_fcksavedurl", GetE('txtUrl').value ) ;
+}
+function removeClass(){
+
+	var atag = document.getElementsByTagName("a");
+	for(var i=0; i<atag.length;i++){
+	if(atag[i].title=='选择'){
+	atag[i].className = atag[i].className.replace(/selected/,'');
+	}
+	
+	}
+
+}
+function aclick(){
+	var atag = document.getElementsByTagName("a");
+	for(var i=0; i<atag.length;i++){
+	if(atag[i].title=='选择'){
+		atag[i].onclick = function(){
+			removeClass();
+			this.className += ' selected';
+			GetE('txtUrl').value = this.href;
+			
+			return false;
+		}
+	}
+	
+	}
+}
+window.onload = function()
+{
+aclick();
+	
+	
+}
+
+
+
+//#### The OK button was hit.
+
+
+
+
+</script>

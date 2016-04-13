@@ -1,0 +1,168 @@
+
+.iconTools a{
+	padding-right:16px;
+	background-repeat: no-repeat;
+	background-position: right top;
+	margin-left:6px;
+}
+.iconTools a.addIcon{
+background-image:url(../images/icons/add.png)
+}
+.iconTools a.delIcon{
+background-image:url(../images/icons/cross.png) }
+.iconTools a.editIcon{
+background-image:url(../images/icons/pencil.png)}
+/*原始图片*/
+.iconTools a.picIcon{
+background-image:url(../images/icons/image.png) }
+/*封面*/
+.iconTools a.frontIcon{
+background-image:url(../images/icons/folder_image.png) }
+/*授权*/
+.iconTools a.accessIcon{
+background-image:url(../images/icons/award_star_gold_1.png) }
+/*用户*/
+.iconTools a.userIcon{
+background-image:url(../images/icons/user_suit.png) }
+/*输入框*/
+.iconTools a.textfieldIcon{
+background-image:url(../images/icons/textfield_rename.png)
+}
+/*对话*/
+.iconTools a.sayIcon{
+background-image:url(../images/icons/comments.png)
+}
+/*对话*/
+.iconTools a.showIcon{
+background-image:url(../images/icons/page_go.png)
+}
+/*文件夹操作*/
+.iconTools a.addFIcon{
+background-image:url(../images/icons/folder_add.png)
+}
+.iconTools a.editFIcon{
+background-image:url(../images/icons/folder_edit.png)
+}
+.iconTools a.delFIcon{
+background-image:url(../images/icons/folder_delete.png)
+}
+/****查看图片***/
+.photoBox{margin:5px 5px 0 5px; }
+.photoBox .photoImg{padding-bottom:5px;}
+.photoBox .photoInfo{
+	position: relative;
+}
+.photoBox .photoInfo p{ margin:0}
+.photoBox .photoInfo p .name_picture{font-weight:bold}
+.photoBox .photoInfo p.uploadTime{
+text-align:right;
+color:#999}
+.photoBox #editPicBox{ display:none}
+
+.photoBox .photoInfo p.photoTools{
+	
+	text-align:right;
+	position: absolute;
+	width:180px;
+	height:20px;
+	right:0px;
+}
+.picBox {
+	width:500px;
+	height:360px;
+	overflow:auto;
+}
+
+.shortcut-button.selected {
+	border:4px solid #FF9900
+}
+/*带单选的图片列表*/
+.shortRadio{
+ margin:0 0 2px 0;}
+ 
+#picList label{
+ font-weight:normal}
+
+/******多先框列表******/
+.checkBoxList{border-top:1px solid #ccc;padding:10px 0}
+.checkBoxList li{ float:left; margin-right:5px;}
+
+/*信息提示*/
+#result{ 
+	position: absolute;
+	left:260px;
+	padding:0 24px 0 0;
+}
+
+/**table**/
+#eformOrder table {
+                width: 600px;
+                border-collapse: collapse;
+                }
+                
+#eformOrder table th {
+                font-weight:normal;
+                font-size: 12px;
+				text-align:right;
+				width:20%;
+                border-right: 1px solid #ddd;
+                }
+                
+#eformOrder tbody {
+                border-bottom: 1px solid #ddd;
+                }
+                
+#eformOrder tbody tr {
+                background: #fff;
+                }
+              
+#eformOrder tbody tr.alt-row {
+                background: #f3f3f3;
+                }
+                
+#eformOrder table td,
+#eformOrder table th {
+                padding: 4px;
+                line-height: 1.3em;
+                }        
+				
+#eformOrder table tfoot td .bulk-actions {
+                padding: 15px 0 5px 0;
+                } 
+				
+#eformOrder table tfoot td .bulk-actions select {
+                padding: 4px;
+				border: 1px solid #ccc;
+                }      
+#eformOrder table#goodsList {
+                width: 600px;
+                border-collapse: collapse;
+                }
+#eformOrder table#goodsList th {
+                font-weight:bold;
+                font-size: 12px;
+				text-align:center;
+				 border-right: 0px solid #ddd;;
+                border-bottom: 2px solid #ddd;
+                }
+#eformOrder table#goodsList td{
+text-align:center;
+}			
+
+.hidden{ display:none}
+
+/*树型操作*/
+.treeBox{ }
+#main-content .treeBox li{ list-style:none; background-image:none}
+#treeBoxContent{}
+#treeBoxContent li{float:left; margin-right:10px;}
+#treeBoxContent li ul{ }
+#treeBoxContent li ul li{float:none; margin-right:0px}
+#treeBoxContent li span{cursor:pointer}
+#treeBoxContent li span.name{ color:#333;}
+#treeBoxContent li span.open{ font-family:Wingdings; color:#CCC; margin:0 6px 0 0}
+#treeBoxContent li span.edited{ color:#36F}
+#treeBoxContent li span.plus{ font-family:Wingdings; margin-left:6px; font-weight:bold; color:#F93; }
+#treeBoxContent li span.del{ font-family:Wingdings; margin-left:6px;  color:#FC9C9A; }
+#treeBoxContent li.new span.name{ background:#CCC; color:#000}
+

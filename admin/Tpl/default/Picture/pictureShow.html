@@ -1,0 +1,99 @@
+<import file = "admin.resources.scripts.common"/>
+<script>
+	$J(document).ready(function(){
+		
+		function completePic(data,status){
+		if (status==1)
+			{
+			$J('#photoShow .name_picture').text(data['name_picture']);
+			$J('#photoShow .explain_picture').text(data['explain_picture']);
+			$J('#photoShow').show();
+			$J('#editPicBox').hide();
+			completeN(data,status);
+			}
+		}
+		$J('#editPicBtn').click(function(){
+		
+		ThinkAjax.sendForm('eformPic','__URL__/editPic/',completePic,'result');
+		
+		});
+		$J('#editPicIcon').click(function(){
+		
+		$J('#photoShow').hide();
+		$J('#editPicBox').show();
+		//去除更新后的bug
+		$J('input[name=name_picture]').val($J('#photoShow .name_picture').text());
+		$J('input[name=explain_picture]').val($J('#photoShow .explain_picture').text());
+		
+		return false;
+		})
+		
+		$J('#cancelPicIcon').click(function(){
+		
+		$J('#photoShow').show();
+		$J('#editPicBox').hide();
+		
+		return false;
+		})
+		
+		$J('#delPicture').click(function(){
+		if(confirm('确定删除图片？')){
+		
+			var href = this.href;
+			ThinkAjax.send(href,'ajax=1',complete,'result');//参数ajax=1
+		
+		}
+		return false;
+		})
+		
+		//设置封面
+		$J('#frontPicture').click(function(){
+
+			var href = this.href;
+			ThinkAjax.send(href,'ajax=1','','result');//参数ajax=1
+			return false;
+		
+
+		})
+		
+		
+		
+	})
+
+</script>
+
+<div class="photoBox">
+  <div class="photoImg"> <img src="{$selePic.path_picture}xl_{$selePic.saveName_picture}" /> </div>
+  <div class="photoInfo">
+    <p  class="photoTools iconTools"><a href="__URL__/deletePic/apath/{$Think.get.apath}/id_picture/{$selePic.id_picture}" class="delIcon" id="delPicture">删除</a> <a href="__URL__/frontAlbum/id_picture/{$selePic.id_picture}/id_album/{$Think.get.id_album}" class="frontIcon" id="frontPicture">封面</a> <a href="{$selePic.path_picture}{$selePic.saveName_picture}" target="_blank"  class="picIcon" title="查看原图">原图</a> </p>
+    <div id="photoShow">
+      <p class="iconTools">
+        <label>名称：</label>
+        <span class="name_picture">{$selePic.name_picture}</span> <a href="#" class="editIcon" id="editPicIcon" title="编辑">编辑</a></p>
+      <p>
+        <label>说明：</label>
+        <span class="explain_picture">{$selePic.explain_picture}</span></p>
+    </div>
+    <div id="editPicBox">
+      <form method="post" id="eformPic">
+        <p>
+          <label>名称：</label>
+          <input name="name_picture" type="text" class="text-input medium-input" value="{$selePic.name_picture}"/>
+        </p>
+        <p>
+          <label>说明：</label>
+          <textarea class="text-input textarea" name="explain_picture" cols="79" rows="5">{$selePic.explain_picture}</textarea>
+        </p>
+        <p>
+          <input type="hidden" name="ajax" value="1" />
+          <input type="hidden" name="id_picture" value="{$selePic.id_picture}" />
+          <input class="button" type="button" value="确定" id="editPicBtn" />
+          <input class="button" type="button" value="取消" id="cancelPicIcon" />
+        </p>
+      </form>
+    </div>
+    <p class="uploadTime">上传于：{$selePic.time_picture|date='Y-m-d H:i:s',###}</p>
+  </div>
+</div>
+<div class="clear"></div>
+<!-- End .clear -->

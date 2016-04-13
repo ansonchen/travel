@@ -1,0 +1,47 @@
+<form method="post" id="formUserList">
+  <h3> {$Think.get.name}的用户列表 </h3>
+  <fieldset>
+  <!-- Set class to "column-left" or "column-right" on fieldsets to divide the form into columns -->
+  <volist name='userList' id='uid' >
+    <input type="hidden" name="userValue" value="{$uid.user_id}" />
+  </volist>
+  <ul class="checkBoxList">
+    <volist name='selectMember' id='sm' >
+      <li>
+        <label>
+        <input name="id_user[]" type="checkbox" value="{$sm.id}"  />
+        {$sm.nickname}　{$sm.account}</label>
+      </li>
+    </volist>
+    <div class="clear"></div>
+  </ul>
+  <p>
+    <input class="button" type="button" value="Sumbit" id="userRoleListBtn" />
+    <!--  <input class="button"  onClick="ThinkAjax.sendForm('formRole','__URL__/addRole/','','result')"  type="button" value="添加" />-->
+  </p>
+  </fieldset>
+  <div class="clear"></div>
+  <!-- End .clear -->
+  <input type="hidden" name="ajax" value="1" />
+  <input type="hidden" name="id" value="{$Think.get.id}" />
+</form>
+<script>
+
+		//默认选择中的多选框
+		$J('input[name=userValue]').each(function(){
+		var selval = this.value;
+		 $J('input[name^=id_user]').each(function(){
+		 
+		 	if(this.value==selval){
+			this.checked = true;
+			}
+		 })
+		
+		})
+		//发送
+		$J('#userRoleListBtn').click(function(){
+			ThinkAjax.sendForm('formUserList','__URL__/userRoleList/',complete,'result');
+		
+		})
+		
+</script>

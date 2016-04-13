@@ -1,0 +1,76 @@
+@import "bourbon";
+@import "normalize";
+$pagewidth:998px;
+*{font-family: "Microsoft YaHei", "Arial", "Hiragino Sans GB", "宋体", sans-serif;}
+ul,li{margin: 0;padding: 0;list-style: none;}
+a{text-decoration: none}
+img{display: block}
+.booknow{
+    width: 230px;
+    height: 230px;
+    background: #37ace1;
+    border-radius: 100%;
+    display: block;
+    overflow: hidden;
+    font-size: 30px;
+    text-align: center;
+    color: #fff;
+    em{font-size: 36px;line-height: 42px; font-family: "Arial";font-style: normal; font-weight: 800;display: block;margin-top:73px; }
+    &:hover{background: #4bb5e5}
+    
+}
+
+.header{height: 156px; background: url(img/head_bg.jpg) no-repeat center top;overflow: hidden;min-width: $pagewidth;
+    .menu{
+    width: $pagewidth;margin:  0 auto;text-align: center;margin-top: 110px;
+        a{ font-size: 20px; color: #104881;margin: 0 2em; font-weight: 400;
+            &:hover{
+            opacity: .6
+            }
+        }
+    }
+}
+
+.footer{
+
+    height: 342px;
+background: #363636;
+    overflow: hidden;
+    clear: both;
+    
+    .footer_nav{
+         width:$pagewidth;margin: 98px auto ;overflow: hidden;
+         background: url(img/footerLogo.jpg) no-repeat left 27px;
+        
+        
+        
+            ul{width: 120px; float: left;
+                li{
+                height: 36px;display: block;
+                    a{
+                    line-height: 36px;font-size: 14px; font-weight: 800;color: #fff;
+                        &:hover{opacity: .6}
+                    }
+                
+                }
+                
+                &:first-child{margin-left: 260px;}
+            
+        
+        }
+        .code{
+        width: 290px;float: right;
+            span{margin: 0 0 0 80px; padding: 0;font-size: 14px; color: #fff;display: block; float: left;width: 100px;text-align: center;
+                i{width: 100px;height: 100px;display: block; margin-bottom: 24px;
+                background: url(img/code_wb.jpg) no-repeat center top;}
+                 &:first-child{margin-left: 0px;}
+                
+                
+            }
+            
+        }
+        
+        
+    }
+    
+}
