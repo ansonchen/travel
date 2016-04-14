@@ -1,5 +1,6 @@
 @import "public";
 $thispagewidth:1074px;
+body{width:1366px; margin: 0 auto}
 .content{min-width:$thispagewidth;
     .box{width: $thispagewidth; margin: 0 auto; overflow: hidden}
     .listBg{background: url(img/list_bg.jpg) no-repeat center center;height: 209px;margin-bottom: 22px;overflow: hidden;

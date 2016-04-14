@@ -25,7 +25,7 @@ $J(document).ready(function(){
 //		});
 
                		//默认选择中的多选框
-		$J('input[name=roomsValue]').each(function(){
+		$J('input[name=Vroom]').each(function(){
 		var selval = this.value;
 		 $J('input[name^=room]').each(function(){
 		 
@@ -34,7 +34,20 @@ $J(document).ready(function(){
 			}
 		 })
 		
+		});
+        
+        $J('input[name=Vattr]').each(function(){
+		var selval = this.value;
+		 $J('input[name^=attr]').each(function(){
+		 
+		 	if(this.value==selval){
+			this.checked = true;
+			}
+		 })
+		
 		})
+        
+        
 
         $J('input[name^=star]').each(function(){
 		 
@@ -46,7 +59,7 @@ $J(document).ready(function(){
         
         
 		$J('#editHotelsBtn').click(function(){
-			saveEditor();//把FCK的内容保存到textar
+			//saveEditor();//把FCK的内容保存到textar
 			ThinkAjax.sendForm('eformHotel','__URL__/updateHotels/',completeGoods,'result');
 		
 		})
@@ -141,32 +154,51 @@ $J(document).ready(function(){
              <label>酒店介绍</label>
           <textarea class="text-input textarea" name="introduction" cols="79" rows="5">{$vo.introduction}</textarea>
           </p>
+             <p>
+          <label>排序</label>
+          <input class="text-input small-input" type="text" name="sort" value="{$vo.sort}" />
+          
+          </p>
             <p>
              <label>星级</label>
-             <input type="hidden" id="starVal" value="{$vo.star}">
-         <input type="radio" name="star" value="五">五星级
-            <input type="radio" name="star" value="四">四星级
-            <input type="radio" name="star" value="三">三星级
-            <input type="radio" name="star" value="二">二级
-            <input type="radio" name="star" value="一">一星级
-                <input type="radio" name="star" value="无">无星级
+              <label class="inline"><input type="hidden" id="starVal" value="{$vo.star}">
+             <label class="inline"><input type="radio" name="star" value="五">五星级</label>
+             <label class="inline"><input type="radio" name="star" value="四">四星级</label>
+             <label class="inline"><input type="radio" name="star" value="三">三星级</label>
+             <label class="inline"><input type="radio" name="star" value="二">二级</label>
+            <label class="inline"> <input type="radio" name="star" value="一">一星级</label>
+            <label class="inline"><input type="radio" name="star" value="无">无星级</label>
           </p>
             <label>类型</label>
             <input class="text-input small-input" type="text"  name="type" value="{$vo.type}" />
           </p>
-          
+             
+      
     <p>
              <label>房型选择</label>
              <volist name='rooms' id='room' >
               <input type="checkbox" name="room[]" value="{$room.id}" >{$room.name}
             </volist>
               <volist name='roomsList' id='hid' >
-                <input type="hidden" name="roomsValue" value="{$hid.room_id}" />
+                <input type="hidden" name="Vroom" value="{$hid.room_id}" />
               </volist>
       
           </p>
              
-           
+                                
+    <p>
+             <label>酒店配置</label>              
+               <volist name='croom' id='cr' >
+                   {$key}：              
+                   <volist name='cr' id='crr' >
+                        <label class="inline"><input type="checkbox" name="attr[]" value="{$crr}" >{$crr}</label>  
+                    </volist>
+                   </br>
+               </volist>
+              <volist name='vo.attrList' id='aid' >
+                <input type="hidden" name="Vattr" value="{$aid}" />
+              </volist>
+           </p>
 
           <p>
              <label>注意事项</label>
@@ -177,15 +209,7 @@ $J(document).ready(function(){
           <textarea class="text-input textarea" name="other" cols="79" rows="5">{$vo.other}</textarea>
           </p>
       	
-       
-        <p>
-          <label>排序</label>
-          <input class="text-input small-input" type="text" name="sort" value="{$vo.sort}" />
-          <label>酒店配套</label>
-          <html:editor type="fckeditor" id="introduction_goods" width="98.5%" height="400px" name="attr"  content="{$vo.attr}"/>
-         <!-- <textarea class="text-input textarea wysiwyg"  name="content_Goods" cols="79" rows="15"></textarea>-->
-        
-          </p>
+    
 
         <p>
           <input class="button" type="button" value="Update" id="editHotelsBtn" />

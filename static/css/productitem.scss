@@ -1,5 +1,6 @@
 @import "public";
 $thispagewidth:1074px;
+body{width:1366px; margin: 0 auto}
 .content{min-width:$thispagewidth;
     .box{width: $thispagewidth; margin: 0 auto; overflow: hidden}
     .itemBg{background: url(img/item_bg.jpg) no-repeat center center;height: 427px;}
@@ -46,10 +47,14 @@ $thispagewidth:1074px;
             
         
         dl{margin: 0;overflow: hidden;border-bottom: 1px solid #c2c2c2;padding: 22px 24px;
+            display: none;
+             &.show{display: block}
             &:last-child{ border-bottom: none}
             dt{width: 112px;float: left; text-align: right; font-size: 16px;line-height: 30px;}
             dd{margin:  0 0 0 136px; background: #ccc;
-                p{margin: 0; display: block; float: left; width: 220px;font-size: 16px;line-height: 30px;}
+                p{margin: 0; display: none; float: left; width: 220px;font-size: 16px;line-height: 30px;
+                    &.show{display: block}
+                }
             }
         }
             

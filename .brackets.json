@@ -1,0 +1,18 @@
+{
+    "sass.enabled": true,
+    "sass.compiler": "libsass",
+    "sass.options": {
+        "includePaths": [
+            "../bourbon/"
+        ],
+        "outputDir": "../css/",
+        "imagePath": null,
+        "sourceComments": false,
+        "sourceMap": false,
+        "outputStyle": "compressed"
+    },
+    "linting.collapsed": true,
+    "path": {
+        "scss/index.scss": {}
+    }
+}

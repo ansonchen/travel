@@ -1,4 +1,5 @@
 @import "public";
+body{width:1366px; margin: 0 auto}
 .content{min-width: $pagewidth;
     .picbox{
     position: relative;height: 509px; overflow: hidden; 

@@ -5,7 +5,7 @@
 $J(document).ready(function(){
 		//添加
 		$J('#addHotelBtn').click(function(){
-		saveEditor();//把FCK的内容保存到textarea
+		//saveEditor();//把FCK的内容保存到textarea
 		
 			ThinkAjax.sendForm('formHotel','__URL__/addHotels/',completeN,'result');
 		})
@@ -129,14 +129,19 @@ $J(document).ready(function(){
              <label>酒店介绍</label>
           <textarea class="text-input textarea" name="introduction" cols="79" rows="5"></textarea>
           </p>
+                   <p>
+          <label>排序</label>
+          <input class="text-input small-input" type="text" name="sort" />
+
+           <p>
             <p>
              <label>星级</label>
-         <input type="radio" name="star" value="五">五星级
-            <input type="radio" name="star" value="四">四星级
-            <input type="radio" name="star" value="三">三星级
-            <input type="radio" name="star" value="二">二级
-            <input type="radio" name="star" value="一">一星级
-                <input type="radio" name="star" value="无">无星级
+         <label class="inline"> <input type="radio" name="star" value="五">五星级</label>
+            <label class="inline"> <input type="radio" name="star" value="四">四星级</label>
+            <label class="inline"> <input type="radio" name="star" value="三">三星级</label>
+            <label class="inline"> <input type="radio" name="star" value="二">二级</label>
+           <label class="inline">  <input type="radio" name="star" value="一">一星级</label>
+             <label class="inline">    <input type="radio" name="star" value="无">无星级</label>
           </p>
             <label>类型</label>
             <input class="text-input small-input" type="text"  name="type" />
@@ -145,12 +150,22 @@ $J(document).ready(function(){
     <p>
              <label>房型选择</label>
              <volist name='rooms' id='room' >
-              <input type="checkbox" name="room[]" value="{$room.id}" >{$room.name}
+              <label class="inline"><input type="checkbox" name="room[]" value="{$room.id}" >{$room.name}</label>
             </volist>
       
           </p>
+                     
+    <p>
+             <label>酒店配置</label>              
+               <volist name='croom' id='cr' >
+                   {$key}：              
+                   <volist name='cr' id='crr' >
+                        <label class="inline"><input type="checkbox" name="attr[]" value="{$crr}" checked >{$crr}</label>  
+                    </volist>
+                   </br>
+               </volist>
              
-           
+           </p>
           <p>
              <label>注意事项</label>
           <textarea class="text-input textarea" name="care" cols="79" rows="5"></textarea>
@@ -161,15 +176,7 @@ $J(document).ready(function(){
           </p>
       	
        
-        <p>
-          <label>排序</label>
-          <input class="text-input small-input" type="text" name="sort" />
-          <label>酒店配套</label>
-          <html:editor type="fckeditor" id="introduction_goods" width="98.5%" height="400px" name="attr"  content="　"/>
-         <!-- <textarea class="text-input textarea wysiwyg"  name="content_Goods" cols="79" rows="15"></textarea>-->
-        
-          </p>
-           <p>
+
           <input class="button" type="button" value="Create" id="addHotelBtn" />
           <input type="hidden" name="ajax" value="1" />
         </p>

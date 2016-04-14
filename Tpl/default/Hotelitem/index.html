@@ -54,8 +54,19 @@
     </div>
     <h3>酒店配套</h3>
     
-    <div class="textBox pt">
-       {$ho.attr}
+    <div class="textBox pt" id="J_pt">
+    
+      <volist name='croom' id='cr' >
+       <dl>
+       <dt>{$key}：</dt>
+          <dd><volist name='cr' id='crr' >
+              <p>{$crr}</p>
+          </volist></dd>
+        </dl>
+          </volist>
+        <volist name='ho.attrList' id='aid' >
+                <input type="hidden" name="Vattr" value="{$aid}" />
+              </volist>
         <!--<dl>
             <dt>支持卡类：</dt>
             <dd><p>国内发行银联卡</p><p>万事达</p><p>国内发行银联卡</p><p>万事达</p><p>国内发行银联卡</p><p>万事达</p><p>国内发行银联卡</p><p>万事达</p></dd>
@@ -99,6 +110,6 @@
     </div>
 </div>
 </body>
-
+<script type="text/javascript" src="/static/js/item.js"></script>
 
 </html>
