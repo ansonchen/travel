@@ -1,0 +1,203 @@
+<link rel="stylesheet" href="__ROOT__/static/css/booknow.css">
+  <!-- Start Content Box -->
+  <div class="content-box">
+  <div class="content-box-header">
+    <h3>订单号：{$vo.orderNumber}</h3>
+    <div class="clear"></div>
+  </div>
+  <!-- End .content-box-header -->
+  <div class="content-box-content">
+<div class="content">
+   <form id="addForm">
+    <div class="formBox show">
+
+        <div class="fbox">
+            <h3>基础信息</h3>
+            <label class="half">姓名<div>{$vo.name}</div></label>
+            <label class="half">淘宝网ID<div>{$vo.taobaoid}</div></label>
+            <label class="half">手机号码<div>{$vo.mobile}</div></label>
+            <label class="half">淘宝订单号<div>{$vo.taobaoorder}</div></label>
+            <label class="half">电子邮箱<div>{$vo.email}</div></label>
+            <label class="half">微信号<div>{$vo.wxnumber}</div></label>
+
+        </div>
+
+    </div>
+    <div class="formBox" id="airport">
+
+        <div class="fbox">
+           <h3>接机预订</h3>
+            <label>Airport Pick Up 城市+机场信息<div>{$vo.airportInfo}</div></label>
+            <label>Arrive Date 到达日期<div>{$vo.airportArrive}</div></label>
+            <label>Flight Number 航班号<div>{$vo.airportFlight}</div></label>
+            <label>Arrive Time 航班到达时间<div>{$vo.airportTime}</div></label>
+            <label>Hotel Name送达酒店/地点<div>{$vo.airportHotel}</div></label>
+            <label>QTY总人数(含儿童/婴儿)<div>{$vo.airportQTY}</div></label>
+            <label>How Many Bags 行李数量<div>{$vo.airportBags}</div></label>
+            <label>Mobile Number 泰国可联系的电话号码<div>{$vo.airportMobile}</div></label>
+
+
+        </div>
+
+    </div>
+
+
+    <div class="formBox" id="action">
+
+        <div class="fbox">
+         <h3>当地活动预订</h3>
+            <label>City 出发城市<div>{$vo.actionCity}</div></label>
+            <label>Attraction/One Day Tour 行程名称<div>{$vo.actionAttraction}</div></label>
+            <label>Date 行程日期<div>{$vo.actionDate}</div></label>
+            <label>Pick Up From 接送酒店英文全称<div>{$vo.actionHotel}</div></label>
+            <label>Hotel Address 酒店地址<em>(不必要填)</em><div>{$vo.actionAddress}</div></label>
+            <label>Room Number 房间号<em>(不必要填)</em><div>{$vo.actionRoom}</div></label>
+            <label>Name 登记入住酒店房间的名字<div>{$vo.actionName}</div></label>
+            <label>Adult 大人人数<div>{$vo.actionAdult}</div></label>
+            <label>Child 儿童人数&年龄 <div>{$vo.actionChild}</div></label>
+            <label>Mobile Number  泰国可联系到的电话号码<div>{$vo.actionMobile}</div></label>
+
+            </div>
+    </div>
+
+    <div class="formBox" id="yacht">
+
+        <div class="fbox">
+         <h3>游艇预订</h3>
+            <label>City 出发城市<div>{$vo.yachtCity}</div></label>
+            <label>Yacht 游艇名称<div>{$vo.yachtYacht}</div></label>
+            <label>Date 出行日期<div>{$vo.yachtDate}</div></label>
+
+             <label>Time 要求接送时间<em>(不必要填)</em><div>{$vo.yachtTime}</div></label>
+             <label>Hours 用船时长<em>(不必要填)</em><div>{$vo.yachtHours}</div></label>
+
+            <label>Pick Up From 接送酒店英文全称<div>{$vo.yachtHotel}</div></label>
+
+            <label>Hotel Address 酒店地址<em>(不必要填)</em><div>{$vo.yachtAddress}</div></label>
+            <label>Room Number 房间号<em>(不必要填)</em><div>{$vo.yachtRoom}</div></label>
+
+            <label>Name 登记入住酒店房间的名字<div>{$vo.yachtName}</div></label>
+            <label>Adult 收费大人人数<div>{$vo.yachtAdult}</div></label>
+            <label>Child 儿童人数&年龄 <div>{$vo.yachtChild}</div></label>
+             <label>Lunch 需要几份午餐<div>{$vo.yachtLunch}</div></label>
+              <label>Comments 特殊要求<div>{$vo.yachtComments}</div></label>
+            <label>Mobile Number  泰国可联系到的电话号码<div>{$vo.yachtMobile}</div></label>
+
+            </div>
+    </div>
+
+    <div class="formBox" id="flight">
+
+        <div class="fbox" >
+         <h3>送机预订</h3>
+            <label>Date Send To Airport 送机日期<div>{$vo.flightDate}</div></label>
+            <label>City+Which Airport城市+机场名称<div>{$vo.flightCity}</div></label>
+            <label>Flight Number 航班号<div>{$vo.flightNumber}</div></label>
+
+             <label>Take Off Time 航班起飞日期和时间<div>{$vo.flightTake}</div></label>
+             <label>Pick Up From Hotel 出发酒店</em><div>{$vo.flightHotel}</div></label>
+
+            <label>Pick Up Time 酒店碰面时间<div>{$vo.flightTime}</div></label>
+
+            <label>Room Number 房间号<em>(不必要填)</em><div>{$vo.flightRoom}</div></label>
+
+            <label>Name 登记入住酒店房间的名字<div>{$vo.flightName}</div></label>
+            <label>QTY总人数(含儿童/婴儿)<div>{$vo.flightQTY}</div></label>
+            <label>How Many Bags 行李数量 <div>{$vo.flightBags}</div></label>
+            <label>Mobile Number  泰国可联系到的电话号码<div>{$vo.flightMobile}</div></label>
+
+            </div>
+
+    </div>
+
+    <div class="formBox" id="car">
+
+        <div class="fbox">
+         <h3>用车预订</h3>
+            <label>One Day Tour 城市<div>{$vo.carCity}</div></label>
+            <label>Car Type 用车类型<div>{$vo.carType}</div></label>
+            <label>Date 行程日期<div>{$vo.carDate}</div></label>
+
+             <label>Hours 用车时长<em>超时需要补加时费</em><div>{$vo.carHours}</div></label>
+             <label>Pick Up From 接送酒店英文</em><div>{$vo.carHotel}</div></label>
+              <label>Room Number 房间号<em>(不必要填)</em><div>{$vo.carRoom}</div></label>
+            <label>Name 登记入住酒店房间的名字<div>{$vo.carName}</div></label>
+             <label>QTY总人数(含儿童)<div>{$vo.carQTY}</div></label>
+            <label>Tour 约定行程内容<div>{$vo.carMarket}</div></label>
+
+
+
+
+            <label>Mobile Number  泰国可联系到的电话号码<div>{$vo.carMobile}</div></label>
+
+            </div>
+
+    </div>
+
+    <div class="formBox" id="singlecar">
+
+        <div class="fbox">
+         <h3>单程用车预订</h3>
+            <label>City 城市<div>{$vo.scarCity}</div></label>
+            <label>Pick up from Hotel 酒店信息<div>{$vo.scarHotel}</div></label>
+            <label>Room number 房间号<div>{$vo.scarRoom}</div></label>
+
+             <label>Date 用车日期<div>{$vo.scarDate}</div></label>
+
+             <label>Time 用车时间<div>{$vo.scarTime}</div></label>
+              <label>To Where送达地点<div>{$vo.scarWhere}</div></label>
+            <label>QTY总人数(含儿童/婴儿)<div>{$vo.scarQTY}</div></label>
+ <label>How Many Bags 行李数量<div>{$vo.scarBags}</div></label>
+
+
+            </div>
+
+    </div>
+
+    <div class="formBox" id="hotel">
+
+        <div class="fbox">
+         <h3>酒店/别墅预订</h3>
+            <label>City 城市<div>{$vo.hotelCity}</div></label>
+            <label>Hotel/Villa 酒店别墅名称<div>{$vo.hotelName}</div></label>
+            <label>Check In 入住日期<div>{$vo.hotelCin}</div></label>
+            <label>Check Out 退房日期<div>{$vo.hotelCout}</div></label>
+            <label>Room Type 房型<div>{$vo.hotelRoomType}</div></label>
+            <label>Breakfast 是否含早餐<div>{$vo.hotelBreak}</div></label>
+            <label>Room QTY 房间/卧室数量<div>{$vo.hotelRoomQTY}</div></label>
+            <label>Arrive Time 到店时间<em>不必要填</em><div>{$vo.hotelArrive}</div></label>
+            <label>Extra Bed 是否需要加床<em>不必要填</em><div>{$vo.hotelExtra}</div></label>
+            <label>Bed 双床/大床<em>不必要填</em><div>{$vo.hotelBed}</div></label>
+            <label>Smoking Floor 是否吸烟<em>不必要填</em><div>{$vo.hotelSmoking}</div></label>
+            <label>QTY总人数<div>{$vo.hotelQTY}</div></label>
+            <label>Comments 特殊要求<em>不必要填</em><div>{$vo.hotelComments}</div></label>
+
+            </div>
+    </div>
+
+    <div class="formBox" id="private">
+
+        <div class="fbox">
+         <h3>私人订制方案咨询</h3>
+            <label>Departure 出发城市<div>{$vo.privateDeparture}</div></label>
+            <label>Destination  目的地城市<div>{$vo.privateDestination}</div></label>
+            <label>Hotel/Villa 理想酒店别墅名称<em>不必要填</em><div>{$vo.privateHotel}</div></label>
+            <label>Travel Date 预计出行日期<div>{$vo.privateDate}</div></label>
+            <label>Travel Till 预计回程日期<div>{$vo.privateTill}</div></label>
+            <label>QTY总人数<div>{$vo.privateQTY}</div></label>
+            <label>Room QTY 房间数量<div>{$vo.privateRoom}</div></label>
+            <label>Tour Guide 是否需要导游<em>不必要填</em><div>{$vo.privateGuide}</div></label>
+            <label>Car Rental 是否需要用车<em>不必要填</em><div>{$vo.privateCar}</div></label>
+            <label>Budget 预算<div>{$vo.privateBudget}</div></label>
+            <label>Leisure/business<div>{$vo.privateLeisure}</div></label>
+            <label>Theme 主题 <div>{$vo.privateTheme}</div></label>
+            <label>Comments 特殊要求<em>不必要填</em><div>{$vo.privateComments}</div></label>
+
+            </div>
+    </div>
+
+
+</div>
+
+</div>
+</div>

@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<!--[if lt IE 9]>
+<meta http-equiv="refresh" content="0;URL=ielt.html" />
+<![endif]-->
+<link rel="stylesheet" href="/static/css/booknow.css">
+<title>月亮假期</title>
+<meta name="keywords" content="">
+<meta name="description" content="">
+</head>
+<body>
+
+<div class="head">
+    <div class="nav" id="bookNav">
+        <a href="#airport" rel="airport">接机预订</a>
+        <a href="#action" rel="action">当地活动预订</a>
+        <a href="#yacht" rel="yacht">游艇预订</a>
+        <a href="#flight" rel="flight">送机预订</a>
+        <a href="#car" rel="car">用车预订</a>
+        <a href="#singlecar" rel="singlecar">单程用车预订</a>
+        <a href="#hotel" rel="hotel">酒店/别墅预订</a>
+        <a href="#private" rel="private">私人订制</a>
+    </div>
+</div>
+<div class="content">
+    <div class="formBox show">
+
+        <div class="fbox">
+            <h3>基础信息</h3>
+            <label class="half">姓名<input type="text" name="name"></label>
+            <label class="half">淘宝网ID<input type="text" name="taobaoid"></label>
+            <label class="half">手机号码<input type="text" name="mobile"></label>
+            <label class="half">淘宝订单号<input type="text" name="taobaoorder"></label>
+            <label class="half">电子邮箱<input type="text" name="email"></label>
+            <label class="half">微信号<em>(建议填写)</em><input type="text" name="wxnumber"></label>
+
+        </div>
+
+    </div>
+    <div class="formBox" id="airport">
+
+        <div class="fbox">
+           <h3>接机预订<em>请用英语填写下表</em></h3>
+            <label>Airport Pick Up 城市+机场信息<input type="text" name="airportInfo" placeholder="BANGKOK -Don Mueng"></label>
+            <label>Arrive Date 到达日期<input type="text" name="airportArrive" placeholder="当地日期例如18/02/2016"></label>
+            <label>Flight Number 航班号<input type="text" name="airportFlight" placeholder="例如亚航FD3219"></label>
+            <label>Arrive Time 航班到达时间<input type="text" name="airportTime" placeholder="当地时间例如17:00PM"></label>
+            <label>Hotel Name送达酒店/地点<input type="text" name="airportHotel" placeholder="填写酒店全名例如W BANGKOK HOTEL"></label>
+            <label>QTY总人数(含儿童/婴儿)<input type="text" name="airportQTY" placeholder="9ADT"></label>
+            <label>How Many Bags 行李数量<input type="text" name="airportBags" placeholder="3"></label>
+            <label>Mobile Number 泰国可联系的电话号码<input type="text" name="airportMobile" placeholder="0600024108"></label>
+            <p>**请编辑完整信息，以免耽误行程！<br/>
+
+**请留意接机牌，如果遇到紧急情况，或见不到司机等情况请拨打泰国客服电话0990952088（在泰国直接拨打）</p>
+
+        </div>
+
+    </div>
+
+
+    <div class="formBox" id="action">
+
+        <div class="fbox">
+         <h3>当地活动预订<em>请用英语填写下表</em></h3>
+            <label>City 出发城市<input type="text" name="actionCity" placeholder="SAMUI"></label>
+            <label>Attraction/One Day Tour 行程名称<input type="text" name="actionAttraction" placeholder="苏梅红帆船一日游"></label>
+            <label>Date 行程日期<input type="text" name="actionDate" placeholder="当地日期例如18/02/2016"></label>
+            <label>Pick Up From 接送酒店英文全称<input type="text" name="actionHotel" placeholder="填写酒店全名例如NORA BURI RESORT"></label>
+            <label>Hotel Address 酒店地址<em>(不必要填)</em><input type="text" name="actionAddress" placeholder=""></label>
+            <label>Room Number 房间号<em>(不必要填)</em><input type="text" name="actionRoom" placeholder="211"></label>
+            <label>Name 登记入住酒店房间的名字<input type="text" name="actionName" placeholder="填写护照上的拼音ZHANG BAI WAN"></label>
+            <label>Adult 大人人数<input type="text" name="actionAdult" placeholder="9"></label>
+            <label>Child 儿童人数&年龄 <input type="text" name="actionChild" placeholder="1（5yrs old）最好附上年龄以便查询儿童价格"></label>
+            <label>Mobile Number  泰国可联系到的电话号码<input type="text" name="actionMobile" placeholder="0600024108"></label>
+            <p>**请在大堂持确认函等待司机，如果遇到紧急情况，或见不到司机等情况请拨打泰国客服电话0990952088（在泰国直接拨打）</p>
+            </div>
+    </div>
+
+    <div class="formBox" id="yacht">
+
+        <div class="fbox">
+         <h3>游艇预订<em>请用英语填写下表</em></h3>
+            <label>City 出发城市<input type="text" name="yachtCity" placeholder="SAMUI"></label>
+            <label>Yacht 游艇名称<input type="text" name="yachtYacht" placeholder="MUWA"></label>
+            <label>Date 出行日期<input type="text" name="yachtDate" placeholder="当地日期例如18/02/2016"></label>
+
+             <label>Time 要求接送时间<em>(不必要填)</em><input type="text" name="yachtTime" placeholder="当地时间例如7:00AM"></label>
+             <label>Hours 用船时长<em>(不必要填)</em><input type="text" name="yachtHours" placeholder="8Hours"></label>
+
+            <label>Pick Up From 接送酒店英文全称<input type="text" name="yachtHotel" placeholder="填写酒店全名例如CENTARA GRAND MIRAGE BEACH RESORT"></label>
+
+            <label>Hotel Address 酒店地址<em>(不必要填)</em><input type="text" name="yachtAddress" placeholder=""></label>
+            <label>Room Number 房间号<em>(不必要填)</em><input type="text" name="yachtRoom" placeholder="211"></label>
+
+            <label>Name 登记入住酒店房间的名字<input type="text" name="yachtName" placeholder="填写护照上的拼音ZHANG BAI WAN"></label>
+            <label>Adult 收费大人人数<input type="text" name="yachtAdult" placeholder="9"></label>
+            <label>Child 儿童人数&年龄 <input type="text" name="yachtChild" placeholder="1（5yrs old）最好附上年龄以便查询儿童价格"></label>
+             <label>Lunch 需要几份午餐<input type="text" name="yachtLunch" placeholder="0"></label>
+              <label>Comments 特殊要求<input type="text" name="yachtComments" placeholder=""></label>
+            <label>Mobile Number  泰国可联系到的电话号码<input type="text" name="yachtMobile" placeholder="0600024108"></label>
+            <p>**请在大堂持确认函等待司机，如果遇到紧急情况，或见不到司机等情况请拨打泰国客服电话0990952088（在泰国直接拨打）</p>
+            </div>
+    </div>
+
+    <div class="formBox" id="flight">
+
+        <div class="fbox" >
+         <h3>送机预订<em>请用英语填写下表</em></h3>
+            <label>Date Send To Airport 送机日期<input type="text" name="flightDate" placeholder="当地日期例如18/02/2016"></label>
+            <label>City+Which Airport城市+机场名称<input type="text" name="flightCity" placeholder="BANGKOK-DON MUENG"></label>
+            <label>Flight Number 航班号<input type="text" name="flightNumber" placeholder="TG252"></label>
+
+             <label>Take Off Time 航班起飞日期和时间<input type="text" name="flightTake" placeholder="当地时间15:20PM"></label>
+             <label>Pick Up From Hotel 出发酒店</em><input type="text" name="flightHotel" placeholder="填写酒店全名例如SOFITEL KRABI PHOKEETHRA GOLF AND SPA RESORT"></label>
+
+            <label>Pick Up Time 酒店碰面时间<input type="text" name="flightTime" placeholder="当地时间11:30"></label>
+
+            <label>Room Number 房间号<em>(不必要填)</em><input type="text" name="flightRoom" placeholder="211"></label>
+
+            <label>Name 登记入住酒店房间的名字<input type="text" name="flightName" placeholder="填写护照上的拼音ZHANG BAI WAN"></label>
+            <label>QTY总人数(含儿童/婴儿)<input type="text" name="flightQTY" placeholder="9ADT"></label>
+            <label>How Many Bags 行李数量 <input type="text" name="flightBags" placeholder="3"></label>
+            <label>Mobile Number  泰国可联系到的电话号码<input type="text" name="flightMobile" placeholder="0600024108"></label>
+            <p>**请在大堂持确认函等待司机，如果遇到紧急情况，或见不到司机等情况请拨打泰国客服电话0990952088（在泰国直接拨打）<br/>**国际航班一般起飞前45分钟关闭柜台，国内航班一般起飞前30分钟关闭柜台！曼谷/芭堤雅机场一般提早3小时出发，清迈/苏梅机场一般提早2小时出发，普吉/甲米机场一般提早4小时出发。仅为建议，以客户预定表上时间为准。</p>
+            </div>
+
+    </div>
+
+    <div class="formBox" id="car">
+
+        <div class="fbox">
+         <h3>用车预订<em>请用英语填写下表</em></h3>
+            <label>One Day Tour 城市<input type="text" name="carCity" placeholder="BANGKOK曼谷"></label>
+            <label>Car Type 用车类型<input type="text" name="carType" placeholder="MINIBUS/TAXI/BUS"></label>
+            <label>Date 行程日期<input type="text" name="carDate" placeholder="当地日期例如18/02/2016"></label>
+
+             <label>Hours 用车时长<em>超时需要补加时费</em><input type="text" name="carHours" placeholder="8Hours/10Hours "></label>
+             <label>Pick Up From 接送酒店英文</em><input type="text" name="carHotel" placeholder="填写酒店全名例如W BANGKOK HOTEL"></label>
+              <label>Room Number 房间号<em>(不必要填)</em><input type="text" name="carRoom" placeholder="211"></label>
+            <label>Name 登记入住酒店房间的名字<input type="text" name="carName" placeholder="填写护照上的拼音ZHANG BAI WAN"></label>
+ <label>QTY总人数(含儿童)<input type="text" name="carQTY" placeholder="9"></label>
+            <label title="Grand Palace+Floating Market +Dinner">Tour 约定行程内容 <!--<em>Grand Palace+Floating Market +Dinner</em>--><input type="text" name="carMarket" placeholder="一般为景点名称+餐厅名字"></label>
+
+
+
+
+            <label>Mobile Number  泰国可联系到的电话号码<input type="text" name="carMobile" placeholder="0600024108"></label>
+            <p>**请在大堂持确认函等待司机，如果遇到紧急情况，或见不到司机等情况请拨打泰国客服电话0990952088（在泰国直接拨打）<br/>**如临时增加地点或者更改行程请联系客服，因此产生耽误时间不能成为退款理由。<br/>
+**本店提供租车服务，仅收取用车收费包含高速费停车费司机餐费，如需到公共景点或者需要门票的地方自愿购买门票，仅此说明。（参考：大皇宫500泰铢/人，丹嫩沙多水上市场包船2000泰铢/船）</p>
+            </div>
+
+    </div>
+
+    <div class="formBox" id="singlecar">
+
+        <div class="fbox">
+         <h3>单程用车预订<em>请用英语填写下表</em></h3>
+            <label>City 城市<input type="text" name="scarCity" placeholder="BANGKOK曼谷"></label>
+            <label>Pick up from Hotel 酒店信息<input type="text" name="scarHotel" placeholder="填写酒店全名例如W BANGKOK HOTEL"></label>
+            <label>Room number 房间号<input type="text" name="scarRoom" placeholder="1125"></label>
+
+             <label>Date 用车日期<input type="text" name="scarDate" placeholder="当地日期例如18/02/2016"></label>
+
+             <label>Time 用车时间<input type="text" name="scarTime" placeholder="当地时间17:00PM"></label>
+              <label>To Where送达地点<input type="text" name="scarWhere" placeholder="FLOATING MARKET 水上市场"></label>
+            <label>QTY总人数(含儿童/婴儿)<input type="text" name="scarQTY" placeholder="9ADT"></label>
+ <label>How Many Bags 行李数量<input type="text" name="scarBags" placeholder="3"></label>
+
+            <p>**请留意接机牌，如果遇到紧急情况，或见不到司机等情况请拨打泰国客服电话0990952088（在泰国直接拨打）</p>
+            </div>
+
+    </div>
+
+    <div class="formBox" id="hotel">
+
+        <div class="fbox">
+         <h3>酒店/别墅预订<em>请用英语填写下表</em></h3>
+            <label>City 城市<input type="text" name="hotelCity" placeholder="SAMUI苏梅"></label>
+            <label>Hotel/Villa 酒店别墅名称<input type="text" name="hotelName" placeholder="填写酒店全名例如NORA BURI RESORT"></label>
+            <label>Check In 入住日期<input type="text" name="hotelCin" placeholder="当地日期例如18/02/2016"></label>
+            <label>Check Out 退房日期<input type="text" name="hotelCout" placeholder="当地日期例如20/02/2016"></label>
+            <label>Room Type 房型<input type="text" name="hotelRoomType" placeholder="Wonderful Room"></label>
+            <label>Breakfast 是否含早餐<input type="text" name="hotelBreak" placeholder="YES"></label>
+            <label>Room QTY 房间/卧室数量<input type="text" name="hotelRoomQTY" placeholder="4"></label>
+            <label>Arrive Time 到店时间<em>不必要填</em><input type="text" name="hotelArrive" placeholder="当地时间17:00PM"></label>
+            <label>Extra Bed 是否需要加床<em>不必要填</em><input type="text" name="hotelExtra" placeholder="No"></label>
+            <label>Bed 双床/大床<em>不必要填</em><input type="text" name="hotelBed" placeholder="Twin"></label>
+            <label>Smoking Floor 是否吸烟<em>不必要填</em><input type="text" name="hotelSmoking" placeholder="No"></label>
+            <label>QTY总人数<input type="text" name="hotelQTY" placeholder="9ADT"></label>
+            <label>Comments 特殊要求<em>不必要填</em><input type="text" name="hotelComments" placeholder="如预订别墅可以预约厨师，亦提供免费接送机，请留下您的航班信息。"></label>
+            <p>**预订以酒店确认为准，房型可以保证，床型（双床/大床）酒店拥有最终解释权。<br/>
+**取消条款以酒店合约为准。</p>
+            </div>
+    </div>
+
+    <div class="formBox" id="private">
+
+        <div class="fbox">
+         <h3>私人订制方案咨询<em>请用英语填写下表</em></h3>
+            <label>Departure 出发城市<input type="text" name="privateDeparture" placeholder="Beijing"></label>
+            <label>Destination  目的地城市<input type="text" name="privateDestination" placeholder="BANGKOK曼谷 +CHIANG MAI清迈"></label>
+            <label>Hotel/Villa 理想酒店别墅名称<em>不必要填</em><input type="text" name="privateHotel" placeholder="如无则留空"></label>
+            <label>Travel Date 预计出行日期<input type="text" name="privateDate" placeholder="当地日期例如18/02/2016"></label>
+            <label>Travel Till 预计回程日期<input type="text" name="privateTill" placeholder="当地日期例如20/02/2016"></label>
+            <label>QTY总人数<input type="text" name="privateQTY" placeholder="9ADT"></label>
+            <label>Room QTY 房间数量<input type="text" name="privateRoom" placeholder="4"></label>
+            <label>Tour Guide 是否需要导游<em>不必要填</em><input type="text" name="privateGuide" placeholder="No"></label>
+            <label>Car Rental 是否需要用车<em>不必要填</em><input type="text" name="privateCar" placeholder="No"></label>
+            <label>Budget 预算<input type="text" name="privateBudget" placeholder="10000/人"></label>
+            <div class="selectbox">Leisure/business
+            <label><input type="radio" name="privateLeisure" value="旅行">旅行</label>
+            <label><input type="radio" name="privateLeisure" value="商务出行">商务出行</label>
+            </div>
+            <div class="selectbox">Theme 主题
+            <label><input type="radio" name="privateTheme" value="朋友出行">朋友出行</label>
+            <label><input type="radio" name="privateTheme" value="情侣蜜月">情侣蜜月</label>
+            <label><input type="radio" name="privateTheme" value="家庭亲子">家庭亲子</label>
+            <label><input type="radio" name="privateTheme" value="海岛婚礼">海岛婚礼</label>
+            <label><input type="radio" name="privateTheme" value="高尔夫">高尔夫</label>
+            <label><input type="radio" name="privateTheme" value="电音派对">电音派对</label>
+            <label><input type="radio" name="privateTheme" value="毕业旅行">毕业旅行</label>
+            <label><input type="radio" name="privateTheme" value="旅游置业">旅游置业</label>
+            <label><input type="radio" name="privateTheme" value="其他">其他</label>
+            </div>
+            <label>Comments 特殊要求<em>不必要填</em><input type="text" name="privateComments" placeholder="如预订别墅可以预约厨师，亦提供免费接送机"></label>
+
+            </div>
+    </div>
+
+    <p class="msg">确认无误，我们会在24小时之内与您联系</p>
+    <button class="submit">提交订单</button>
+
+</div>
+</body>
+
+<script type="text/javascript" src="/static/js/booknow.js"></script>
+
+</html>

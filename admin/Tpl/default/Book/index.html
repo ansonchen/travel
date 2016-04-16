@@ -1,0 +1,90 @@
+<tagLib name="cx,html" />
+<import file = "admin.resources.scripts.common"/>
+<script>
+
+$J(document).ready(function(){
+
+		//$J('a.editArticle,a.delArticle').facebox();
+		//翻页ajax
+		$J('.pagination>a,a.editArticle').click(function(){
+		var href = this.href;
+		mainLoad(href)
+
+		return false;
+		})
+
+		})
+</script>
+<!--[if IE]><script type="text/javascript" src="resources/scripts/jquery.bgiframe.js"></script><![endif]-->
+<!-- Internet Explorer .png-fix -->
+<!--[if IE 6]>
+			<script type="text/javascript" src="resources/scripts/DD_belatedPNG_0.0.7a.js"></script>
+			<script type="text/javascript">
+				DD_belatedPNG.fix('.png_bg, img, li');
+			</script>
+		<![endif]-->
+</head>
+<body>
+<!-- Main Content Section with everything -->
+<noscript>
+<!-- Show a notification if the user has disabled javascript -->
+<div class="notification error png_bg">
+  <div>Javascript没有启用或您的浏览器不支持Javascript.请 <a href="http://browsehappy.com/" title="更好的浏览器">下载更新</a>您的浏览器,或者去<a href="http://www.google.com/support/bin/answer.py?answer=23852" title="去google搜索允许Javascript">Google搜索</a>允许Javascript</div>
+</div>
+</noscript>
+<div class="content-box">
+  <!-- Start Content Box -->
+  <div class="content-box-header">
+    <h3>预订查看</h3>
+    <div class="clear"></div>
+  </div>
+  <!-- End .content-box-header -->
+  <div class="content-box-content">
+      <!-- This is the target div. id must match the href of this div's tab -->
+
+      <table>
+        <thead>
+          <tr>
+            <th>预订号</th>
+            <th>姓名</th>
+            <th>电话</th>
+            <th>淘宝ID</th>
+            <th>淘宝订单号</th>
+            <th>预订时间</th>
+          </tr>
+        </thead>
+        <tfoot>
+          <tr>
+            <td colspan="6"><div class="pagination"> {$page}
+                <!--<a href="#" title="第一页">&laquo; First</a><a href="#" title="上一页">&laquo; Previous</a> <a href="#" class="number" title="1">1</a> <a href="#" class="number" title="2">2</a> <a href="#" class="number current" title="3">3</a> <a href="#" class="number" title="4">4</a> <a href="#" title="下一页">Next &raquo;</a><a href="#" title="最后一页">Last &raquo;</a>-->
+              </div>
+              <!-- End .pagination -->
+              <div class="clear"></div></td>
+          </tr>
+        </tfoot>
+        <tbody>
+          <volist name='books' id='book' >
+            <tr>
+              <td><a href="__URL__/show/id/{$book.id}" class="editArticle">{$book.orderNumber}</a></td>
+              <td><a href="__URL__/show/id/{$book.id}" class="editArticle">{$book.name}</a></td>
+              <td>{$book.mobile}</td>
+              <td>{$book.taobaoid}</td>
+              <td>{$book.taobaoorder}</td>
+              <td>{$book.time|date='Y-m-d H:i:s',###}</td>
+            </tr>
+          </volist>
+        </tbody>
+      </table>
+
+    <!-- End #tab1 -->
+<!-- End #tab2 -->
+  </div>
+  <!-- End .content-box-content -->
+</div>
+<!-- End .content-box -->
+<!-- Start Notifications -->
+
+<!-- End Notifications -->
+<div id="footer"> <small>
+  <!-- Remove this notice or replace it with whatever you want -->
+  {$site.copyright_site} | Power by <a href="http://www.eps2008.cn">Anson</a> | <a href="#">Top</a> </small> </div>
