@@ -4,16 +4,20 @@ class BookAction extends CommonAction {
 	// 框架首页 CommonAction
 	public function index() {
 
+        $key = $_GET['key'];
+        
 		import("ORG.Util.Page");
 
 		$Type = D('BookView');
-		$count = $Type->count()-1;//计算总数
+		$count = $Type->where("orderNumber like '%".$key."%' or name like '%".$key."%' or  mobile like '%".$key."%'")->count()-1;//计算总数
 
 		$p = new Page ( $count, 10 );
 /*		$where['id_type'] = array('neq',1);
 		$where['buildId_type']=  $_SESSION [C ( 'USER_AUTH_KEY' )];*/
 		//$Mlist=$Type->where($where)->limit($p->firstRow.','.$p->listRows)->order('belongType_type asc')->findAll();
-		$Mlist=$Type->limit($p->firstRow.','.$p->listRows)->order('id desc')->findAll();
+        
+            
+		$Mlist=$Type->where("orderNumber like '%".$key."%' or name like '%".$key."%' or  mobile like '%".$key."%'")->limit($p->firstRow.','.$p->listRows)->order('id desc')->findAll();
 
 		$p->setConfig('header','个预订');
 
@@ -24,11 +28,13 @@ class BookAction extends CommonAction {
 		$page = $p->show ();
 		$this->assign( "page", $page );
 		$this->assign('books',$Mlist);
+        $this->assign('key',$key);
 		$this->display(); // 输出模板
 
 		}
 
 
+    
 	//取编辑数据
 	public function show() {
 		if(!empty($_GET['id'])) {
@@ -46,6 +52,21 @@ class BookAction extends CommonAction {
 		}else{
 			exit('预订不存在！');
 		}
+	}
+    
+    	//搜索
+	public function searchGo(){
+        
+	if(!empty($_POST['key'])) {
+	
+		$data['key'] = $_POST['key'];
+		//Session::set('key', $data['key']);
+		//$this->ajaxReturn($data,'正在搜索: <b>'.Session::get('key').'</b>',1);
+        $this->ajaxReturn($data,'正在搜索: <b>'.$_POST['key'].'</b>',1);
+		}else{
+            $this->ajaxReturn('','没有输入关键字!',2);
+		}
+	
 	}
 
 

@@ -1,7 +1,13 @@
 <tagLib name="cx,html" />
 <import file = "admin.resources.scripts.common"/>
 <script>
-
+var URLB = '__URL__';
+function searchBook(data,status){
+if (status==1)
+{
+    mainLoad(URLB+'/?key='+data.key);
+}
+}
 $J(document).ready(function(){
 
 		//$J('a.editArticle,a.delArticle').facebox();
@@ -11,6 +17,11 @@ $J(document).ready(function(){
 		mainLoad(href)
 
 		return false;
+		})
+        
+        $J('#SearchB').click(function(){
+            
+            	ThinkAjax.sendForm('searchF',URLB+'/searchGo/',searchBook,'result');
 		})
 
 		})
@@ -40,6 +51,13 @@ $J(document).ready(function(){
   </div>
   <!-- End .content-box-header -->
   <div class="content-box-content">
+       <p>
+       <form method="post" id="searchF">
+    <input class="text-input medium-input" placeholder="预订号/姓名/电话号码" type="text" name="key" value="{$key}"/>
+    
+    <input class="button" type="button" value="Go" id="SearchB" />
+      </form>
+  </p>
       <!-- This is the target div. id must match the href of this div's tab -->
 
       <table>
