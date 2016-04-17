@@ -9,7 +9,7 @@ class BookAction extends CommonAction {
 		import("ORG.Util.Page");
 
 		$Type = D('BookView');
-		$count = $Type->where("orderNumber like '%".$key."%' or name like '%".$key."%' or  mobile like '%".$key."%'")->count()-1;//计算总数
+		$count = $Type->where("orderNumber like '%".$key."%' or name like '%".$key."%' or  mobile like '%".$key."%'")->count();//计算总数
 
 		$p = new Page ( $count, 10 );
 /*		$where['id_type'] = array('neq',1);

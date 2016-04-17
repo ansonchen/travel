@@ -7,7 +7,7 @@ class GimgAction extends CommonAction {
 		import("ORG.Util.Page"); 
 	
 		$Type = D('GimgView'); 
-		$count = $Type->count()-1;//计算总数
+		$count = $Type->count();//计算总数
 		
 		$p = new Page ( $count, 10 );
 /*		$where['id_type'] = array('neq',1); 
