@@ -2,6 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" href="__ROOT__/static/css/lightwindow.css">
 <link rel="stylesheet" href="__ROOT__/static/css/productitem.css">
 <title>月亮假期</title>
 <meta name="keywords" content="">
@@ -30,14 +31,16 @@
     <div class="itemCon box">
     <div class="itemPics">
          <volist name='Hpic' id='pvo'>
-                <img src="{$pvo.path}" alt="">
+               <a href="{$pvo.path}" class="lightwindow" rel="Pic[g]" title="">
+                <img src="{$pvo.mpath}">
+                </a>
         </volist>
     </div>
     <h3>酒店介绍</h3>
     <div class="textBox">{$ho.introduction}</div>
     
     <h3>房型选择</h3>
-    <div class="rooms">
+    <div class="rooms" id="rooms_J">
       
       <volist name='roomsList' id='rvo' >
        <div class="room">
@@ -45,7 +48,7 @@
            <p class="name">{$rvo.name}<em>{$rvo.enname}</em></p>
              <p>床位：<span>{$rvo.bed}</span></p>
              <p>入住人数：<span>{$rvo.person}</span></p>
-           <div class="include"><div class="con">{$rvo.include}</div>费用包括：</div>
+           <div class="include"><a href="javascript:void(0)" class="moreArr"></a><div class="con">{$rvo.include}</div>费用包括：</div>
        </div>
         </volist>
     </div>
@@ -107,6 +110,12 @@
     </div>
 </div>
 </body>
+<script type="text/javascript">
+    var _lightIMG = '__ROOT__/static/images';
+    
+</script>
 <script type="text/javascript" src="__ROOT__/static/js/item.js"></script>
-
+	<script type="text/javascript" src="__ROOT__/static/js/prototype.js"></script>
+	<script type="text/javascript" src="__ROOT__/static/js/effects.js"></script>
+	<script type="text/javascript" src="__ROOT__/static/js/lightwindow.js"></script>
 </html>

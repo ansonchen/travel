@@ -83,9 +83,34 @@ body{width:1366px; margin: 0 auto}
                     span{float: right}
                 }
                 .include{
-                    padding: 0 18px 0 24px;color: #7c7c7c; font-size: 14px; line-height: 30px;height: 90px;overflow: hidden;background: #f5f5f5;
-                    border-top: 1px solid #c2c2c2;position: relative;
-                    &:hover{height: auto;
+                    padding: 0 18px 0 24px;color: #7c7c7c; font-size: 14px; line-height: 30px;height: 90px;overflow: hidden;background: #f5f5f5;width: 210px; left:-1px;
+                    border: 1px solid #c2c2c2;position: relative;
+                    &.show{height: auto;
+                    }
+                    .moreArr{ position: absolute;right:3px;top: 60px;
+                        width:10px;height: 30px;
+                        display: block;
+                        font-weight: 800;
+                        text-align: right;
+                        color: #333;
+                        @include transition(all 0.3s);
+                        display: none;
+                        &.show{
+                            display: block;
+                        }
+                        &.deg{
+                        @include transform(rotate(90deg));
+                        }
+                        &:after {
+                              border: 6px solid transparent;
+                              border-left: 8px solid #666;
+                              width: 0;
+                              height: 0;
+                              left: 0;
+                              top:9px;
+                              position: absolute;
+                              content: ' '
+                        }
                     }
                     .con{float: right; width: 136px; text-align: right}
                 }
@@ -110,5 +135,10 @@ body{width:1366px; margin: 0 auto}
         }
 
     
+}
+
+
+.hidden {
+	display : none;
 }
 

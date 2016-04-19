@@ -43,6 +43,13 @@ class HotelitemAction extends CommonAction{
                 $HotelsPic = M("HotelsPicture");
                 $pic['hotels_id'] = $_GET['id'];
                 $picVo = $HotelsPic->where($pic)->select();
+                
+                foreach($picVo as $k => $v){
+                
+                    $picVo[$k]['mpath'] = str_replace("xl_","m_",$v['path']);
+                
+                }
+                
                 $this->assign('Hpic',$picVo);
                 
                 //取房间
@@ -50,6 +57,11 @@ class HotelitemAction extends CommonAction{
                 $HotelsRooms = D("HotelsRoomsView");
                 $hroom['hotel_id'] = $_GET['id'];
                 $HotelsRoomsdb = $HotelsRooms->where($hroom)->order('sort asc')->select();
+                
+                foreach($HotelsRoomsdb as $k => $v){                
+                    $HotelsRoomsdb[$k]['mpath'] = str_replace("s_","m_",$v['picturePath']);                
+                }
+                
                 $this->assign('roomsList',$HotelsRoomsdb);
                 
             }
