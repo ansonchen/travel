@@ -13,6 +13,17 @@ class HotelsAction extends CommonAction {
 		$this->assign('rooms',$Roomsdb);
         
         
+        //站点信息
+		$site = M('site'); // 实例化模型类  
+		 
+		$condition['id_site']	=	1;
+		
+		$siteD = $site->where($condition)->find(); // 查询数据   
+		
+		$this->assign('site',$siteD); // 模板变量赋值
+		
+        
+        
         $croom = array(            
         '浴室'=>['淋浴','泡浴','洗漱用品','毛巾','浴巾','拖鞋','吹风机','浴袍'],
         '卧室'=>['沙发','客厅角','书桌','用餐区','衣柜/衣橱','空调','电壶','微波炉','冰箱'],
