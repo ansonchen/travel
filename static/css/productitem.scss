@@ -7,7 +7,19 @@ body{width:1366px; margin: 0 auto}
     .itemTitle{ background:#454545; height: 98px;margin-bottom: 28px;
         
         h2{color: #fff;font-size: 24px; margin: 15px 0 0 0;padding: 0; line-height: 34px;}
-        .address{font-size: 14px; float: right; text-align: left;color: #fff; font-weight: 800;line-height: 34px;margin: 15px 0 0 0;}
+        .address{font-size: 14px; float: right; text-align: left;color: #fff; font-weight: 800;line-height: 34px;margin: 15px 0 0 0;
+            a{
+                color: #fff;
+                border-bottom: 1px solid #FFF;
+
+            }
+            i{
+            background: url(img/map_icon.jpg) no-repeat right center;
+                width: 16px;
+                padding:10px 8px;
+                margin: 0 4px;
+            }
+        }
     }
     .itemCon{
         margin-bottom: 100px;

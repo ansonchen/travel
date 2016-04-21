@@ -78,7 +78,7 @@ lightwindow.prototype = {
 	//
 	initialize : function(options) {
 		this.options = Object.extend({
-			resizeSpeed : 8,
+			resizeSpeed : 9,
 			contentOffset : {
 				height : 20,
 				width : 20
@@ -1700,8 +1700,8 @@ lightwindow.prototype = {
 			this._setStatus(false);
 		} else {
 			Effect.Fade('lightwindow_loading', {
-				duration: 0.75,
-				delay: 1.0, 
+				duration: 0.45,
+				delay: 0.2, 
 				afterFinish: function() {
 					// Just in case we need some scroll goodness (this also avoids the swiss cheese effect)
 					if (this.windowType != 'image' && this.windowType != 'media' && this.windowType != 'external') {
