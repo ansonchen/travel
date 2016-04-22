@@ -161,12 +161,13 @@ $J(document).ready(function(){
 						}
 						return false;
 				break;	
-				case 13:
+				
+/*				case 13:
 					alert('回车');
 				//	$("form").bind("submit", function() { return false; })
 					//e.preventDefault();
 					return false;
-				break;
+				break;*/
 				default:
 				//event.preventDefault();
 				break;
