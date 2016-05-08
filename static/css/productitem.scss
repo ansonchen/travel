@@ -35,6 +35,8 @@ body{width:1366px; margin: 0 auto}
             
         }
     }
+    
+   
     h3{
         color: #1c8fc3;
         font-size: 24px;
@@ -43,6 +45,26 @@ body{width:1366px; margin: 0 auto}
         margin: 28px 0 10px 0;
         clear: both;
     }
+    
+     .text{
+        margin: 20px auto;
+        font-size: 16px;
+        h3{
+            text-align: center;
+            margin: 28px auto 5px auto;
+            line-height: 30px;
+            color: #333;
+            
+            em{
+                font-size: 20px;
+                display: block;
+                font-style: normal;
+                margin-bottom: 10px;
+                
+            }
+        }
+    }
+    
     .textBox{
         background: #f5f5f5;
         border: 1px solid #c2c2c2;
