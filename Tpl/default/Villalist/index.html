@@ -65,7 +65,7 @@
     </div>
         <div class="roomsList">
         <volist name='hotels' id='ho' >            
-           <a class="room" href="/Hotelitem/?id={$ho.id}">
+           <a class="room" href="/Villaitem/?id={$ho.id}">
                <img src="{$ho.picturePath_goods}" alt="">
                <p class="name">{$ho.name|mb_substr=###,0,11,'utf-8'}<em>{$ho.enname|mb_substr=###,0,40,'utf-8'}</em></p>
                 <p>{$showzone[$ho['zone_id']]} | {$showtheme[$ho['theme']]} | {$showroomnum[$ho['roomnum']]}</p>
