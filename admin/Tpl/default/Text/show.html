@@ -1,0 +1,78 @@
+<form method="post" id="eformOrder">
+  <fieldset>
+  <ul class="shortcut-buttons-set">
+    <volist name='goodsPic' id='pic' >
+      <li><a class="shortcut-button" href="javascript:void(0)" ><span> <img src="{$pic.path|str_replace='xl_','s_',###}"/><br />
+        名称</span></a></li>
+    </volist>
+  </ul>
+  <table>
+    <tbody>
+      <tr>
+        <th>名称</th>
+        <td>{$vo.name_goods} </td>
+        <th>默认价格</th>
+        <td>{$vo.price_goods} 元</td>
+      </tr>
+      
+      
+      <tr>
+        <th>参数</th>
+        <td colspan="3">{$vo.parameter_goods}</td>
+      </tr>
+      <tr>
+        <td colspan="4">&nbsp;</td>
+      </tr>
+      <volist name='goodsPir' id='pir' >
+        <tr>
+          <th> 说明</th>
+          <td>{$pir.title}</td>
+          <th> 价格</th>
+          <td>{$pir.price} 元</td>
+        </tr>
+        <tr>
+          <th>参数</th>
+          <td colspan="3">{$pir.param}</td>
+        </tr>
+         <tr>
+        <td colspan="4">&nbsp;</td>
+      </tr>
+      </volist>
+      
+      <tr>
+        <th>排序</th>
+        <td>{$vo.sort_goods}</td>
+        <th>分类</th>
+        <td><select name="typeId_goods" disabled="disabled">
+            <option value="1" >默认分类</option>
+            <volist name='otype' id='option' >
+              <eq name="option['belongType_type']" value="Goods"> <option value="{$option.id_type}"  
+                <eq name="option['id_type']" value="$vo['typeId_goods']">selected</eq>
+                >{$option.name_type}
+                </option>
+              </eq>
+            </volist>
+          </select></td>
+      </tr>
+      <tr>
+        <td colspan="4">&nbsp;</td>
+      </tr>
+      <tr>
+        <th>详细说明</th>
+        <td colspan="3">{$vo.introduction_goods}</td>
+      </tr>
+    </tbody>
+  </table>
+  </fieldset>
+  <!-- End .clear -->
+</form>
+<script>
+
+$J(document).ready(function(){
+
+		$J('.shortcut-buttons-set img').each(function(){
+		this.src = this.src.replace('xl_','s_');
+		});
+		})
+
+</script>

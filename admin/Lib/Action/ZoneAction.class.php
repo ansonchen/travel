@@ -1,6 +1,28 @@
 <?php
 class ZoneAction extends CommonAction {
 
+     function _initialize() {
+         
+         $zonelist = array(
+            
+            '酒店-地点','酒店-星级',
+            '别墅-地点','别墅-主题','别墅-卧室数量',
+            '活动-地点','活动-类型','活动-适合人群','活动-主题'
+        );
+         
+         $this->assign( "pzlist", $zonelist );
+         
+                 
+        //站点信息
+		$site = M('site'); // 实例化模型类  
+		 
+		$condition['id_site']	=	1;
+		
+		$siteD = $site->where($condition)->find(); // 查询数据   
+		
+		$this->assign('site',$siteD); // 模板变量赋值
+         
+     }
 	// 框架首页 CommonAction
 	public function index() {
 	
@@ -8,12 +30,16 @@ class ZoneAction extends CommonAction {
 	
 		$Type = D('ZoneView'); 
 		$count = $Type->count();//计算总数
+        
+        
+        
+        
 		
-		$p = new Page ( $count, 10 );
+		$p = new Page ( $count, 100 );
 /*		$where['id_type'] = array('neq',1); 
 		$where['buildId_type']=  $_SESSION [C ( 'USER_AUTH_KEY' )];*/
 		//$Mlist=$Type->where($where)->limit($p->firstRow.','.$p->listRows)->order('belongType_type asc')->findAll();
-		$Mlist=$Type->limit($p->firstRow.','.$p->listRows)->order('id asc')->findAll();
+		$Mlist=$Type->limit($p->firstRow.','.$p->listRows)->order('pid asc')->findAll();
 		
 		$p->setConfig('header','个区域');
 
@@ -22,6 +48,7 @@ class ZoneAction extends CommonAction {
 		$p->setConfig('first','&laquo; 第一页');
 		$p->setConfig('last','最后一页 &raquo;');
 		$page = $p->show ();
+        
 		$this->assign( "page", $page );
 		$this->assign('zone',$Mlist);
 		$this->display(); // 输出模板   

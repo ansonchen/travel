@@ -43,26 +43,27 @@ $J(document).ready(function(){
 <div class="content-box">
   <!-- Start Content Box -->
   <div class="content-box-header">
-    <h3>酒店管理</h3>
+    <h3>别墅管理</h3>
     <ul class="content-box-tabs">
-      <li><a href="#tab1" class="default-tab">所有酒店</a></li>
+      <li><a href="#tab1" class="default-tab">所有别墅</a></li>
       <!-- href must be unique and match the id of target div -->
-      <li><a id="shortAction" href="#tab2">增加酒店</a></li>
+      <li><a id="shortAction" href="#tab2">增加别墅</a></li>
     </ul>
     <div class="clear"></div>
   </div>
   <!-- End .content-box-header -->
   <div class="content-box-content">
     <div class="tab-content default-tab" id="tab1">
+     
+     
       <!-- This is the target div. id must match the href of this div's tab -->
-    
       <table>
         <thead>
           <tr>
             <th>名称</th>
-            <th>类型</th>
+            <th>卧室数量</th>
             <th>区域</th>
-            <th>星级</th>
+            <th>主题</th>
             <th>操作</th>
           </tr>
         </thead>
@@ -79,9 +80,9 @@ $J(document).ready(function(){
           <volist name='hotels' id='mTable' >
             <tr>
               <td><a href="__URL__/edit/id/{$mTable.id}" class="editGoods">{$mTable.name|mb_substr=###,0,20,'utf-8'}</a></td>
-              <td>{$mTable.type}</td>
+              <td>{$showroomnum[$mTable['roomnum']]}</td>
               <td>{$showzone[$mTable['zone_id']]}</td>
-              <td>{$mTable.star}</td>
+              <td>{$showtheme[$mTable['theme']]}</td>
               <td class="iconTools"><!-- Icons -->
                 <a href="__URL__/edit/id/{$mTable.id}" class="editGoods editIcon" title="编辑">编辑</a><!-- <a href="__URL__/delete/id_Goods/{$mTable.id_goods}" class="delGoods delIcon" title="删除">删除</a>-->
                 <!--<a href="#" title="Edit Meta"><img src="__PUBLIC__/admin/resources/images/icons/hammer_screwdriver.png" alt="Edit Meta" /></a>	-->              </td>
@@ -105,11 +106,14 @@ $J(document).ready(function(){
           </select>
           <input class="text-input medium-input" type="text"  name="address" /> 
          </p>
-                <p>
+                  <p>
             <label>地址连接</label>
              
           <input class="text-input medium-input" type="text"  name="addresslink" /> 
          </p>
+          
+               
+            
               <p>
           <label>开业时间</label>
           <input class="text-input small-input" type="text"  name="htime" />
@@ -128,6 +132,17 @@ $J(document).ready(function(){
         </ul>
         <div class="clear"></div>
             </p>
+            
+                 <p>
+            <label>主题</label>
+             
+              <select name="theme">
+            <volist name='theme' id='option' >
+              <option value="{$option.id}" >{$option.name}</option>
+            </volist>
+          </select>
+          </p>
+           
          <p>
              <label>酒店介绍</label>
           <textarea class="text-input textarea" name="introduction" cols="79" rows="5"></textarea>
@@ -135,9 +150,19 @@ $J(document).ready(function(){
                    <p>
           <label>排序</label>
           <input class="text-input small-input" type="text" name="sort" />
-
+          </p>
+                         <p>
+            <label>卧室数量</label>
+             
+              <select name="roomnum">
+            <volist name='roomnum' id='option' >
+              <option value="{$option.id}" >{$option.name}</option>
+            </volist>
+          </select>
+         </p>
+         
            <p>
-            <p>
+<!--            <p>
              <label>星级</label>
          <label class="inline"> <input type="radio" name="star" value="五">五星级</label>
             <label class="inline"> <input type="radio" name="star" value="四">四星级</label>
@@ -146,14 +171,16 @@ $J(document).ready(function(){
            <label class="inline">  <input type="radio" name="star" value="一">一星级</label>
              <label class="inline">    <input type="radio" name="star" value="无">无星级</label>
           </p>
+           
+<p>
             <label>类型</label>
             <input class="text-input small-input" type="text"  name="type" />
           </p>
           
-    <p>
+    <p>-->
              <label>房型选择</label>
              <volist name='rooms' id='room' >
-              <label class="inline"><input type="checkbox" name="room[]" value="{$room.id}" >{$room.name}-{$room.other}</label>
+              <label class="inline"><input type="checkbox" name="room[]" value="{$room.id}" >{$room.name}</label>
             </volist>
       
           </p>
@@ -181,7 +208,7 @@ $J(document).ready(function(){
        
 
           <input class="button" type="button" value="Create" id="addHotelBtn" />
-          <input type="hidden" name="htype" value="0" />
+          <input type="hidden" name="htype" value="1" />
           <input type="hidden" name="ajax" value="1" />
         </p>
         </fieldset>

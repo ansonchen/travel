@@ -9,7 +9,7 @@ class GimgAction extends CommonAction {
 		$Type = D('GimgView'); 
 		$count = $Type->count();//计算总数
 		
-		$p = new Page ( $count, 10 );
+		$p = new Page ( $count, 20 );
 /*		$where['id_type'] = array('neq',1); 
 		$where['buildId_type']=  $_SESSION [C ( 'USER_AUTH_KEY' )];*/
 		//$Mlist=$Type->where($where)->limit($p->firstRow.','.$p->listRows)->order('belongType_type asc')->findAll();

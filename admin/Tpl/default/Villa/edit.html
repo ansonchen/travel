@@ -14,7 +14,7 @@ function completeGoods(data,status){
 	
 		window.setTimeout(function (){
 
-		mainLoad('__APP__/Hotels/index'); 
+		mainLoad('__APP__/Villa/index'); 
 		},1000);
 	}
 }
@@ -155,6 +155,15 @@ $J(document).ready(function(){
         <div class="clear"></div>
 
         </p>
+            <p>
+            <label>主题</label>
+             
+              <select name="theme">
+            <volist name='theme' id='option' >
+              <option value="{$option.id}"  <eq name="option['id']" value="$vo['theme']">selected</eq>>{$option.name}</option>
+            </volist>
+          </select>
+          </p>
          <p>
              <label>酒店介绍</label>
           <textarea class="text-input textarea" name="introduction" cols="79" rows="5">{$vo.introduction}</textarea>
@@ -164,7 +173,7 @@ $J(document).ready(function(){
           <input class="text-input small-input" type="text" name="sort" value="{$vo.sort}" />
           
           </p>
-            <p>
+           <!-- <p>
              <label>星级</label>
               <label class="inline"><input type="hidden" id="starVal" value="{$vo.star}">
              <label class="inline"><input type="radio" name="star" value="五">五星级</label>
@@ -176,9 +185,18 @@ $J(document).ready(function(){
           </p>
             <label>类型</label>
             <input class="text-input small-input" type="text"  name="type" value="{$vo.type}" />
-          </p>
+          </p>-->
              
-      
+          <p>
+            <label>卧室数量</label>
+             
+              <select name="roomnum">
+            <volist name='roomnum' id='option' >
+              <option value="{$option.id}"  <eq name="option['id']" value="$vo['roomnum']">selected</eq>>{$option.name}</option>
+            </volist>
+          </select>
+         </p>
+         
     <p>
              <label>房型选择</label>
              <volist name='rooms' id='room' >
@@ -219,7 +237,7 @@ $J(document).ready(function(){
         <p>
           <input class="button" type="button" value="Update" id="editHotelsBtn" />
           <input class="button" type="button" value="Delete" id="delHotelsBtn" />
-          <a class="button" id="returnLink" href="__APP__/Hotels/index">Return</a>
+          <a class="button" id="returnLink" href="__APP__/Villa/index">Return</a>
           <input type="hidden" name="ajax" value="1" />
           <input type="hidden" name="htype" value="{$vo.htype}" />
           <input type="hidden" name="id" value="{$vo.id}" />

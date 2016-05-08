@@ -1,11 +1,12 @@
 <?php
-class HotelsAction extends CommonAction {
+class VillaAction extends CommonAction {
 
     function _initialize() {
 		
 	
+        //'别墅-地点','别墅-主题','别墅-卧室数量',
 		$Zone = M("Zone");
-        $zonewhere['pid'] = 0; 
+        $zonewhere['pid'] = 2; 
 		$ZoneDB = $Zone->where($zonewhere)->order('sort asc')->select(); 
 		$this->assign('zone',$ZoneDB);
         
@@ -15,6 +16,33 @@ class HotelsAction extends CommonAction {
             $newtheme[$value['id']] = $value['name'];
         }
         $this->assign('showzone',$newtheme);
+        
+        
+        $zonewhere['pid'] = 3; 
+		$ZoneDB = $Zone->where($zonewhere)->order('sort asc')->select(); 
+		$this->assign('theme',$ZoneDB);
+        
+        $newtheme = array();
+        foreach ($ZoneDB as $key => $value)
+        {        
+            $newtheme[$value['id']] = $value['name'];
+        }
+        $this->assign('showtheme',$newtheme);
+        
+        
+        $zonewhere['pid'] = 4; 
+		$ZoneDB = $Zone->where($zonewhere)->order('sort asc')->select(); 
+		$this->assign('roomnum',$ZoneDB);
+        
+        $newtheme = array();
+        
+        foreach ($ZoneDB as $key => $value)
+        {        
+            $newtheme[$value['id']] = $value['name'];
+        }
+        $this->assign('showroomnum',$newtheme);
+        
+        
         
 		
         $Rooms = M("Rooms");
@@ -64,7 +92,7 @@ class HotelsAction extends CommonAction {
 	
 		$Hotels = D('HotelsView'); 
 
-        $where['htype'] = 0;
+        $where['htype'] = 1;
 //		$where['bORn_article'] = 'b';
 //		if(!$_SESSION['administrator'])
 //		{
@@ -73,7 +101,7 @@ class HotelsAction extends CommonAction {
 		$count = $Hotels->where($where)->count();//计算总数
 		$p = new Page ( $count, 10 );
 		$Mlist=$Hotels->where($where)->limit($p->firstRow.','.$p->listRows)->order('id desc')->select();//findAll
-		$p->setConfig('header','个酒店');
+		$p->setConfig('header','个别墅');
 
 		$p->setConfig('prev',"&laquo; 上一页");
 		$p->setConfig('next','下一页 &raquo;');

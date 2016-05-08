@@ -2,6 +2,14 @@
         <fieldset>
         <!-- Set class to "column-left" or "column-right" on fieldsets to divide the form into columns -->
         <p>
+          <label>上级</label>
+        <select name="pid" >
+            <volist name='pzlist' id='option' >
+              <option value="{$key}" <eq name="key" value="$vo['pid']">selected</eq> >{$option}</option>
+            </volist>
+          </select>
+        </p>
+        <p>
           <label>名称</label>
           <input class="text-input small-input" type="text" name="name"  value="{$vo.name}" />
           

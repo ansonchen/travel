@@ -14,7 +14,7 @@
         <a href="/">首页</a>
         <a href="/Hotellist">酒店预订</a>
         <a href="/Villalist">别墅精选</a>
-        <a href="/Activelist">当地活动</a>
+        <a href="/Active">当地活动</a>
         <a href="#">特别策划</a>
         <a href="#">关于我们</a>
     </div>
@@ -26,7 +26,7 @@
     </div>
     <div class="listNav">
         <div class="box">
-        <a href="/">首页</a>><a href="/Hotellist">酒店预订</a>><span id="addname">所有</span>酒店
+        <a href="/">首页</a>><a href="/Activelist">本地活动</a>><span id="addname">所有</span>活动
         </div>
     </div>
     <div class="listCon box">
@@ -41,25 +41,43 @@
                 </volist>
             </dd>
         </dl>
+        
         <dl>
-            <dt>星级</dt>
-            <dd id="star_J">
-                <input type="hidden" id="sid" value="{$sid}">
-                <a href="?star=5" id="star_5">五星级</a>
-                <a href="?star=4" id="star_4">四星级</a>
-                <a href="?star=3" id="star_3">三星级</a>
-                <a href="?star=2" id="star_2">二星级</a>
-                <a href="?star=1" id="star_1">一星级</a>
-                <a href="?star=6" id="star_6">无星级</a>
+            <dt>类型</dt>
+            <dd id="acttype_J">
+               <input type="hidden" id="acttypeid" value="{$acttypeid}">
+                <volist name='acttype' id='vo' >
+                <a href="?acttype={$vo.id}" id="acttype_{$vo.id}" >{$vo.name}</a>
+                </volist>
             </dd>
         </dl>
+         <dl>
+            <dt>适合人群</dt>
+            <dd id="actgroup_J">
+               <input type="hidden" id="actgroupid" value="{$actgroupid}">
+                <volist name='actgroup' id='vo' >
+                <a href="?actgroup={$vo.id}" id="actgroup_{$vo.id}" >{$vo.name}</a>
+                </volist>
+            </dd>
+        </dl>
+          <dl>
+            <dt>主题</dt>
+            <dd id="theme_J">
+               <input type="hidden" id="themeid" value="{$themeid}">
+                <volist name='theme' id='vo' >
+                <a href="?theme={$vo.id}" id="theme_{$vo.id}" >{$vo.name}</a>
+                </volist>
+            </dd>
+        </dl>
+        
+        
     </div>
         <div class="roomsList">
         <volist name='hotels' id='ho' >            
            <a class="room" href="/Hotelitem/?id={$ho.id}">
                <img src="{$ho.picturePath_goods}" alt="">
                <p class="name">{$ho.name|mb_substr=###,0,11,'utf-8'}<em>{$ho.enname|mb_substr=###,0,40,'utf-8'}</em></p>
-                <p>{$showzone[$ho['zone_id']]} | {$ho.type} | {$ho.star}星级</p>
+                <p>{$showzone[$ho['zone_id']]}  | {$showacttype[$ho['acttype']]} | {$showtheme[$ho['theme']]} | {$showactgroup[$ho['actgroup']]}</p>
            </a>
        </volist>
           <div class="page">
@@ -71,7 +89,7 @@
 </div>
 <div class="footer">
     
-    <div class="footer_nav" id="footermenu_J">
+   <div class="footer_nav" id="footermenu_J">
         
         <ul>
             <li><a href="#">特色项目</a></li>

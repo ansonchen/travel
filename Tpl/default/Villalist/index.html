@@ -26,7 +26,7 @@
     </div>
     <div class="listNav">
         <div class="box">
-        <a href="/">首页</a>><a href="/Hotellist">酒店预订</a>><span id="addname">所有</span>酒店
+        <a href="/">首页</a>><a href="/Villalist">别墅精选</a>><span id="addname">所有</span>别墅
         </div>
     </div>
     <div class="listCon box">
@@ -41,25 +41,34 @@
                 </volist>
             </dd>
         </dl>
-        <dl>
-            <dt>星级</dt>
-            <dd id="star_J">
-                <input type="hidden" id="sid" value="{$sid}">
-                <a href="?star=5" id="star_5">五星级</a>
-                <a href="?star=4" id="star_4">四星级</a>
-                <a href="?star=3" id="star_3">三星级</a>
-                <a href="?star=2" id="star_2">二星级</a>
-                <a href="?star=1" id="star_1">一星级</a>
-                <a href="?star=6" id="star_6">无星级</a>
+        
+        
+          <dl>
+            <dt>主题</dt>
+            <dd id="theme_J">
+               <input type="hidden" id="themeid" value="{$themeid}">
+                <volist name='theme' id='vo' >
+                <a href="?theme={$vo.id}" id="theme_{$vo.id}" >{$vo.name}</a>
+                </volist>
             </dd>
         </dl>
+        <dl>
+            <dt>卧室数量</dt>
+            <dd id="roomnum_J">
+               <input type="hidden" id="roomnumid" value="{$roomnumid}">
+                <volist name='roomnum' id='vo' >
+                <a href="?roomnum={$vo.id}" id="roomnum_{$vo.id}" >{$vo.name}</a>
+                </volist>
+            </dd>
+        </dl>
+        
     </div>
         <div class="roomsList">
         <volist name='hotels' id='ho' >            
            <a class="room" href="/Hotelitem/?id={$ho.id}">
                <img src="{$ho.picturePath_goods}" alt="">
                <p class="name">{$ho.name|mb_substr=###,0,11,'utf-8'}<em>{$ho.enname|mb_substr=###,0,40,'utf-8'}</em></p>
-                <p>{$showzone[$ho['zone_id']]} | {$ho.type} | {$ho.star}星级</p>
+                <p>{$showzone[$ho['zone_id']]} | {$showtheme[$ho['theme']]} | {$showroomnum[$ho['roomnum']]}</p>
            </a>
        </volist>
           <div class="page">

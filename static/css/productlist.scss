@@ -80,6 +80,9 @@ body{width:1366px; margin: 0 auto}
                 p{ margin: 0;padding: 0 18px 0 24px; color: #7c7c7c; font-size: 14px; line-height: 30px; clear: both;
                     span{float: right}
                 }
+                .dellineheight{
+                line-height: auto;
+                }
                 
                 .name{
                    
@@ -93,6 +96,9 @@ body{width:1366px; margin: 0 auto}
                         display: block;
                         margin-top: 6px;
                         margin-bottom: 2px;
+                        word-break: break-all;
+                        height: 32px;
+                        overflow: hidden;
                     }
                 }
             }

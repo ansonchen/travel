@@ -14,7 +14,7 @@ function completeGoods(data,status){
 	
 		window.setTimeout(function (){
 
-		mainLoad('__APP__/Hotels/index'); 
+		mainLoad('__APP__/Text/index'); 
 		},1000);
 	}
 }
@@ -24,42 +24,12 @@ $J(document).ready(function(){
 //		this.src = this.src.replace('xl_','s_');
 //		});
 
-               		//默认选择中的多选框
-		$J('input[name=Vroom]').each(function(){
-		var selval = this.value;
-		 $J('input[name^=room]').each(function(){
-		 
-		 	if(this.value==selval){
-			this.checked = true;
-			}
-		 })
-		
-		});
-        
-        $J('input[name=Vattr]').each(function(){
-		var selval = this.value;
-		 $J('input[name^=attr]').each(function(){
-		 
-		 	if(this.value==selval){
-			this.checked = true;
-			}
-		 })
-		
-		})
-        
-        
 
-        $J('input[name^=star]').each(function(){
-		 
-		 	if(this.value==$J('#starVal').val()){
-			this.checked = true;
-			}
-		 })
         
-        
+    
         
 		$J('#editHotelsBtn').click(function(){
-			//saveEditor();//把FCK的内容保存到textar
+			saveEditor();//把FCK的内容保存到textar
 			ThinkAjax.sendForm('eformHotel','__URL__/updateHotels/',completeGoods,'result');
 		
 		})
@@ -103,7 +73,7 @@ $J(document).ready(function(){
 <div class="content-box">
   <!-- Start Content Box -->
   <div class="content-box-header">
-    <h3>酒店管理</h3>
+    <h3>活动管理</h3>
   </div>
   <!-- End .content-box-header -->
   <div class="content-box-content">
@@ -111,28 +81,8 @@ $J(document).ready(function(){
 	<form method="post" id="eformHotel">
 
         <fieldset>
-           <p>
-                       
-            <label>地址</label>
-             
-              <select name="zone_id">
-            <volist name='zone' id='option' >
-              <option value="{$option.id}" <eq name="option['id']" value="$vo['zone_id']">selected</eq>>{$option.name}</option>
-            </volist>
-          </select>
-          <input class="text-input medium-input" type="text"  name="address"  value="{$vo.address}"  /> 
-         </p>
-           <p>
-            <label>地址连接</label>
-             
-          <input class="text-input medium-input" type="text"  name="addresslink"  value="{$vo.addresslink}" /> 
-         </p>
         <p>
-          <label>开业时间</label>
-          <input class="text-input small-input" type="text"  name="htime" value="{$vo.htime}" />
-    </p> 
-        <p>
-          <label>名称</label>
+          <label>标题</label>
           <input class="text-input small-input" type="text"  name="name" value="{$vo.name}" />
           <input class="text-input small-input" type="text"  name="enname" value="{$vo.enname}"  />
         
@@ -153,73 +103,29 @@ $J(document).ready(function(){
          
         </ul>
         <div class="clear"></div>
-
         </p>
-         <p>
-             <label>酒店介绍</label>
-          <textarea class="text-input textarea" name="introduction" cols="79" rows="5">{$vo.introduction}</textarea>
-          </p>
+
+         
              <p>
           <label>排序</label>
           <input class="text-input small-input" type="text" name="sort" value="{$vo.sort}" />
           
           </p>
-            <p>
-             <label>星级</label>
-              <label class="inline"><input type="hidden" id="starVal" value="{$vo.star}">
-             <label class="inline"><input type="radio" name="star" value="五">五星级</label>
-             <label class="inline"><input type="radio" name="star" value="四">四星级</label>
-             <label class="inline"><input type="radio" name="star" value="三">三星级</label>
-             <label class="inline"><input type="radio" name="star" value="二">二级</label>
-            <label class="inline"> <input type="radio" name="star" value="一">一星级</label>
-            <label class="inline"><input type="radio" name="star" value="无">无星级</label>
-          </p>
-            <label>类型</label>
-            <input class="text-input small-input" type="text"  name="type" value="{$vo.type}" />
-          </p>
-             
-      
-    <p>
-             <label>房型选择</label>
-             <volist name='rooms' id='room' >
-              <input type="checkbox" name="room[]" value="{$room.id}" >{$room.name}
-            </volist>
-              <volist name='roomsList' id='hid' >
-                <input type="hidden" name="Vroom" value="{$hid.room_id}" />
-              </volist>
-      
-          </p>
-             
-                                
-    <p>
-             <label>酒店配置</label>              
-               <volist name='croom' id='cr' >
-                   {$key}：              
-                   <volist name='cr' id='crr' >
-                        <label class="inline"><input type="checkbox" name="attr[]" value="{$crr}" >{$crr}</label>  
-                    </volist>
-                   </br>
-               </volist>
-              <volist name='vo.attrList' id='aid' >
-                <input type="hidden" name="Vattr" value="{$aid}" />
-              </volist>
-           </p>
-
           <p>
-             <label>注意事项</label>
-          <textarea class="text-input textarea" name="care" cols="79" rows="5">{$vo.care}</textarea>
+          <label>备注</label>
+          <input class="text-input small-input" type="text" name="type"  value="{$vo.type}" />
           </p>
-          <p>
-             <label>其它可选项</label>
-          <textarea class="text-input textarea" name="other" cols="79" rows="5">{$vo.other}</textarea>
+        
+    <p>
+             <label>内容</label>
+             <html:editor type="fckeditor" id="content_article2"  height="600px" name="introduction" content="{$vo.introduction}"/>
+             
           </p>
-      	
-    
 
         <p>
           <input class="button" type="button" value="Update" id="editHotelsBtn" />
           <input class="button" type="button" value="Delete" id="delHotelsBtn" />
-          <a class="button" id="returnLink" href="__APP__/Hotels/index">Return</a>
+          <a class="button" id="returnLink" href="__APP__/Active/index">Return</a>
           <input type="hidden" name="ajax" value="1" />
           <input type="hidden" name="htype" value="{$vo.htype}" />
           <input type="hidden" name="id" value="{$vo.id}" />

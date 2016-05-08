@@ -4,9 +4,9 @@ body{width:1366px; margin: 0 auto}
 .content{min-width:$thispagewidth;
     .box{width: $thispagewidth; margin: 0 auto; overflow: hidden}
     .itemBg{background: url(img/item_bg.jpg) no-repeat center center;height: 427px;}
-    .itemTitle{ background:#454545; height: 98px;margin-bottom: 28px;
+    .itemTitle{ background:#454545; min-height: 98px;margin-bottom: 28px;
         
-        h2{color: #fff;font-size: 24px; margin: 15px 0 0 0;padding: 0; line-height: 34px;}
+        h2{color: #fff;font-size: 24px; margin: 15px 0;padding: 0; line-height: 34px;}
         .address{font-size: 14px; float: right; text-align: left;color: #fff; font-weight: 800;line-height: 34px;margin: 15px 0 0 0;
             a{
                 color: #fff;
