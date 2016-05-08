@@ -3,11 +3,27 @@ function addlinks(){
 
     var links = {
     
-        head:['/','/Hotellist','/Villalist','/Activelist','特别','关于'],
+        head:['/','/Hotellist','/Villalist','/Activelist',
+              '/Other/index/id/36',//特别策划
+              '/Other/index/id/37' //关于我们
+             ],
         cons:['#1','#2','#3','#4','#5'],
-        foot:['#1','#2','#3','#4',
-              '#5','#2','#3','#4',
-              '#5','#2','#3','#4'
+        foot:['/Other/index/id/38', //特色项目
+              '/Hotellist',
+              '/Villalist',
+              '/Booknow',
+              
+              '/Other/index/id/39', //公司信息
+              '/Other/index/id/37',
+              '/Other/index/id/40', //工作机会
+              '/Other/index/id/41', //新闻
+              
+              '/Other/index/id/42', //帮助
+              '/Other/index/id/43', //政策
+              '/Other/index/id/44', //灾难响应
+              '/Other/index/id/45' //条款与隐私
+              
+              
              ]
     }
     var d = document;
