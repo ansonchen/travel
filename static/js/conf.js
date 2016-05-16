@@ -16,7 +16,7 @@ function addlinks(){
               '/Other/index/id/39', //公司信息
               '/Other/index/id/37',
               '/Other/index/id/40', //工作机会
-              '/Other/index/id/41', //新闻
+              '/Other/index/id/36', //新闻 41
               
               '/Other/index/id/42', //帮助
               '/Other/index/id/43', //政策

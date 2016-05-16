@@ -5,7 +5,13 @@ height: 80px;min-width: $pagewidth;padding-top: 193px;
 
 .nav{height: 80px;background: #898989;line-height: 80px; text-align: center;min-width: $pagewidth;
     a{ text-decoration: none; color: #fff; font-size:18px; margin: 0 .5em}
+	
 }
+	.box{ position: relative;
+		a.logo{
+			 width: 140px; height: 60px; display: block; position: relative; top:-208px;left: 50px;
+		}
+	}
     }
 .box{width: $pagewidth; margin: 0 auto;}
 .content{min-width: $pagewidth;min-height: 300px;
