@@ -3,13 +3,13 @@ $thispagewidth:1074px;
 body{width:1366px; margin: 0 auto}
 .content{min-width:$thispagewidth;
     .box{width: $thispagewidth; margin: 0 auto; overflow: hidden}
-    .listBg{background: url(img/list_bg.jpg) no-repeat center center;height: 209px;margin-bottom: 22px;overflow: hidden;
+    .listBg{background: url(img/list_bg.jpg) no-repeat center center;height: 209px;overflow: hidden;
         h2{margin: 70px 0 0 0;color: #fff;font-size: 18x; text-align: center; font-weight: 400;
             em{font-size: 44px; margin-bottom: 14px;display: block; font-style: normal;}
         }
     }
     
-    .listNav{  height: 30px;line-height: 30px; margin-bottom: 28px;font-size: 14px; color: #5d5d5d;margin-bottom: 12px;
+    .listNav{  height: 30px;line-height: 30px; margin-top: 22px;font-size: 14px; color: #5d5d5d;margin-bottom: 12px;
         
         a{color: #51c3e7}
 

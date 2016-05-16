@@ -22,7 +22,10 @@
     <a href="/" class="logo"></a>
 </div>
 <div class="content">
-    <div class="itemBg"></div>
+   <div class="itemuBg">
+   		<img src="{$ho.picturePath_goods|str_replace='xl_','',###}">    
+   </div>
+    
     <div class="itemTitle">
         <div class="box">
         <div class="address">地址：<a href="{$ho.addresslink}" target="_blank">{$ho.address}</a><i></i><a href="{$ho.addresslink}"  target="_blank">点击打开地图</a><br/>开业日期：{$ho.htime}</div>

@@ -21,10 +21,6 @@
     <a href="/" class="logo"></a>
 </div>
 <div class="content">
-    <div class="listBg">
-        
-        <h2><em>曼谷酒店</em>曼谷是一座集古朴与现代，尊贵与市井，放纵与戒律于一身的城市。包罗万象的"天使之城"</h2>
-    </div>
     <div class="listNav">
         <div class="box">
         <a href="/">首页</a>><a href="/Activelist">本地活动</a>><span id="addname">所有</span>活动
@@ -76,7 +72,7 @@
         <div class="roomsList">
         <volist name='hotels' id='ho' >            
            <a class="room" href="/Activeitem/?id={$ho.id}">
-               <img src="{$ho.picturePath_goods}" alt="">
+               <img src="{$ho.picturePath_goods|str_replace='xl_','m_',###}" alt="{$ho.name|mb_substr=###,0,11,'utf-8'}">
                <p class="name">{$ho.name|mb_substr=###,0,11,'utf-8'}<em>{$ho.enname|mb_substr=###,0,40,'utf-8'}</em></p>
                 <p>{$showzone[$ho['zone_id']]}  | {$showacttype[$ho['acttype']]} | {$showtheme[$ho['theme']]} | {$showactgroup[$ho['actgroup']]}</p>
            </a>

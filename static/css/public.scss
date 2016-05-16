@@ -1,5 +1,13 @@
 @import "bourbon";
 @import "normalize";
+@mixin anInit($anname,$andu:1s,$delay:0s,$timefn:ease,$anfill:both){
+    @include animation-name($anname);
+    @include animation-duration($andu);
+    @include animation-fill-mode($anfill);
+    @include animation-delay($delay);
+    @include animation-timing-function($timefn);
+    
+}
 $pagewidth:998px;
 *{font-family: "Microsoft YaHei", "Arial", "Hiragino Sans GB", "宋体", sans-serif;}
 ul,li{margin: 0;padding: 0;list-style: none;}
@@ -74,4 +82,38 @@ background: #363636;
         
     }
     
+}
+
+.sideMenu {
+  background: url("img/online3.png") no-repeat center top;
+  width: 70px;
+  height: 258px;
+  position: fixed;
+  top:50%;	
+  right: 10px;
+  z-index: 1000;
+  @include transform(translateY(-50%));
+  @include anInit(fadeIns,1s);
+	a{width:70px;height: 71px;display: block;
+		position: relative;
+		.telbox{position: absolute;display: none;right:72px; top:0px;width: 194px; height: 70px; background: #fff url('img/tel.png') no-repeat center center;
+			-webkit-box-shadow:rgba(0, 0, 0, 0.2) 0px 2px 3px 0px;
+			-moz-box-shadow:rgba(0, 0, 0, 0.2) 0px 0px 3px 0px;
+			box-shadow:rgba(0, 0, 0, 0.2) 0px 0px 3px 0px; }
+		.wxbox{position: absolute;display: none;width: 144px; height: 144px; right:72px; top:-100px;  background: #fff url('img/wx2.png') no-repeat center center;
+					-webkit-box-shadow:rgba(0, 0, 0, 0.2) 0px 2px 3px 0px;
+			-moz-box-shadow:rgba(0, 0, 0, 0.2) 0px 0px 3px 0px;
+			box-shadow:rgba(0, 0, 0, 0.2) 0px 0px 3px 0px; }
+		&:hover .telbox,&:hover .wxbox{ display: block}
+		&.totop{height: 45px;}
+	}
+	
+}
+@include keyframes(fadeIns){
+  0%,90%{
+	opacity: 0;
+	}
+100% {
+    opacity: 1;
+}
 }

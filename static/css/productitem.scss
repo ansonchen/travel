@@ -4,6 +4,12 @@ body{width:1366px; margin: 0 auto}
 .content{min-width:$thispagewidth;
     .box{width: $thispagewidth; margin: 0 auto; overflow: hidden}
     .itemBg{background: url(img/item_bg.jpg) no-repeat center center;height: 427px;}
+	.itemuBg{
+		text-align: center;min-width:$thispagewidth;
+		img{ margin: 0 auto; display: block;}
+	
+	}
+	
     .itemTitle{ background:#454545; min-height: 98px;margin-bottom: 28px;
         
         h2{color: #fff;font-size: 24px; margin: 15px 0;padding: 0; line-height: 34px;}
