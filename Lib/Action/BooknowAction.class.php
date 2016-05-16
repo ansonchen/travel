@@ -38,7 +38,8 @@ class BooknowAction extends CommonAction{
 
          $Book    =    D("Book");
 	     $return = array();
-         $ordernum = $this->GetRandStr(4).date('YmdHis').floor(microtime()*1000);
+	 $ordernum = $this->GetRandStr(3).date('mdis');    
+        // $ordernum = $this->GetRandStr(4).date('YmdHis').floor(microtime()*1000);
          $_POST['orderNumber'] = $ordernum;
         if($vo = $Book->create()) {
             if(false!==$Book->add()){
