@@ -6,10 +6,36 @@ $J(document).ready(function(){
 		//添加
 		$J('#addHotelBtn').click(function(){
 		//saveEditor();//把FCK的内容保存到textarea
+			
+			//$J('#main-content').data('currentUrl','__URL__/addHotels/?hotels_id');
 		
-			ThinkAjax.sendForm('formHotel','__URL__/addHotels/',completeN,'result');
+			ThinkAjax.sendForm('formHotel','__URL__/addHotels/',function(id,status){
+			
+				if (status==1)
+				{
+					//$J(document).unbind('close.facebox');
+					window.setTimeout(function (){
+					 mainLoad('__APP__/Rooms/index/hotels_id/'+id); 
+					},1000);
+				}
+			
+			
+			},'result');
 		})
 		
+/*		function completeN(data,status){
+
+			if (status==1)
+			{
+				//$J(document).unbind('close.facebox');
+				window.setTimeout(function (){
+				var url = $J('#main-content').data('currentUrl');
+				if(url) mainLoad(url) 
+				},1000);
+			}
+		}*/
+
+	
 
 		$J('a.selectPic').facebox();
 		//翻页ajax
@@ -83,7 +109,10 @@ $J(document).ready(function(){
               <td>{$showzone[$mTable['zone_id']]}</td>
               <td>{$mTable.star}</td>
               <td class="iconTools"><!-- Icons -->
-                <a href="__URL__/edit/id/{$mTable.id}" class="editGoods editIcon" title="编辑">编辑</a><!-- <a href="__URL__/delete/id_Goods/{$mTable.id_goods}" class="delGoods delIcon" title="删除">删除</a>-->
+                <a href="__URL__/edit/id/{$mTable.id}" class="editGoods editIcon" title="编辑">编辑</a>                
+                <a href="__APP__/Rooms/index/hotels_id/{$mTable.id}" class="editGoods editIcon" title="编辑">房间管理</a>                
+                
+                <!-- <a href="__URL__/delete/id_Goods/{$mTable.id_goods}" class="delGoods delIcon" title="删除">删除</a>-->
                 <!--<a href="#" title="Edit Meta"><img src="__PUBLIC__/admin/resources/images/icons/hammer_screwdriver.png" alt="Edit Meta" /></a>	-->              </td>
             </tr>
           </volist>
@@ -150,13 +179,13 @@ $J(document).ready(function(){
             <input class="text-input small-input" type="text"  name="type" />
           </p>
           
-    <p>
+<!--    <p>
              <label>房型选择</label>
              <volist name='rooms' id='room' >
               <label class="inline"><input type="checkbox" name="room[]" value="{$room.id}" >{$room.name}-{$room.other}</label>
             </volist>
       
-          </p>
+          </p>-->
                      
     <p>
              <label>酒店配置</label>              
@@ -180,7 +209,7 @@ $J(document).ready(function(){
       	
        
 
-          <input class="button" type="button" value="Create" id="addHotelBtn" />
+          <input class="button" type="button" value="下一步" id="addHotelBtn" />
           <input type="hidden" name="htype" value="0" />
           <input type="hidden" name="ajax" value="1" />
         </p>

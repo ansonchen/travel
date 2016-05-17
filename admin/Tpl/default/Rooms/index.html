@@ -8,6 +8,19 @@
 			ThinkAjax.sendForm('formRooms','__URL__/addRooms/',complete,'result');
 		})
 		
+		$J('#roomBackBtn').click(function(){
+			
+			
+			mainLoad('__APP__/Hotels/edit/id/'+{$hotels_id});
+			
+		})
+		
+		$J('#roomOKBtn').click(function(){
+			mainLoad('__APP__/Hotels/index/');
+		})
+		
+		
+		
 		//修改菜单
 		//$J('a.editMenu').facebox();
 		
@@ -49,7 +62,7 @@
     <h3>房间管理</h3>
     <ul class="content-box-tabs">
       <li><a href="#tab1" class="default-tab">房间列表</a></li>
-      <!-- href must be unique and match the id of target div -->
+      <!-- {$hotels_id} -->
       <li><a href="#tab2">新增房间</a></li>
     </ul>
     <div class="clear"></div>
@@ -58,9 +71,6 @@
   <div class="content-box-content">
     <div class="tab-content default-tab" id="tab1">
       <!-- This is the target div. id must match the href of this div's tab -->
-      <div class="notification attention png_bg"> <a href="#" class="close"><img src="__PUBLIC__/admin/resources/images/icons/cross_grey_small.png" title="Close this notification" alt="close" /></a>
-        <div>房间用于酒店管理时选择。</div>
-      </div>
       <table>
         <thead>
           <tr>
@@ -73,16 +83,7 @@
             <th>操作</th>
           </tr>
         </thead>
-        <tfoot>
-          <tr>
-            <td colspan="8">
-              <div class="pagination">
-              {$page}
-               <!--<a href="#" title="第一页">&laquo; First</a><a href="#" title="上一页">&laquo; Previous</a> <a href="#" class="number" title="1">1</a> <a href="#" class="number" title="2">2</a> <a href="#" class="number current" title="3">3</a> <a href="#" class="number" title="4">4</a> <a href="#" title="下一页">Next &raquo;</a><a href="#" title="最后一页">Last &raquo;</a>--> </div>
-              <!-- End .pagination -->
-              <div class="clear"></div></td>
-          </tr>
-        </tfoot>
+       
         <tbody>
           <volist name='rooms' id='ty' >
             <tr>
@@ -160,7 +161,9 @@
            
         
         <input type="hidden" name="ajax" value="1" />
-
+        
+		 <input type="hidden" name="hotels_id" value="{$hotels_id}" />
+         
           <input class="button" type="button" value="Create" id="addRoomBtn" />
           <!--  <input class="button"  onClick="ThinkAjax.sendForm('formMenu','__URL__/addMenus/','','result')"  type="button" value="添加" />-->
         </p>
@@ -172,8 +175,13 @@
     </div>
     <!-- End #tab2 -->
   </div>
+  
+     
   <!-- End .content-box-content -->
 </div>
+<div style="text-align:right;margin-top:40px;">
+    <!--<button id="roomBackBtn" class="button" type="button" >返回</button>-->
+     <button id="roomOKBtn" class="button" type="button" >完成</button></div>
 <!-- End .content-box -->
 <!-- Start Notifications -->
 

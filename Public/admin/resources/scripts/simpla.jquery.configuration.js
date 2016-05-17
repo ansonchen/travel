@@ -3,7 +3,11 @@ var $J = jQuery.noConflict();
 //Ajax加载
 function mainLoad(url){
 	
-	$J('#main-content').loadPage(url,'mainBox').data('currentUrl',url);
+	var hurl = $J('#main-content').data('currentUrl') || URL+'/';	
+	
+	$J('#main-content').loadPage(url,'mainBox').data('currentUrl',url).data('prevUrl',hurl);	
+	//console.log('from:'+hurl)
+	//console.log('Now:'+url)
 	}
 //请求完成后执行
 function complete(data,status){
@@ -28,6 +32,18 @@ function completeN(data,status){
 		//$J(document).unbind('close.facebox');
 		window.setTimeout(function (){
 		var url = $J('#main-content').data('currentUrl');
+		if(url) mainLoad(url) 
+		},1000);
+	}
+}
+
+//请求完成后执行,回上一加载页
+function completePrev(data,status){
+
+	if (status==1)
+	{
+		window.setTimeout(function (){						
+		var url = $J('#main-content').data('prevUrl');
 		if(url) mainLoad(url) 
 		},1000);
 	}

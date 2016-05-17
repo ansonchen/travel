@@ -55,6 +55,7 @@
           
           <p>
            
+           <input type="hidden" name="hotels_id" value="{$vo.hotels_id}" />
         <input type="hidden" name="ajax" value="1" />
 		  <input type="hidden" name="id" value="{$vo.id}" />
           <input class="button" type="button" value="Update" id="editRoomBtn" />
@@ -69,7 +70,9 @@
 		$J('a.selectPic').facebox();
 		
 		$J('#editRoomBtn').click(function(){
-			ThinkAjax.sendForm('eformRoom','__URL__/updateRooms/',complete,'result');
+			
+			
+			ThinkAjax.sendForm('eformRoom','__URL__/updateRooms/',completePrev,'result');
 		
 		})
 		

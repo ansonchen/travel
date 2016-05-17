@@ -25,7 +25,7 @@ $J(document).ready(function(){
 //		});
 
                		//默认选择中的多选框
-		$J('input[name=Vroom]').each(function(){
+/*		$J('input[name=Vroom]').each(function(){
 		var selval = this.value;
 		 $J('input[name^=room]').each(function(){
 		 
@@ -34,7 +34,7 @@ $J(document).ready(function(){
 			}
 		 })
 		
-		});
+		});*/
         
         $J('input[name=Vattr]').each(function(){
 		var selval = this.value;
@@ -60,7 +60,19 @@ $J(document).ready(function(){
         
 		$J('#editHotelsBtn').click(function(){
 			//saveEditor();//把FCK的内容保存到textar
-			ThinkAjax.sendForm('eformHotel','__URL__/updateHotels/',completeGoods,'result');
+			ThinkAjax.sendForm('eformHotel','__URL__/updateHotels/',function(id,status){
+			
+				if (status==1)
+				{
+					
+					//$J(document).unbind('close.facebox');
+					window.setTimeout(function (){
+					 mainLoad('__APP__/Rooms/index/hotels_id/'+{$vo.id}); 
+					},500);
+				}
+			
+			
+			},'result');
 		
 		})
 		
@@ -71,6 +83,11 @@ $J(document).ready(function(){
 		})
 
 
+		$J('#backHotelsBtn').click(function(){
+			completePrev('',1);
+		})
+		
+		
 		$J('a.editGoods,a.delGoods,a.selectPic').facebox();
 		//翻页ajax
 		$J('.pagination>a,#returnLink').click(function(){
@@ -179,7 +196,7 @@ $J(document).ready(function(){
           </p>
              
       
-    <p>
+<!--    <p>
              <label>房型选择</label>
              <volist name='rooms' id='room' >
               <input type="checkbox" name="room[]" value="{$room.id}" >{$room.name}
@@ -188,7 +205,7 @@ $J(document).ready(function(){
                 <input type="hidden" name="Vroom" value="{$hid.room_id}" />
               </volist>
       
-          </p>
+          </p>-->
              
                                 
     <p>
@@ -217,9 +234,9 @@ $J(document).ready(function(){
     
 
         <p>
-          <input class="button" type="button" value="Update" id="editHotelsBtn" />
-          <input class="button" type="button" value="Delete" id="delHotelsBtn" />
-          <a class="button" id="returnLink" href="__APP__/Hotels/index">Return</a>
+          <input class="button" type="button" value="下一步" id="editHotelsBtn" />
+          <input class="button" type="button" value="删除" id="delHotelsBtn" />
+          <input class="button" type="button" value="返回" id="backHotelsBtn" />
           <input type="hidden" name="ajax" value="1" />
           <input type="hidden" name="htype" value="{$vo.htype}" />
           <input type="hidden" name="id" value="{$vo.id}" />

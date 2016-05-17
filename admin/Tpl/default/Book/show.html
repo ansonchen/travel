@@ -35,12 +35,9 @@
             <neq name="vo.airportQTY" velue=""><label>QTY总人数(含儿童/婴儿)<div>{$vo.airportQTY}</div></label></neq>
             <neq name="vo.airportBags" velue=""><label>How Many Bags 行李数量<div>{$vo.airportBags}</div></label></neq>
             <neq name="vo.airportMobile" velue=""><label>Mobile Number 泰国可联系的电话号码<div>{$vo.airportMobile}</div></label></neq>
-
-
         </div>
 
     </div>
-
 
     <div class="formBox" id="action">
 
@@ -56,7 +53,6 @@
             <neq name="vo.actionAdult" velue=""><label>Adult 大人人数<div>{$vo.actionAdult}</div></label></neq>
             <neq name="vo.actionChild" velue=""><label>Child 儿童人数&年龄 <div>{$vo.actionChild}</div></label></neq>
             <neq name="vo.actionMobile" velue=""><label>Mobile Number  泰国可联系到的电话号码<div>{$vo.actionMobile}</div></label></neq>
-
             </div>
     </div>
 
@@ -67,22 +63,17 @@
             <neq name="vo.yachtCity" velue=""><label>City 出发城市<div>{$vo.yachtCity}</div></label></neq>
             <neq name="vo.yachtYacht" velue=""><label>Yacht 游艇名称<div>{$vo.yachtYacht}</div></label></neq>
             <neq name="vo.yachtDate" velue=""><label>Date 出行日期<div>{$vo.yachtDate}</div></label></neq>
-
-             <neq name="vo.yachtTime" velue=""><label>Time 要求接送时间<div>{$vo.yachtTime}</div></label></neq>
-             <neq name="vo.yachtHours" velue=""><label>Hours 用船时长<div>{$vo.yachtHours}</div></label></neq>
-
+            <neq name="vo.yachtTime" velue=""><label>Time 要求接送时间<div>{$vo.yachtTime}</div></label></neq>
+            <neq name="vo.yachtHours" velue=""><label>Hours 用船时长<div>{$vo.yachtHours}</div></label></neq>
             <neq name="vo.yachtHotel" velue=""><label>Pick Up From 接送酒店英文全称<div>{$vo.yachtHotel}</div></label></neq>
-
             <neq name="vo.yachtAddress" velue=""><label>Hotel Address 酒店地址<div>{$vo.yachtAddress}</div></label></neq>
             <neq name="vo.yachtRoom" velue=""><label>Room Number 房间号<div>{$vo.yachtRoom}</div></label></neq>
-
             <neq name="vo.yachtName" velue=""><label>Name 登记入住酒店房间的名字<div>{$vo.yachtName}</div></label></neq>
             <neq name="vo.yachtAdult" velue=""><label>Adult 收费大人人数<div>{$vo.yachtAdult}</div></label></neq>
             <neq name="vo.yachtChild" velue=""><label>Child 儿童人数&年龄 <div>{$vo.yachtChild}</div></label></neq>
-             <neq name="vo.yachtLunch" velue=""><label>Lunch 需要几份午餐<div>{$vo.yachtLunch}</div></label></neq>
-              <neq name="vo.yachtComments" velue=""><label>Comments 特殊要求<div>{$vo.yachtComments}</div></label></neq>
+            <neq name="vo.yachtLunch" velue=""><label>Lunch 需要几份午餐<div>{$vo.yachtLunch}</div></label></neq>
+            <neq name="vo.yachtComments" velue=""><label>Comments 特殊要求<div>{$vo.yachtComments}</div></label></neq>
             <neq name="vo.yachtMobile" velue=""><label>Mobile Number  泰国可联系到的电话号码<div>{$vo.yachtMobile}</div></label></neq>
-
             </div>
     </div>
 
@@ -194,3 +185,11 @@
 
 </div>
 </div>
+<script>
+$J('#addForm .formBox').each(function(){	
+	if(!this.getElementsByTagName('LABEL').length){	
+		$(this).hide()
+	};
+	
+})
+</script>
