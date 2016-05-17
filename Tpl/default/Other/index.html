@@ -22,7 +22,13 @@
     <a href="/" class="logo"></a>
 </div>
 <div class="content">
-    <div class="itemBg"></div>
+<if condition="$ho.picturePath_goods neq ''">
+    <div class="itemuBg">
+   		<img src="{$ho.picturePath_goods|str_replace='xl_','',###}">
+        </div>
+ <else/>
+ 	<div class="itemBg"></div>
+ </if>    
 
     <div class="itemCon box">
     <div class="itemPics">
