@@ -57,7 +57,7 @@ function addlinks(){
 	
 	if(talkLink){
 		
-       talkLink.href = 'http://wpa.qq.com/msgrd?v=3&uin=75526201&site=qq&menu=yes';
+       talkLink.href = 'http://wpa.qq.com/msgrd?v=3&uin=2285722483&site=moonholidays.cn&menu=yes';
     
     }
 	
