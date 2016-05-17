@@ -29,7 +29,8 @@ function addlinks(){
     var d = document;
     var headmenu_J = d.getElementById('headmenu_J'),
         footermenu_J = d.getElementById('footermenu_J'),
-        special_J = d.getElementById('special_J');
+        special_J = d.getElementById('special_J'),
+		talkLink = d.getElementById('talkLink');
     
     if(headmenu_J){
         var atag = headmenu_J.getElementsByTagName('A');
@@ -53,6 +54,13 @@ function addlinks(){
         }
     
     }
+	
+	if(talkLink){
+		
+       talkLink.href = 'http://wpa.qq.com/msgrd?v=3&uin=75526201&site=qq&menu=yes';
+    
+    }
+	
     
         
 

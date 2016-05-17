@@ -54,8 +54,8 @@ class HotelitemAction extends CommonAction{
                 
                 //取房间
 
-                $HotelsRooms = D("HotelsRoomsView");
-                $hroom['hotel_id'] = $_GET['id'];
+                $HotelsRooms = D("Rooms");
+                $hroom['hotels_id'] = $_GET['id'];
                 $HotelsRoomsdb = $HotelsRooms->where($hroom)->order('sort asc')->select();
                 
                 foreach($HotelsRoomsdb as $k => $v){                
