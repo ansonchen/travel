@@ -223,7 +223,7 @@ class HotelsAction extends CommonAction {
 						$HotelsPic->add();
 						}
 						
-                
+                /*
                         //删除旧房间
 						$HotelsRooms = M('HotelsRooms'); 
 						$hwhere['hotel_id'] = $_POST['id'];
@@ -234,7 +234,7 @@ class HotelsAction extends CommonAction {
 						$HotelsRooms->hotel_id	 =  $_POST['id'];
 						$HotelsRooms->room_id = $_POST["room"][$i];
 						$HotelsRooms->add();
-						}
+						}*/
 						
                         
 						
@@ -279,21 +279,21 @@ class HotelsAction extends CommonAction {
 			}
                 
             //添加房间
-            
+            /*
             $Room    =    M("HotelsRooms");
 			for($i=0;$i<count($_POST["room"]);$i++)
 			{
 			$Room->hotel_id	 =  $id;
 			$Room->room_id = $_POST["room"][$i];
 			$Room->add();
-			}
+			}*/
                 
 			
 
 			
            // $vo['id_goods']     =    nl2br($vo['id_goods']);
 				   //date('Y-m-d H:i:s',$vo['create_time']); 
-                $this->ajaxReturn($vo,'表单数据保存成功！',1); 
+                $this->ajaxReturn($id,'表单数据保存成功！',1); 
             }else{ 
                $this->error('数据写入错误！'); 
             } 
