@@ -17,9 +17,9 @@ class HotelsAction extends CommonAction {
         $this->assign('showzone',$newtheme);
         
 		
-        $Rooms = M("Rooms");
+/*        $Rooms = M("Rooms");
 		$Roomsdb = $Rooms->order('id asc')->select(); 
-		$this->assign('rooms',$Roomsdb);
+		$this->assign('rooms',$Roomsdb);*/
         
         
         //站点信息
@@ -107,8 +107,8 @@ class HotelsAction extends CommonAction {
 				$HotelsPic->where($where)->delete();
                 
                 //删除房间
-                $HotelsRooms = M('HotelsRooms'); 
-                $hwhere['hotel_id'] = $_POST['id'];
+                $HotelsRooms = M('Rooms'); 
+                $hwhere['hotels_id'] = $_POST['id'];
                 $HotelsRooms->where($hwhere)->delete();
                 
                 
@@ -141,6 +141,8 @@ class HotelsAction extends CommonAction {
 		if($picVo){
 		$this->assign('HotelsPic',$picVo);
 		}
+		
+		/*
         //取房间
 
 		$HotelsRooms = M("HotelsRooms");
@@ -148,7 +150,7 @@ class HotelsAction extends CommonAction {
 		$HotelsRoomsdb = $HotelsRooms->where($hroom)->select();
 		if($HotelsRoomsdb){
 		$this->assign('roomsList',$HotelsRoomsdb);
-		}
+		}*/
 
 			//$vo	=	$Node->getById($_GET['id_node']);
 			//goodsPic
@@ -164,42 +166,7 @@ class HotelsAction extends CommonAction {
 		}
 	}
 	
-	//查看酒店
-	public function show(){
 		
-		if(!empty($_GET['id'])) {
- 
-		 
-		$Goods	=	M("Goods");
-		$condition['id_goods']	=	$_GET['id'];
-		$vo = $Goods->where($condition)->find(); // 查询数据 
-		//取图片
-		$goodsPic = M("GoodsPicture");
-		$pic['goods_id'] = $_GET['id'];
-		$picVo = $goodsPic->where($pic)->select();
-		if($picVo){
-		$this->assign('goodsPic',$picVo);
-		}
-		//取价格
-		$goodsPir = M("GoodsPrice");
-		$pirVo = $goodsPir->where($pic)->select();
-		if($pirVo){
-		$this->assign('goodsPir',$pirVo);
-		}
-			//$vo	=	$Node->getById($_GET['id_node']);
-			//goodsPic
-			if($vo) {
-				$this->assign('vo',$vo);
-				$this->display();
-			}else{
-				exit('编辑项不存在！');
-			}
-		}else{
-			exit('编辑项不存在！');
-		}
-	
-	}
-	
 	
 	//更新酒店
 	public function updateHotels(){

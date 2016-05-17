@@ -24,7 +24,7 @@ $J(document).ready(function(){
 //		this.src = this.src.replace('xl_','s_');
 //		});
 
-               		//默认选择中的多选框
+/*               		//默认选择中的多选框
 		$J('input[name=Vroom]').each(function(){
 		var selval = this.value;
 		 $J('input[name^=room]').each(function(){
@@ -34,7 +34,7 @@ $J(document).ready(function(){
 			}
 		 })
 		
-		});
+		});*/
         
         $J('input[name=Vattr]').each(function(){
 		var selval = this.value;
@@ -165,7 +165,7 @@ $J(document).ready(function(){
           </select>
           </p>
          <p>
-             <label>酒店介绍</label>
+             <label>别墅介绍</label>
           <textarea class="text-input textarea" name="introduction" cols="79" rows="5">{$vo.introduction}</textarea>
           </p>
              <p>
@@ -197,7 +197,7 @@ $J(document).ready(function(){
           </select>
          </p>
          
-    <p>
+<!--    <p>
              <label>房型选择</label>
              <volist name='rooms' id='room' >
               <input type="checkbox" name="room[]" value="{$room.id}" >{$room.name}
@@ -206,11 +206,11 @@ $J(document).ready(function(){
                 <input type="hidden" name="Vroom" value="{$hid.room_id}" />
               </volist>
       
-          </p>
+          </p>-->
              
                                 
     <p>
-             <label>酒店配置</label>              
+             <label>别墅配置</label>              
                <volist name='croom' id='cr' >
                    {$key}：              
                    <volist name='cr' id='crr' >

@@ -144,7 +144,7 @@ $J(document).ready(function(){
           </p>
            
          <p>
-             <label>酒店介绍</label>
+             <label>别墅介绍</label>
           <textarea class="text-input textarea" name="introduction" cols="79" rows="5"></textarea>
           </p>
                    <p>
@@ -177,16 +177,16 @@ $J(document).ready(function(){
             <input class="text-input small-input" type="text"  name="type" />
           </p>
           
-    <p>-->
+    <p>
              <label>房型选择</label>
              <volist name='rooms' id='room' >
               <label class="inline"><input type="checkbox" name="room[]" value="{$room.id}" >{$room.name}</label>
             </volist>
       
           </p>
-                     
+        -->             
     <p>
-             <label>酒店配置</label>              
+             <label>别墅配置</label>              
                <volist name='croom' id='cr' >
                    {$key}：              
                    <volist name='cr' id='crr' >

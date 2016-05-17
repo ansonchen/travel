@@ -44,10 +44,10 @@ class VillaAction extends CommonAction {
         
         
         
-		
+/*		
         $Rooms = M("Rooms");
 		$Roomsdb = $Rooms->order('id asc')->select(); 
-		$this->assign('rooms',$Roomsdb);
+		$this->assign('rooms',$Roomsdb);*/
         
         
         //站点信息
@@ -134,10 +134,10 @@ class VillaAction extends CommonAction {
 				$where['hotels_id'] = $_POST['id'];
 				$HotelsPic->where($where)->delete();
                 
-                //删除房间
+/*                //删除房间
                 $HotelsRooms = M('HotelsRooms'); 
                 $hwhere['hotel_id'] = $_POST['id'];
-                $HotelsRooms->where($hwhere)->delete();
+                $HotelsRooms->where($hwhere)->delete();*/
                 
                 
 //				//删除价格
@@ -169,14 +169,15 @@ class VillaAction extends CommonAction {
 		if($picVo){
 		$this->assign('HotelsPic',$picVo);
 		}
+		
         //取房间
 
-		$HotelsRooms = M("HotelsRooms");
+/*		$HotelsRooms = M("HotelsRooms");
         $hroom['hotel_id'] = $_GET['id'];
 		$HotelsRoomsdb = $HotelsRooms->where($hroom)->select();
 		if($HotelsRoomsdb){
 		$this->assign('roomsList',$HotelsRoomsdb);
-		}
+		}*/
 
 			//$vo	=	$Node->getById($_GET['id_node']);
 			//goodsPic
@@ -251,7 +252,7 @@ class VillaAction extends CommonAction {
 						$HotelsPic->add();
 						}
 						
-                
+                /*
                         //删除旧房间
 						$HotelsRooms = M('HotelsRooms'); 
 						$hwhere['hotel_id'] = $_POST['id'];
@@ -262,7 +263,7 @@ class VillaAction extends CommonAction {
 						$HotelsRooms->hotel_id	 =  $_POST['id'];
 						$HotelsRooms->room_id = $_POST["room"][$i];
 						$HotelsRooms->add();
-						}
+						}*/
 						
                         
 						
@@ -307,14 +308,14 @@ class VillaAction extends CommonAction {
 			}
                 
             //添加房间
-            
+           /* 
             $Room    =    M("HotelsRooms");
 			for($i=0;$i<count($_POST["room"]);$i++)
 			{
 			$Room->hotel_id	 =  $id;
 			$Room->room_id = $_POST["room"][$i];
 			$Room->add();
-			}
+			}*/
                 
 			
 
