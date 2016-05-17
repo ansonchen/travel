@@ -4,27 +4,26 @@ class RoomsAction extends CommonAction {
 	// 框架首页 CommonAction
 	public function index() {
 	
-		import("ORG.Util.Page"); 
-	
+		if(!empty($_GET['hotels_id'])) {
+			
+			
+		
 		$Type = D('RoomsView'); 
-		$count = $Type->count();//计算总数
 		
-		$p = new Page ( $count, 10 );
-/*		$where['id_type'] = array('neq',1); 
-		$where['buildId_type']=  $_SESSION [C ( 'USER_AUTH_KEY' )];*/
-		//$Mlist=$Type->where($where)->limit($p->firstRow.','.$p->listRows)->order('belongType_type asc')->findAll();
-		$Mlist=$Type->limit($p->firstRow.','.$p->listRows)->order('id asc')->findAll();
+		$condition['hotels_id']	=	$_GET['hotels_id'];
 		
-		$p->setConfig('header','个房间');
-
-		$p->setConfig('prev',"&laquo; 上一页");
-		$p->setConfig('next','下一页 &raquo;');
-		$p->setConfig('first','&laquo; 第一页');
-		$p->setConfig('last','最后一页 &raquo;');
-		$page = $p->show ();
-		$this->assign( "page", $page );
+		$Mlist=$Type->where($condition)->order('sort desc')->findAll();
+			
+		$this->assign('hotels_id',$_GET['hotels_id']);
+		
 		$this->assign('rooms',$Mlist);
+		
+			
 		$this->display(); // 输出模板   
+			
+			
+		}
+	
 		
 		}
 	
