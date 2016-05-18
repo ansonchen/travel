@@ -21,7 +21,8 @@ function addPt(){
     }
     
     var rooms_J = d.getElementById('rooms_J');
-        divTag = rooms_J.getElementsByTagName('DIV');
+    if(!rooms_J) return false;
+    var divTag = rooms_J.getElementsByTagName('DIV');
     
     for(var i = 0,j = divTag.length;i<j;i++){
         
