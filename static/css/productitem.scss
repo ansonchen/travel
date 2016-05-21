@@ -6,7 +6,7 @@ body{width:1366px; margin: 0 auto}
     .itemBg{background: url(img/item_bg.jpg) no-repeat center center;height: 427px;}
 	.itemuBg{
 		text-align: center;min-width:$thispagewidth;
-		img{ margin: 0 auto; display: block;}
+		img{ margin: 0 auto; display: block; max-width: 1366px; overflow: hidden}
 	
 	}
 	
