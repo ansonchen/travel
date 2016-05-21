@@ -38,14 +38,14 @@ function completeN(data,status){
 }
 
 //请求完成后执行,回上一加载页
-function completePrev(data,status){
+function completePrev(data,status,stime){
 
 	if (status==1)
 	{
 		window.setTimeout(function (){						
-		var url = $J('#main-content').data('prevUrl');
-		if(url) mainLoad(url) 
-		},1000);
+            var url = $J('#main-content').data('prevUrl');
+            if(url) mainLoad(url) 
+		},stime || 1000);
 	}
 }
 
