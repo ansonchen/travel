@@ -63,15 +63,20 @@ class HotelitemAction extends CommonAction{
                 }
                 
                 $this->assign('roomsList',$HotelsRoomsdb);
-                
+            
+                $this->display();
+            }else{
+            
+                 $this->error('页面不存在！');
             }
+          
 
       }else{
-                $this->error('不存在！');
+                $this->error('页面不存在！');
             }
 
 	
-	$this->display();
+	
     }
 	
 	

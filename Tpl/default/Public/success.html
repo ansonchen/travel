@@ -8,37 +8,23 @@
 </head>
 <body>
 <div class="message">
-<table class="message"  cellpadding=0 cellspacing=0 >
-	<tr>
-		<td height='5'  class="topTd" ></td>
-	</tr>
-	<tr class="row" >
-		<th class="tCenter space">{$msgTitle}</th>
-	</tr>
-	<present name="message" >
-	<tr class="row">
-		<td style="color:blue">{$message}</td>
-	</tr>
+<div class="message msg">
+    <h3>{$msgTitle}</h3>
+    <present name="message" >
+		<p class="ok">{$message}</p>
 	</present>
-	<present name="error" >
-	<tr class="row">
-		<td style="color:red">{$error}</td>
-	</tr>
+   <present name="error" >
+       <p class="err">{$error}</p>
 	</present>
 	<present name="closeWin" >
-		<tr class="row">
-		<td>系统将在 <span style="color:blue;font-weight:bold">{$waitSecond}</span> 秒后自动关闭，如果不想等待,直接点击 <a href="{$jumpUrl}">这里</a> 关闭</td>
-	</tr>
+		系统将在 <span style="color:blue;font-weight:bold">{$waitSecond}</span> 秒后自动关闭，如果不想等待,直接点击 <a href="{$jumpUrl}">这里</a> 关闭 <br/>
 	</present>
 	<notpresent name="closeWin" >
-	<tr class="row">
-		<td>系统将在 <span style="color:blue;font-weight:bold">{$waitSecond}</span> 秒后自动跳转,如果不想等待,直接点击 <a href="{$jumpUrl}">这里</a> 跳转</td>
-	</tr>
+	    系统将在 <span style="color:blue;font-weight:bold">{$waitSecond}</span> 秒后自动跳转,如果不想等待,直接点击 <a href="{$jumpUrl}">这里</a> 跳转 <br/>
 	</notpresent>
-	<tr>
-		<td height='5' class="bottomTd"></td>
-	</tr>
-	</table>
+    
+</div>
+
 </div>
 </body>
 </html>

@@ -10,9 +10,7 @@ class ActiveitemAction extends CommonAction{
       if(!empty($_GET['id'])) {
         
         
- 
-
-            $Hotels = M("Hotels");
+             $Hotels = M("Hotels");
             $hotw['id'] = $_GET['id'];
             $hotw['htype'] = 2;
             $HotelsVo = $Hotels->where($hotw)->find();     //find取一条记录
@@ -35,15 +33,20 @@ class ActiveitemAction extends CommonAction{
                 
                 $this->assign('Hpic',$picVo);
                 
+                $this->display();
                 
+            }
+          
+            else{
+                $this->error('页面不存在！');
             }
 
       }else{
-                $this->error('不存在！');
+                $this->error('页面不存在！');
             }
 
 	
-	$this->display();
+	
     }
 	
 	

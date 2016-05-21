@@ -32,19 +32,23 @@ h2{
 	background:#FFD;
 	color:#2E2E2E;
 		border:1px solid #E0E0E0;
+    border-radius:6px;
 }
 #trace{
 	background:#E7F7FF;
 	border:1px solid #E0E0E0;
 	color:#535353;
+    
 }
 .notice{
     padding:10px;
 	margin:5px;
 	color:#666;
 	background:#FCFCFC;
-	border:1px solid #E0E0E0;
 }
+.tip{
+    margin:10px 0 20px 0
+    }
 .red{
 	color:red;
 	font-weight:bold;
@@ -53,8 +57,8 @@ h2{
 </head>
 <body>
 <div class="notice">
-<h2>系统发生错误 </h2>
-<div >您可以选择 [ <A HREF="<?php echo($_SERVER['PHP_SELF'])?>">重试</A> ] [ <A HREF="javascript:history.back()">返回</A> ] 或者 [ <A HREF="<?php echo(__APP__);?>">回到首页</A> ]</div>
+<h2>系统发生错误 :( </h2>
+<div class="tip" >您可以选择 [ <A HREF="<?php echo($_SERVER['PHP_SELF'])?>">重试</A> ] [ <A HREF="javascript:history.back()">返回</A> ] 或者 [ <A HREF="<?php echo(__APP__);?>">回到首页</A> ]</div>
 <?php if(isset($e['file'])) {?>
 <p><strong>错误位置:</strong>　FILE: <span class="red"><?php echo $e['file'] ;?></span>　LINE: <span class="red"><?php echo $e['line'];?></span></p>
 <?php }?>
@@ -67,7 +71,7 @@ h2{
 </p>
 <?php }?>
 </div>
-<div align="center" style="color:#FF3300;margin:5pt;font-family:Verdana"> ThinkPHP <sup style='color:gray;font-size:9pt'><?php echo THINK_VERSION;?></sup><span style='color:silver'> { Fast & Simple OOP PHP Framework } -- [ WE CAN DO IT JUST THINK IT ]</span>
-</div>
+<!--<div align="center" style="color:#FF3300;margin:5pt;font-family:Verdana"> ThinkPHP <sup style='color:gray;font-size:9pt'><?php echo THINK_VERSION;?></sup><span style='color:silver'> { Fast & Simple OOP PHP Framework } -- [ WE CAN DO IT JUST THINK IT ]</span>
+</div>-->
 </body>
 </html>
