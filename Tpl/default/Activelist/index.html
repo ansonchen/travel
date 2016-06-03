@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<link rel="stylesheet" href="__ROOT__/static/css/productlist.css">
+<link rel="stylesheet" href="__ROOT__/static/css/productlist.css?v=20160603">
 <title>月亮假期</title>
 <meta name="keywords" content="">
 <meta name="description" content="">  
@@ -74,7 +74,7 @@
            <a class="room" href="/Activeitem/?id={$ho.id}">
                <img src="{$ho.picturePath_goods|str_replace='xl_','m_',###}" alt="{$ho.name|mb_substr=###,0,11,'utf-8'}">
                <p class="name">{$ho.name|mb_substr=###,0,11,'utf-8'}<em>{$ho.enname|mb_substr=###,0,40,'utf-8'}</em></p>
-                <p>{$showzone[$ho['zone_id']]}  | {$showacttype[$ho['acttype']]} | {$showtheme[$ho['theme']]} | {$showactgroup[$ho['actgroup']]}</p>
+                <p class="otherp">{$showzone[$ho['zone_id']]}  | {$showacttype[$ho['acttype']]} | {$showtheme[$ho['theme']]} | {$showactgroup[$ho['actgroup']]}</p>
            </a>
        </volist>
           <div class="page">
