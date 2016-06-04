@@ -55,7 +55,7 @@
            <p class="name">{$rvo.name|mb_substr=###,0,11,'utf-8'}<em>{$rvo.enname|mb_substr=###,0,40,'utf-8'}</em></p>
              <p>床位：<span>{$rvo.bed}</span></p>
              <p>入住人数：<span>{$rvo.person}</span></p>
-           <div class="include"><a href="javascript:void(0)" class="moreArr"></a><div class="con">{$rvo.include}</div>费用包括：</div>
+           <div class="include"><a href="javascript:void(0)" class="moreArr"></a><div class="con">{$rvo.include|nl2br}</div>费用包括：</div>
        </div>
         </volist>
     </div>
@@ -80,11 +80,14 @@
         </dl>
         -->
     </div>
+    <neq name="ho.care" velue=""> 
     <h3>注意事项</h3>
     <div class="textBox">{$ho.care|nl2br}</div>
+    </neq>
+    <neq name="ho.other" velue="">     
     <h3>其它可选项</h3>
     <div class="textBox">{$ho.other|nl2br}</div>
-    
+    </neq>
     </div>
     
 </div>
