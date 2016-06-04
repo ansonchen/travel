@@ -80,6 +80,7 @@ body{width:1366px; margin: 0 auto}
                 p{ margin: 0;padding: 0 18px 0 24px; color: #7c7c7c; font-size: 14px; line-height: 30px; clear: both;
                     span{float: right}
                 }
+				
                 .dellineheight{
                 line-height: auto;
                 }
@@ -101,6 +102,12 @@ body{width:1366px; margin: 0 auto}
                         overflow: hidden;
                     }
                 }
+				.otherp{
+					line-height: 18px;
+					word-break: break-all;
+                    height: 36px;
+                    overflow: hidden;
+				}
             }
             
         .page{ clear: both; margin: 20px 0; text-align: right;color: #fff;

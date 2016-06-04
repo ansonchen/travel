@@ -8,6 +8,7 @@
 body{
 	font-family: 'Microsoft Yahei', Verdana, arial, sans-serif;
 	font-size:14px;
+	background:#FCFCFC;
 }
 a{text-decoration:none;color:#174B73;}
 a:hover{ text-decoration:none;color:#FF6600;}
@@ -44,7 +45,7 @@ h2{
     padding:10px;
 	margin:5px;
 	color:#666;
-	background:#FCFCFC;
+	
 }
 .tip{
     margin:10px 0 20px 0
@@ -58,7 +59,7 @@ h2{
 <body>
 <div class="notice">
 <h2>系统发生错误 :( </h2>
-<div class="tip" >您可以选择 [ <A HREF="<?php echo($_SERVER['PHP_SELF'])?>">重试</A> ] [ <A HREF="javascript:history.back()">返回</A> ] 或者 [ <A HREF="<?php echo(__APP__);?>">回到首页</A> ]</div>
+<div class="tip" >您可以选择<!-- [ <A HREF="<?php echo($_SERVER['PHP_SELF'])?>">重试</A> ]--> [ <A HREF="javascript:history.back()">返回</A> ] 或者 [ <A HREF="/">回到首页</A> ]</div>
 <?php if(isset($e['file'])) {?>
 <p><strong>错误位置:</strong>　FILE: <span class="red"><?php echo $e['file'] ;?></span>　LINE: <span class="red"><?php echo $e['line'];?></span></p>
 <?php }?>

@@ -4,3 +4,14 @@ RewriteCond %{REQUEST_FILENAME} !-d
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteRule ^(.*)$ index.php/$1 [QSA,PT,L]
 </IfModule>
+<IfModule mod_headers.c>
+<FilesMatch ".(js|css|xml|gz|html)$">
+  Header append Vary: Accept-Encoding
+</FilesMatch>
+</IfModule>
+<IfModule mod_expires.c>
+<Filesmatch ".(jpg|jpeg|png|gif|js|css|swf|ico|woff|mp3)$">
+    ExpiresActive on
+    ExpiresDefault "access plus 7 days"
+</Filesmatch>
+</IfModule>
