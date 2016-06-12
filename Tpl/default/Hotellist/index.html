@@ -61,7 +61,7 @@
                <!--<img src="{$ho.picturePath_goods}" alt="">-->
                <img src="{$ho.picturePath_goods|str_replace='xl_','m_',###}" alt="{$ho.name|mb_substr=###,0,11,'utf-8'}">
                <p class="name">{$ho.name|mb_substr=###,0,11,'utf-8'}<em>{$ho.enname|mb_substr=###,0,40,'utf-8'}</em></p>
-                <p class="otherp">{$showzone[$ho['zone_id']]} | {$ho.type} | {$ho.star}星级</p>
+			   <p class="otherp">{$showzone[$ho['zone_id']]} | <neq name="ho.type" velue="">{$ho.type} |</neq> {$ho.star}星级</p>
            </a>
        </volist>
           <div class="page">
