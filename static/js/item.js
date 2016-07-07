@@ -59,6 +59,7 @@ addPt();
 !function(){
 
 var contain = document.getElementById('picsList');
+if(!contain) return false;
 var imgs = contain.getElementsByTagName('img');
 if(!imgs.length) return false;
 var imgitem = [];
@@ -70,7 +71,7 @@ for(var i = 0; i < imgs.length;i++){
 
 		var img = new Image();
 		var item = {
-			src: x.src.replace("m_",''),//xl_
+			src: x.src.replace("m_",'xl_'),//xl_
 			title:x.title
 		};
 		var maxTime = 0;
@@ -90,7 +91,7 @@ for(var i = 0; i < imgs.length;i++){
 			item.h = 0;
 		};
 
-		img.src =  x.src;
+		img.src =  x.src.replace("m_",'xl_');
 		imgitem.push(item);
 
 	}(imgs[i]));
