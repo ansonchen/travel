@@ -70,7 +70,7 @@ for(var i = 0; i < imgs.length;i++){
 
 		var img = new Image();
 		var item = {
-			src: x.src,
+			src: x.src.replace("m_",''),//xl_
 			title:x.title
 		};
 		var maxTime = 0;
@@ -110,7 +110,7 @@ function openImg(index){
 		shareButtons: [
 			{id:'download', label:'下载', url:'{{raw_image_url}}', download:true}
 		],
-		errorMsg:'<div class="pswp__error-msg">下载<a href="%url%" target="_blank" download> %title% </a></div>',
+		errorMsg:'<div class="pswp__error-msg">图片不存在</div>',
 		showAnimationDuration: 0,
 		hideAnimationDuration: 0
 
