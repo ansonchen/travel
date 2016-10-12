@@ -2,14 +2,11 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" href="__ROOT__/static/css/lightwindow.css">
 <link rel="stylesheet" href="__ROOT__/static/css/productitem.css">
-<link rel="stylesheet" href="__ROOT__/static/PhotoSwipe/photoswipe.css">
-<link rel="stylesheet" href="__ROOT__/static/PhotoSwipe/default-skin/default-skin.css">
-<script src="__ROOT__/static/PhotoSwipe/photoswipe.min.js"></script>
-<script src="__ROOT__/static/PhotoSwipe/photoswipe-ui-default.min.js"></script>
 <title>月亮假期</title>
 <meta name="keywords" content="">
-<meta name="description" content="">
+<meta name="description" content="">  
 </head>
 <body>
 
@@ -32,7 +29,7 @@
         </div>
  <else/>
  	<div class="itemBg"></div>
- </if>
+ </if>         
     <div class="itemTitle">
         <div class="box">
         <div class="address">地址：<a href="{$ho.addresslink}" target="_blank">{$ho.address}</a><i></i><a href="{$ho.addresslink}"  target="_blank">点击打开地图</a><br/>开业日期：{$ho.htime}</div>
@@ -40,19 +37,19 @@
         </div>
     </div>
     <div class="itemCon box">
-    <div class="itemPics"  id="picsList">
+    <div class="itemPics">
          <volist name='Hpic' id='pvo'>
-               <!--<a href="{$pvo.path}" class="lightwindow" rel="Pic[g]" title="">-->
-                <img src="{$pvo.mpath}" title="{$ho.enname}">
-                 <!--</a>-->
+               <a href="{$pvo.path}" class="lightwindow" rel="Pic[g]" title="">
+                <img src="{$pvo.mpath}">
+                </a>
         </volist>
     </div>
     <h3>别墅介绍</h3>
     <div class="textBox">{$ho.introduction|nl2br}</div>
-
+    
   <!--  <h3>房型选择</h3>
     <div class="rooms" id="rooms_J">
-
+      
       <volist name='roomsList' id='rvo' >
        <div class="room">
            <img src="{$rvo.picturePath}" alt="">
@@ -63,11 +60,11 @@
        </div>
         </volist>
     </div>-->
-
+    
     <h3>别墅配套</h3>
-
+    
     <div class="textBox pt" id="J_pt">
-
+    
       <volist name='croom' id='cr' >
        <dl>
        <dt>{$key}：</dt>
@@ -85,22 +82,22 @@
         </dl>
         -->
     </div>
-    <neq name="ho.care" velue="">
+    <neq name="ho.care" velue=""> 
     <h3>注意事项</h3>
     <div class="textBox">{$ho.care|nl2br}</div>
     </neq>
-    <neq name="ho.other" velue="">
+    <neq name="ho.other" velue="">     
     <h3>其它可选项</h3>
     <div class="textBox">{$ho.other|nl2br}</div>
     </neq>
-
+    
     </div>
-
+    
 </div>
 <div class="footer">
-
+    
     <div class="footer_nav" id="footermenu_J">
-
+        
         <ul>
             <li><a href="#">特色项目</a></li>
             <li><a href="#">酒店预订</a></li>
@@ -120,60 +117,26 @@
             <li><a href="#">条款与隐私</a></li>
         </ul>
         <div class="code">
-            <span><i></i>微信扫一扫</span>
+            <span><i class="wx"></i>微信扫一扫</span>
             <span><i></i>新浪微博</span>
         </div>
+       <p class="ban">粤ICP备 15062807号</p>
     </div>
 </div>
 <div class="sideMenu">
 	<a target="_blank" id="talkLink" href="http://wpa.qq.com/msgrd?v=3&uin=75526201&site=qq&menu=yes"></a>
 	<a href="javascript:void(0)" ><div class="telbox"></div></a>
 	<a href="javascript:void(0)"><div class="wxbox"></div></a>
-	<a href="#" class="totop"></a>
+	<a href="#" class="totop"></a>	
 </div>
-<div class="pswp" id="photoBox" tabindex="-1" role="dialog" aria-hidden="true">
-<div class="pswp__bg"></div>
-<div class="pswp__scroll-wrap">
-    <div class="pswp__container">
-        <div class="pswp__item"></div>
-        <div class="pswp__item"></div>
-        <div class="pswp__item"></div>
-    </div>
-    <div class="pswp__ui pswp__ui--hidden">
-        <div class="pswp__top-bar">
-            <div class="pswp__counter"></div>
-            <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
-            <button class="pswp__button pswp__button--share" title="Share"></button>
-            <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
-            <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
-            <div class="pswp__preloader">
-                <div class="pswp__preloader__icn">
-                  <div class="pswp__preloader__cut">
-                    <div class="pswp__preloader__donut"></div>
-                  </div>
-                </div>
-            </div>
-        </div>
-        <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
-            <div class="pswp__share-tooltip"></div>
-        </div>
-        <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
-        </button>
-        <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
-        </button>
-        <div class="pswp__caption">
-            <div class="pswp__caption__center"></div>
-        </div>
-      </div>
-</div>
-</div>
-
 </body>
 <script type="text/javascript">
     var _lightIMG = '__ROOT__/static/images';
-
+    
 </script>
 <script type="text/javascript" src="__ROOT__/static/js/conf.js"></script>
 <script type="text/javascript" src="__ROOT__/static/js/item.js"></script>
-
+	<script type="text/javascript" src="__ROOT__/static/js/prototype.js"></script>
+	<script type="text/javascript" src="__ROOT__/static/js/effects.js"></script>
+	<script type="text/javascript" src="__ROOT__/static/js/lightwindow.js"></script>
 </html>
